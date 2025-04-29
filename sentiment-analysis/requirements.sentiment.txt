@@ -1,0 +1,4 @@
+pymongo
+torch
+transformers
+newsapi-python

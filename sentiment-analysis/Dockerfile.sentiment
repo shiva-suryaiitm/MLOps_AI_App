@@ -1,0 +1,30 @@
+# Use lightweight Python base image
+FROM python:3.12
+
+# Set working directory
+WORKDIR /app
+
+# Install system dependencies
+RUN apt-get update && apt-get install -y --no-install-recommends \
+    gcc \
+    python3-dev \
+    && apt-get clean \
+    && rm -rf /var/lib/apt/lists/*
+
+
+# RUN pip install torch -f https://download.pytorch.org/whl/cpu/torch_stable.html
+
+# Copy requirements
+COPY requirements.sentiment.txt .
+
+# Install Python dependencies
+RUN pip install --no-cache-dir -r requirements.sentiment.txt
+
+# Copy sentiment analysis script
+COPY scripts/ /app/scripts/
+
+# Set environment variables
+ENV PYTHONUNBUFFERED=1
+
+# Command to run the script
+CMD ["python", "scripts/sentiment_analysis.py"]
