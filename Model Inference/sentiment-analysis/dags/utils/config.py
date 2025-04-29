@@ -2,7 +2,7 @@ import os
 from datetime import timedelta
 
 # NewsAPI configuration
-NEWS_API_KEY = os.getenv("NEWS_API_KEY", "d264fc53068e46068143f30f30ab4f18")  # Replace with your NewsAPI key
+NEWS_API_KEY = os.getenv("NEWS_API_KEY", "652270f39d444b85a2be8323fb2a7adb")  # Replace with your NewsAPI key
 NEWS_API_PAGE_SIZE = 10  # Number of articles to fetch per company per week
 
 # MongoDB configuration
@@ -21,7 +21,8 @@ DAG_DEFAULT_ARGS = {
 }
 
 # List of companies to track
-COMPANIES = ["Apple", "Microsoft", "Tesla"]  # Add your companies here
+COMPANIES = ["Apple", "Microsoft", "Alphabet", "Amazon", "Tesla", "NVIDIA", "Meta", "JPMorgan", "Walmart", "Visa"]
+  # Add your companies here
 
 # Historical backfill settings
 HISTORICAL_WEEKS = 12  # Number of weeks to check/backfill (1 year)

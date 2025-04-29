@@ -1,0 +1,14 @@
+services:
+  web-app:
+    build:
+      context: ./web-app
+      dockerfile: Dockerfile
+    ports:
+      - "5161:5161"
+    env_file:
+      - .env
+    environment:
+      - TZ=Asia/Kolkata
+    volumes:
+      - ./Web App:/app
+      - ./Web App/logs:/app/logs

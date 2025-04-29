@@ -1,0 +1,94 @@
+[2025-04-29T16:45:08.858+0000] {local_task_job_runner.py:123} INFO - ::group::Pre task execution logs
+[2025-04-29T16:45:08.878+0000] {taskinstance.py:2613} INFO - Dependencies all met for dep_context=non-requeueable deps ti=<TaskInstance: portfolio_news_pipeline.check_historical_news manual__2025-04-29T16:45:07.412183+00:00 [queued]>
+[2025-04-29T16:45:08.887+0000] {taskinstance.py:2613} INFO - Dependencies all met for dep_context=requeueable deps ti=<TaskInstance: portfolio_news_pipeline.check_historical_news manual__2025-04-29T16:45:07.412183+00:00 [queued]>
+[2025-04-29T16:45:08.888+0000] {taskinstance.py:2866} INFO - Starting attempt 1 of 2
+[2025-04-29T16:45:08.900+0000] {taskinstance.py:2889} INFO - Executing <Task(_PythonDecoratedOperator): check_historical_news> on 2025-04-29 16:45:07.412183+00:00
+[2025-04-29T16:45:08.906+0000] {warnings.py:112} WARNING - /home/***/.local/lib/python3.12/site-packages/***/task/task_runner/standard_task_runner.py:70: DeprecationWarning: This process (pid=101) is multi-threaded, use of fork() may lead to deadlocks in the child.
+  pid = os.fork()
+
+[2025-04-29T16:45:08.907+0000] {standard_task_runner.py:104} INFO - Running: ['***', 'tasks', 'run', 'portfolio_news_pipeline', 'check_historical_news', 'manual__2025-04-29T16:45:07.412183+00:00', '--job-id', '3', '--raw', '--subdir', 'DAGS_FOLDER/news_pipeline.py', '--cfg-path', '/tmp/tmp8cc2uk1p']
+[2025-04-29T16:45:08.907+0000] {standard_task_runner.py:72} INFO - Started process 104 to run task
+[2025-04-29T16:45:08.908+0000] {standard_task_runner.py:105} INFO - Job 3: Subtask check_historical_news
+[2025-04-29T16:45:08.944+0000] {task_command.py:467} INFO - Running <TaskInstance: portfolio_news_pipeline.check_historical_news manual__2025-04-29T16:45:07.412183+00:00 [running]> on host 67118760a44b
+[2025-04-29T16:45:09.005+0000] {taskinstance.py:3132} INFO - Exporting env vars: AIRFLOW_CTX_DAG_OWNER='***' AIRFLOW_CTX_DAG_ID='portfolio_news_pipeline' AIRFLOW_CTX_TASK_ID='check_historical_news' AIRFLOW_CTX_EXECUTION_DATE='2025-04-29T16:45:07.412183+00:00' AIRFLOW_CTX_TRY_NUMBER='1' AIRFLOW_CTX_DAG_RUN_ID='manual__2025-04-29T16:45:07.412183+00:00'
+[2025-04-29T16:45:09.006+0000] {taskinstance.py:731} INFO - ::endgroup::
+[2025-04-29T16:45:09.016+0000] {mongodb_client.py:26} INFO - Connected to MongoDB successfully
+[2025-04-29T16:45:09.025+0000] {logging_mixin.py:190} INFO - 0
+[2025-04-29T16:45:09.027+0000] {mongodb_client.py:77} INFO - News for Apple on week 2025-04-29 00:00:00: missing
+[2025-04-29T16:45:09.027+0000] {check_historical_news.py:35} INFO - Missing news for Apple for week 2025-04-29 00:00:00
+[2025-04-29T16:45:09.029+0000] {mongodb_client.py:77} INFO - News for Apple on week 2025-04-22 00:00:00: missing
+[2025-04-29T16:45:09.029+0000] {check_historical_news.py:35} INFO - Missing news for Apple for week 2025-04-22 00:00:00
+[2025-04-29T16:45:09.030+0000] {mongodb_client.py:77} INFO - News for Apple on week 2025-04-15 00:00:00: missing
+[2025-04-29T16:45:09.030+0000] {check_historical_news.py:35} INFO - Missing news for Apple for week 2025-04-15 00:00:00
+[2025-04-29T16:45:09.032+0000] {mongodb_client.py:77} INFO - News for Apple on week 2025-04-08 00:00:00: missing
+[2025-04-29T16:45:09.032+0000] {check_historical_news.py:35} INFO - Missing news for Apple for week 2025-04-08 00:00:00
+[2025-04-29T16:45:09.033+0000] {mongodb_client.py:77} INFO - News for Apple on week 2025-04-01 00:00:00: missing
+[2025-04-29T16:45:09.034+0000] {check_historical_news.py:35} INFO - Missing news for Apple for week 2025-04-01 00:00:00
+[2025-04-29T16:45:09.035+0000] {mongodb_client.py:77} INFO - News for Apple on week 2025-03-25 00:00:00: missing
+[2025-04-29T16:45:09.035+0000] {check_historical_news.py:35} INFO - Missing news for Apple for week 2025-03-25 00:00:00
+[2025-04-29T16:45:09.037+0000] {mongodb_client.py:77} INFO - News for Apple on week 2025-03-18 00:00:00: missing
+[2025-04-29T16:45:09.037+0000] {check_historical_news.py:35} INFO - Missing news for Apple for week 2025-03-18 00:00:00
+[2025-04-29T16:45:09.039+0000] {mongodb_client.py:77} INFO - News for Apple on week 2025-03-11 00:00:00: missing
+[2025-04-29T16:45:09.039+0000] {check_historical_news.py:35} INFO - Missing news for Apple for week 2025-03-11 00:00:00
+[2025-04-29T16:45:09.040+0000] {mongodb_client.py:77} INFO - News for Apple on week 2025-03-04 00:00:00: missing
+[2025-04-29T16:45:09.040+0000] {check_historical_news.py:35} INFO - Missing news for Apple for week 2025-03-04 00:00:00
+[2025-04-29T16:45:09.041+0000] {mongodb_client.py:77} INFO - News for Apple on week 2025-02-25 00:00:00: missing
+[2025-04-29T16:45:09.042+0000] {check_historical_news.py:35} INFO - Missing news for Apple for week 2025-02-25 00:00:00
+[2025-04-29T16:45:09.043+0000] {mongodb_client.py:77} INFO - News for Apple on week 2025-02-18 00:00:00: missing
+[2025-04-29T16:45:09.044+0000] {check_historical_news.py:35} INFO - Missing news for Apple for week 2025-02-18 00:00:00
+[2025-04-29T16:45:09.045+0000] {mongodb_client.py:77} INFO - News for Apple on week 2025-02-11 00:00:00: missing
+[2025-04-29T16:45:09.045+0000] {check_historical_news.py:35} INFO - Missing news for Apple for week 2025-02-11 00:00:00
+[2025-04-29T16:45:09.046+0000] {mongodb_client.py:77} INFO - News for Microsoft on week 2025-04-29 00:00:00: missing
+[2025-04-29T16:45:09.047+0000] {check_historical_news.py:35} INFO - Missing news for Microsoft for week 2025-04-29 00:00:00
+[2025-04-29T16:45:09.048+0000] {mongodb_client.py:77} INFO - News for Microsoft on week 2025-04-22 00:00:00: missing
+[2025-04-29T16:45:09.048+0000] {check_historical_news.py:35} INFO - Missing news for Microsoft for week 2025-04-22 00:00:00
+[2025-04-29T16:45:09.049+0000] {mongodb_client.py:77} INFO - News for Microsoft on week 2025-04-15 00:00:00: missing
+[2025-04-29T16:45:09.049+0000] {check_historical_news.py:35} INFO - Missing news for Microsoft for week 2025-04-15 00:00:00
+[2025-04-29T16:45:09.051+0000] {mongodb_client.py:77} INFO - News for Microsoft on week 2025-04-08 00:00:00: missing
+[2025-04-29T16:45:09.051+0000] {check_historical_news.py:35} INFO - Missing news for Microsoft for week 2025-04-08 00:00:00
+[2025-04-29T16:45:09.052+0000] {mongodb_client.py:77} INFO - News for Microsoft on week 2025-04-01 00:00:00: missing
+[2025-04-29T16:45:09.052+0000] {check_historical_news.py:35} INFO - Missing news for Microsoft for week 2025-04-01 00:00:00
+[2025-04-29T16:45:09.053+0000] {mongodb_client.py:77} INFO - News for Microsoft on week 2025-03-25 00:00:00: missing
+[2025-04-29T16:45:09.053+0000] {check_historical_news.py:35} INFO - Missing news for Microsoft for week 2025-03-25 00:00:00
+[2025-04-29T16:45:09.054+0000] {mongodb_client.py:77} INFO - News for Microsoft on week 2025-03-18 00:00:00: missing
+[2025-04-29T16:45:09.055+0000] {check_historical_news.py:35} INFO - Missing news for Microsoft for week 2025-03-18 00:00:00
+[2025-04-29T16:45:09.056+0000] {mongodb_client.py:77} INFO - News for Microsoft on week 2025-03-11 00:00:00: missing
+[2025-04-29T16:45:09.056+0000] {check_historical_news.py:35} INFO - Missing news for Microsoft for week 2025-03-11 00:00:00
+[2025-04-29T16:45:09.058+0000] {mongodb_client.py:77} INFO - News for Microsoft on week 2025-03-04 00:00:00: missing
+[2025-04-29T16:45:09.058+0000] {check_historical_news.py:35} INFO - Missing news for Microsoft for week 2025-03-04 00:00:00
+[2025-04-29T16:45:09.059+0000] {mongodb_client.py:77} INFO - News for Microsoft on week 2025-02-25 00:00:00: missing
+[2025-04-29T16:45:09.059+0000] {check_historical_news.py:35} INFO - Missing news for Microsoft for week 2025-02-25 00:00:00
+[2025-04-29T16:45:09.060+0000] {mongodb_client.py:77} INFO - News for Microsoft on week 2025-02-18 00:00:00: missing
+[2025-04-29T16:45:09.061+0000] {check_historical_news.py:35} INFO - Missing news for Microsoft for week 2025-02-18 00:00:00
+[2025-04-29T16:45:09.062+0000] {mongodb_client.py:77} INFO - News for Microsoft on week 2025-02-11 00:00:00: missing
+[2025-04-29T16:45:09.062+0000] {check_historical_news.py:35} INFO - Missing news for Microsoft for week 2025-02-11 00:00:00
+[2025-04-29T16:45:09.063+0000] {mongodb_client.py:77} INFO - News for Tesla on week 2025-04-29 00:00:00: missing
+[2025-04-29T16:45:09.064+0000] {check_historical_news.py:35} INFO - Missing news for Tesla for week 2025-04-29 00:00:00
+[2025-04-29T16:45:09.065+0000] {mongodb_client.py:77} INFO - News for Tesla on week 2025-04-22 00:00:00: missing
+[2025-04-29T16:45:09.065+0000] {check_historical_news.py:35} INFO - Missing news for Tesla for week 2025-04-22 00:00:00
+[2025-04-29T16:45:09.066+0000] {mongodb_client.py:77} INFO - News for Tesla on week 2025-04-15 00:00:00: missing
+[2025-04-29T16:45:09.066+0000] {check_historical_news.py:35} INFO - Missing news for Tesla for week 2025-04-15 00:00:00
+[2025-04-29T16:45:09.067+0000] {mongodb_client.py:77} INFO - News for Tesla on week 2025-04-08 00:00:00: missing
+[2025-04-29T16:45:09.068+0000] {check_historical_news.py:35} INFO - Missing news for Tesla for week 2025-04-08 00:00:00
+[2025-04-29T16:45:09.069+0000] {mongodb_client.py:77} INFO - News for Tesla on week 2025-04-01 00:00:00: missing
+[2025-04-29T16:45:09.069+0000] {check_historical_news.py:35} INFO - Missing news for Tesla for week 2025-04-01 00:00:00
+[2025-04-29T16:45:09.070+0000] {mongodb_client.py:77} INFO - News for Tesla on week 2025-03-25 00:00:00: missing
+[2025-04-29T16:45:09.071+0000] {check_historical_news.py:35} INFO - Missing news for Tesla for week 2025-03-25 00:00:00
+[2025-04-29T16:45:09.072+0000] {mongodb_client.py:77} INFO - News for Tesla on week 2025-03-18 00:00:00: missing
+[2025-04-29T16:45:09.072+0000] {check_historical_news.py:35} INFO - Missing news for Tesla for week 2025-03-18 00:00:00
+[2025-04-29T16:45:09.073+0000] {mongodb_client.py:77} INFO - News for Tesla on week 2025-03-11 00:00:00: missing
+[2025-04-29T16:45:09.074+0000] {check_historical_news.py:35} INFO - Missing news for Tesla for week 2025-03-11 00:00:00
+[2025-04-29T16:45:09.075+0000] {mongodb_client.py:77} INFO - News for Tesla on week 2025-03-04 00:00:00: missing
+[2025-04-29T16:45:09.076+0000] {check_historical_news.py:35} INFO - Missing news for Tesla for week 2025-03-04 00:00:00
+[2025-04-29T16:45:09.077+0000] {mongodb_client.py:77} INFO - News for Tesla on week 2025-02-25 00:00:00: missing
+[2025-04-29T16:45:09.077+0000] {check_historical_news.py:35} INFO - Missing news for Tesla for week 2025-02-25 00:00:00
+[2025-04-29T16:45:09.079+0000] {mongodb_client.py:77} INFO - News for Tesla on week 2025-02-18 00:00:00: missing
+[2025-04-29T16:45:09.079+0000] {check_historical_news.py:35} INFO - Missing news for Tesla for week 2025-02-18 00:00:00
+[2025-04-29T16:45:09.081+0000] {mongodb_client.py:77} INFO - News for Tesla on week 2025-02-11 00:00:00: missing
+[2025-04-29T16:45:09.081+0000] {check_historical_news.py:35} INFO - Missing news for Tesla for week 2025-02-11 00:00:00
+[2025-04-29T16:45:09.082+0000] {python.py:240} INFO - Done. Returned value was: [('Apple', datetime.datetime(2025, 4, 29, 0, 0)), ('Apple', datetime.datetime(2025, 4, 22, 0, 0)), ('Apple', datetime.datetime(2025, 4, 15, 0, 0)), ('Apple', datetime.datetime(2025, 4, 8, 0, 0)), ('Apple', datetime.datetime(2025, 4, 1, 0, 0)), ('Apple', datetime.datetime(2025, 3, 25, 0, 0)), ('Apple', datetime.datetime(2025, 3, 18, 0, 0)), ('Apple', datetime.datetime(2025, 3, 11, 0, 0)), ('Apple', datetime.datetime(2025, 3, 4, 0, 0)), ('Apple', datetime.datetime(2025, 2, 25, 0, 0)), ('Apple', datetime.datetime(2025, 2, 18, 0, 0)), ('Apple', datetime.datetime(2025, 2, 11, 0, 0)), ('Microsoft', datetime.datetime(2025, 4, 29, 0, 0)), ('Microsoft', datetime.datetime(2025, 4, 22, 0, 0)), ('Microsoft', datetime.datetime(2025, 4, 15, 0, 0)), ('Microsoft', datetime.datetime(2025, 4, 8, 0, 0)), ('Microsoft', datetime.datetime(2025, 4, 1, 0, 0)), ('Microsoft', datetime.datetime(2025, 3, 25, 0, 0)), ('Microsoft', datetime.datetime(2025, 3, 18, 0, 0)), ('Microsoft', datetime.datetime(2025, 3, 11, 0, 0)), ('Microsoft', datetime.datetime(2025, 3, 4, 0, 0)), ('Microsoft', datetime.datetime(2025, 2, 25, 0, 0)), ('Microsoft', datetime.datetime(2025, 2, 18, 0, 0)), ('Microsoft', datetime.datetime(2025, 2, 11, 0, 0)), ('Tesla', datetime.datetime(2025, 4, 29, 0, 0)), ('Tesla', datetime.datetime(2025, 4, 22, 0, 0)), ('Tesla', datetime.datetime(2025, 4, 15, 0, 0)), ('Tesla', datetime.datetime(2025, 4, 8, 0, 0)), ('Tesla', datetime.datetime(2025, 4, 1, 0, 0)), ('Tesla', datetime.datetime(2025, 3, 25, 0, 0)), ('Tesla', datetime.datetime(2025, 3, 18, 0, 0)), ('Tesla', datetime.datetime(2025, 3, 11, 0, 0)), ('Tesla', datetime.datetime(2025, 3, 4, 0, 0)), ('Tesla', datetime.datetime(2025, 2, 25, 0, 0)), ('Tesla', datetime.datetime(2025, 2, 18, 0, 0)), ('Tesla', datetime.datetime(2025, 2, 11, 0, 0))]
+[2025-04-29T16:45:09.104+0000] {taskinstance.py:340} INFO - ::group::Post task execution logs
+[2025-04-29T16:45:09.105+0000] {taskinstance.py:352} INFO - Marking task as SUCCESS. dag_id=portfolio_news_pipeline, task_id=check_historical_news, run_id=manual__2025-04-29T16:45:07.412183+00:00, execution_date=20250429T164507, start_date=20250429T164508, end_date=20250429T164509
+[2025-04-29T16:45:09.162+0000] {local_task_job_runner.py:266} INFO - Task exited with return code 0
+[2025-04-29T16:45:09.188+0000] {taskinstance.py:3895} INFO - 0 downstream tasks scheduled from follow-on schedule check
+[2025-04-29T16:45:09.190+0000] {local_task_job_runner.py:245} INFO - ::endgroup::

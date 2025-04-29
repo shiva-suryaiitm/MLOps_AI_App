@@ -1,0 +1,190 @@
+[2025-04-29T16:45:09.809+0000] {local_task_job_runner.py:123} INFO - ::group::Pre task execution logs
+[2025-04-29T16:45:09.824+0000] {taskinstance.py:2613} INFO - Dependencies all met for dep_context=non-requeueable deps ti=<TaskInstance: portfolio_news_pipeline.backfill_historical_news manual__2025-04-29T16:45:07.412183+00:00 [queued]>
+[2025-04-29T16:45:09.834+0000] {taskinstance.py:2613} INFO - Dependencies all met for dep_context=requeueable deps ti=<TaskInstance: portfolio_news_pipeline.backfill_historical_news manual__2025-04-29T16:45:07.412183+00:00 [queued]>
+[2025-04-29T16:45:09.835+0000] {taskinstance.py:2866} INFO - Starting attempt 1 of 2
+[2025-04-29T16:45:09.846+0000] {taskinstance.py:2889} INFO - Executing <Task(_PythonDecoratedOperator): backfill_historical_news> on 2025-04-29 16:45:07.412183+00:00
+[2025-04-29T16:45:09.852+0000] {warnings.py:112} WARNING - /home/***/.local/lib/python3.12/site-packages/***/task/task_runner/standard_task_runner.py:70: DeprecationWarning: This process (pid=109) is multi-threaded, use of fork() may lead to deadlocks in the child.
+  pid = os.fork()
+
+[2025-04-29T16:45:09.854+0000] {standard_task_runner.py:72} INFO - Started process 112 to run task
+[2025-04-29T16:45:09.853+0000] {standard_task_runner.py:104} INFO - Running: ['***', 'tasks', 'run', 'portfolio_news_pipeline', 'backfill_historical_news', 'manual__2025-04-29T16:45:07.412183+00:00', '--job-id', '4', '--raw', '--subdir', 'DAGS_FOLDER/news_pipeline.py', '--cfg-path', '/tmp/tmp0p07dyl8']
+[2025-04-29T16:45:09.854+0000] {standard_task_runner.py:105} INFO - Job 4: Subtask backfill_historical_news
+[2025-04-29T16:45:09.893+0000] {task_command.py:467} INFO - Running <TaskInstance: portfolio_news_pipeline.backfill_historical_news manual__2025-04-29T16:45:07.412183+00:00 [running]> on host 67118760a44b
+[2025-04-29T16:45:09.981+0000] {taskinstance.py:3132} INFO - Exporting env vars: AIRFLOW_CTX_DAG_OWNER='***' AIRFLOW_CTX_DAG_ID='portfolio_news_pipeline' AIRFLOW_CTX_TASK_ID='backfill_historical_news' AIRFLOW_CTX_EXECUTION_DATE='2025-04-29T16:45:07.412183+00:00' AIRFLOW_CTX_TRY_NUMBER='1' AIRFLOW_CTX_DAG_RUN_ID='manual__2025-04-29T16:45:07.412183+00:00'
+[2025-04-29T16:45:09.982+0000] {taskinstance.py:731} INFO - ::endgroup::
+[2025-04-29T16:45:09.984+0000] {news_api_client.py:19} INFO - NewsAPI client initialized successfully
+[2025-04-29T16:45:09.995+0000] {mongodb_client.py:26} INFO - Connected to MongoDB successfully
+[2025-04-29T16:45:09.995+0000] {backfill_historical_news.py:28} INFO - Backfilling news for Apple for week 2025-04-29 00:00:00
+[2025-04-29T16:45:09.996+0000] {news_api_client.py:37} INFO - Fetching news for Apple from 2025-04-29 00:00:00 to 2025-05-06 00:00:00
+[2025-04-29T16:45:12.200+0000] {news_api_client.py:47} INFO - Retrieved 0 articles for Apple
+[2025-04-29T16:45:12.201+0000] {backfill_historical_news.py:38} WARNING - No articles found for Apple for week 2025-04-29 00:00:00
+[2025-04-29T16:45:12.201+0000] {backfill_historical_news.py:28} INFO - Backfilling news for Apple for week 2025-04-22 00:00:00
+[2025-04-29T16:45:12.202+0000] {news_api_client.py:37} INFO - Fetching news for Apple from 2025-04-22 00:00:00 to 2025-04-29 00:00:00
+[2025-04-29T16:45:12.581+0000] {news_api_client.py:47} INFO - Retrieved 6 articles for Apple
+[2025-04-29T16:45:12.582+0000] {logging_mixin.py:190} INFO - Fetched 6 articles for Apple for week 2025-04-22 00:00:00
+[2025-04-29T16:45:12.597+0000] {mongodb_client.py:55} INFO - Stored 6 articles for Apple for week 2025-04-22 00:00:00
+[2025-04-29T16:45:12.598+0000] {logging_mixin.py:190} INFO - Stored 6 articles for Apple for week 2025-04-22 00:00:00
+[2025-04-29T16:45:12.598+0000] {backfill_historical_news.py:28} INFO - Backfilling news for Apple for week 2025-04-15 00:00:00
+[2025-04-29T16:45:12.598+0000] {news_api_client.py:37} INFO - Fetching news for Apple from 2025-04-15 00:00:00 to 2025-04-22 00:00:00
+[2025-04-29T16:45:13.003+0000] {news_api_client.py:47} INFO - Retrieved 6 articles for Apple
+[2025-04-29T16:45:13.004+0000] {logging_mixin.py:190} INFO - Fetched 6 articles for Apple for week 2025-04-15 00:00:00
+[2025-04-29T16:45:13.009+0000] {mongodb_client.py:55} INFO - Stored 6 articles for Apple for week 2025-04-15 00:00:00
+[2025-04-29T16:45:13.010+0000] {logging_mixin.py:190} INFO - Stored 6 articles for Apple for week 2025-04-15 00:00:00
+[2025-04-29T16:45:13.010+0000] {backfill_historical_news.py:28} INFO - Backfilling news for Apple for week 2025-04-08 00:00:00
+[2025-04-29T16:45:13.010+0000] {news_api_client.py:37} INFO - Fetching news for Apple from 2025-04-08 00:00:00 to 2025-04-15 00:00:00
+[2025-04-29T16:45:13.446+0000] {news_api_client.py:47} INFO - Retrieved 5 articles for Apple
+[2025-04-29T16:45:13.446+0000] {logging_mixin.py:190} INFO - Fetched 5 articles for Apple for week 2025-04-08 00:00:00
+[2025-04-29T16:45:13.451+0000] {mongodb_client.py:55} INFO - Stored 5 articles for Apple for week 2025-04-08 00:00:00
+[2025-04-29T16:45:13.451+0000] {logging_mixin.py:190} INFO - Stored 5 articles for Apple for week 2025-04-08 00:00:00
+[2025-04-29T16:45:13.451+0000] {backfill_historical_news.py:28} INFO - Backfilling news for Apple for week 2025-04-01 00:00:00
+[2025-04-29T16:45:13.452+0000] {news_api_client.py:37} INFO - Fetching news for Apple from 2025-04-01 00:00:00 to 2025-04-08 00:00:00
+[2025-04-29T16:45:13.896+0000] {news_api_client.py:47} INFO - Retrieved 7 articles for Apple
+[2025-04-29T16:45:13.897+0000] {logging_mixin.py:190} INFO - Fetched 7 articles for Apple for week 2025-04-01 00:00:00
+[2025-04-29T16:45:13.909+0000] {mongodb_client.py:55} INFO - Stored 7 articles for Apple for week 2025-04-01 00:00:00
+[2025-04-29T16:45:13.910+0000] {logging_mixin.py:190} INFO - Stored 7 articles for Apple for week 2025-04-01 00:00:00
+[2025-04-29T16:45:13.910+0000] {backfill_historical_news.py:28} INFO - Backfilling news for Apple for week 2025-03-25 00:00:00
+[2025-04-29T16:45:13.911+0000] {news_api_client.py:37} INFO - Fetching news for Apple from 2025-03-25 00:00:00 to 2025-04-01 00:00:00
+[2025-04-29T16:45:14.306+0000] {news_api_client.py:50} ERROR - Error fetching news for Apple: {'status': 'error', 'code': 'parameterInvalid', 'message': 'You are trying to request results too far in the past. Your plan permits you to request articles as far back as 2025-03-28, but you have requested 2025-03-25. You may need to upgrade to a paid plan.'}
+[2025-04-29T16:45:14.307+0000] {backfill_historical_news.py:38} WARNING - No articles found for Apple for week 2025-03-25 00:00:00
+[2025-04-29T16:45:14.308+0000] {backfill_historical_news.py:28} INFO - Backfilling news for Apple for week 2025-03-18 00:00:00
+[2025-04-29T16:45:14.308+0000] {news_api_client.py:37} INFO - Fetching news for Apple from 2025-03-18 00:00:00 to 2025-03-25 00:00:00
+[2025-04-29T16:45:14.693+0000] {news_api_client.py:50} ERROR - Error fetching news for Apple: {'status': 'error', 'code': 'parameterInvalid', 'message': 'You are trying to request results too far in the past. Your plan permits you to request articles as far back as 2025-03-28, but you have requested 2025-03-18. You may need to upgrade to a paid plan.'}
+[2025-04-29T16:45:14.694+0000] {backfill_historical_news.py:38} WARNING - No articles found for Apple for week 2025-03-18 00:00:00
+[2025-04-29T16:45:14.694+0000] {backfill_historical_news.py:28} INFO - Backfilling news for Apple for week 2025-03-11 00:00:00
+[2025-04-29T16:45:14.695+0000] {news_api_client.py:37} INFO - Fetching news for Apple from 2025-03-11 00:00:00 to 2025-03-18 00:00:00
+[2025-04-29T16:45:15.136+0000] {news_api_client.py:50} ERROR - Error fetching news for Apple: {'status': 'error', 'code': 'parameterInvalid', 'message': 'You are trying to request results too far in the past. Your plan permits you to request articles as far back as 2025-03-28, but you have requested 2025-03-11. You may need to upgrade to a paid plan.'}
+[2025-04-29T16:45:15.137+0000] {backfill_historical_news.py:38} WARNING - No articles found for Apple for week 2025-03-11 00:00:00
+[2025-04-29T16:45:15.138+0000] {backfill_historical_news.py:28} INFO - Backfilling news for Apple for week 2025-03-04 00:00:00
+[2025-04-29T16:45:15.138+0000] {news_api_client.py:37} INFO - Fetching news for Apple from 2025-03-04 00:00:00 to 2025-03-11 00:00:00
+[2025-04-29T16:45:15.565+0000] {news_api_client.py:50} ERROR - Error fetching news for Apple: {'status': 'error', 'code': 'parameterInvalid', 'message': 'You are trying to request results too far in the past. Your plan permits you to request articles as far back as 2025-03-28, but you have requested 2025-03-04. You may need to upgrade to a paid plan.'}
+[2025-04-29T16:45:15.566+0000] {backfill_historical_news.py:38} WARNING - No articles found for Apple for week 2025-03-04 00:00:00
+[2025-04-29T16:45:15.566+0000] {backfill_historical_news.py:28} INFO - Backfilling news for Apple for week 2025-02-25 00:00:00
+[2025-04-29T16:45:15.566+0000] {news_api_client.py:37} INFO - Fetching news for Apple from 2025-02-25 00:00:00 to 2025-03-04 00:00:00
+[2025-04-29T16:45:15.949+0000] {news_api_client.py:50} ERROR - Error fetching news for Apple: {'status': 'error', 'code': 'parameterInvalid', 'message': 'You are trying to request results too far in the past. Your plan permits you to request articles as far back as 2025-03-28, but you have requested 2025-02-25. You may need to upgrade to a paid plan.'}
+[2025-04-29T16:45:15.950+0000] {backfill_historical_news.py:38} WARNING - No articles found for Apple for week 2025-02-25 00:00:00
+[2025-04-29T16:45:15.950+0000] {backfill_historical_news.py:28} INFO - Backfilling news for Apple for week 2025-02-18 00:00:00
+[2025-04-29T16:45:15.951+0000] {news_api_client.py:37} INFO - Fetching news for Apple from 2025-02-18 00:00:00 to 2025-02-25 00:00:00
+[2025-04-29T16:45:16.386+0000] {news_api_client.py:50} ERROR - Error fetching news for Apple: {'status': 'error', 'code': 'parameterInvalid', 'message': 'You are trying to request results too far in the past. Your plan permits you to request articles as far back as 2025-03-28, but you have requested 2025-02-18. You may need to upgrade to a paid plan.'}
+[2025-04-29T16:45:16.387+0000] {backfill_historical_news.py:38} WARNING - No articles found for Apple for week 2025-02-18 00:00:00
+[2025-04-29T16:45:16.387+0000] {backfill_historical_news.py:28} INFO - Backfilling news for Apple for week 2025-02-11 00:00:00
+[2025-04-29T16:45:16.388+0000] {news_api_client.py:37} INFO - Fetching news for Apple from 2025-02-11 00:00:00 to 2025-02-18 00:00:00
+[2025-04-29T16:45:21.332+0000] {news_api_client.py:50} ERROR - Error fetching news for Apple: {'status': 'error', 'code': 'parameterInvalid', 'message': 'You are trying to request results too far in the past. Your plan permits you to request articles as far back as 2025-03-28, but you have requested 2025-02-11. You may need to upgrade to a paid plan.'}
+[2025-04-29T16:45:21.332+0000] {backfill_historical_news.py:38} WARNING - No articles found for Apple for week 2025-02-11 00:00:00
+[2025-04-29T16:45:21.333+0000] {backfill_historical_news.py:28} INFO - Backfilling news for Microsoft for week 2025-04-29 00:00:00
+[2025-04-29T16:45:21.333+0000] {news_api_client.py:37} INFO - Fetching news for Microsoft from 2025-04-29 00:00:00 to 2025-05-06 00:00:00
+[2025-04-29T16:45:21.764+0000] {news_api_client.py:47} INFO - Retrieved 0 articles for Microsoft
+[2025-04-29T16:45:21.765+0000] {backfill_historical_news.py:38} WARNING - No articles found for Microsoft for week 2025-04-29 00:00:00
+[2025-04-29T16:45:21.765+0000] {backfill_historical_news.py:28} INFO - Backfilling news for Microsoft for week 2025-04-22 00:00:00
+[2025-04-29T16:45:21.765+0000] {news_api_client.py:37} INFO - Fetching news for Microsoft from 2025-04-22 00:00:00 to 2025-04-29 00:00:00
+[2025-04-29T16:45:22.219+0000] {news_api_client.py:47} INFO - Retrieved 7 articles for Microsoft
+[2025-04-29T16:45:22.220+0000] {logging_mixin.py:190} INFO - Fetched 7 articles for Microsoft for week 2025-04-22 00:00:00
+[2025-04-29T16:45:22.227+0000] {mongodb_client.py:55} INFO - Stored 7 articles for Microsoft for week 2025-04-22 00:00:00
+[2025-04-29T16:45:22.227+0000] {logging_mixin.py:190} INFO - Stored 7 articles for Microsoft for week 2025-04-22 00:00:00
+[2025-04-29T16:45:22.227+0000] {backfill_historical_news.py:28} INFO - Backfilling news for Microsoft for week 2025-04-15 00:00:00
+[2025-04-29T16:45:22.228+0000] {news_api_client.py:37} INFO - Fetching news for Microsoft from 2025-04-15 00:00:00 to 2025-04-22 00:00:00
+[2025-04-29T16:45:22.674+0000] {news_api_client.py:47} INFO - Retrieved 7 articles for Microsoft
+[2025-04-29T16:45:22.674+0000] {logging_mixin.py:190} INFO - Fetched 7 articles for Microsoft for week 2025-04-15 00:00:00
+[2025-04-29T16:45:22.681+0000] {mongodb_client.py:55} INFO - Stored 7 articles for Microsoft for week 2025-04-15 00:00:00
+[2025-04-29T16:45:22.681+0000] {logging_mixin.py:190} INFO - Stored 7 articles for Microsoft for week 2025-04-15 00:00:00
+[2025-04-29T16:45:22.681+0000] {backfill_historical_news.py:28} INFO - Backfilling news for Microsoft for week 2025-04-08 00:00:00
+[2025-04-29T16:45:22.682+0000] {news_api_client.py:37} INFO - Fetching news for Microsoft from 2025-04-08 00:00:00 to 2025-04-15 00:00:00
+[2025-04-29T16:45:23.143+0000] {news_api_client.py:47} INFO - Retrieved 8 articles for Microsoft
+[2025-04-29T16:45:23.143+0000] {logging_mixin.py:190} INFO - Fetched 8 articles for Microsoft for week 2025-04-08 00:00:00
+[2025-04-29T16:45:23.150+0000] {mongodb_client.py:55} INFO - Stored 8 articles for Microsoft for week 2025-04-08 00:00:00
+[2025-04-29T16:45:23.151+0000] {logging_mixin.py:190} INFO - Stored 8 articles for Microsoft for week 2025-04-08 00:00:00
+[2025-04-29T16:45:23.151+0000] {backfill_historical_news.py:28} INFO - Backfilling news for Microsoft for week 2025-04-01 00:00:00
+[2025-04-29T16:45:23.151+0000] {news_api_client.py:37} INFO - Fetching news for Microsoft from 2025-04-01 00:00:00 to 2025-04-08 00:00:00
+[2025-04-29T16:45:23.553+0000] {news_api_client.py:47} INFO - Retrieved 10 articles for Microsoft
+[2025-04-29T16:45:23.553+0000] {logging_mixin.py:190} INFO - Fetched 10 articles for Microsoft for week 2025-04-01 00:00:00
+[2025-04-29T16:45:23.562+0000] {mongodb_client.py:55} INFO - Stored 10 articles for Microsoft for week 2025-04-01 00:00:00
+[2025-04-29T16:45:23.562+0000] {logging_mixin.py:190} INFO - Stored 10 articles for Microsoft for week 2025-04-01 00:00:00
+[2025-04-29T16:45:23.562+0000] {backfill_historical_news.py:28} INFO - Backfilling news for Microsoft for week 2025-03-25 00:00:00
+[2025-04-29T16:45:23.563+0000] {news_api_client.py:37} INFO - Fetching news for Microsoft from 2025-03-25 00:00:00 to 2025-04-01 00:00:00
+[2025-04-29T16:45:24.002+0000] {news_api_client.py:50} ERROR - Error fetching news for Microsoft: {'status': 'error', 'code': 'parameterInvalid', 'message': 'You are trying to request results too far in the past. Your plan permits you to request articles as far back as 2025-03-28, but you have requested 2025-03-25. You may need to upgrade to a paid plan.'}
+[2025-04-29T16:45:24.003+0000] {backfill_historical_news.py:38} WARNING - No articles found for Microsoft for week 2025-03-25 00:00:00
+[2025-04-29T16:45:24.003+0000] {backfill_historical_news.py:28} INFO - Backfilling news for Microsoft for week 2025-03-18 00:00:00
+[2025-04-29T16:45:24.004+0000] {news_api_client.py:37} INFO - Fetching news for Microsoft from 2025-03-18 00:00:00 to 2025-03-25 00:00:00
+[2025-04-29T16:45:24.388+0000] {news_api_client.py:50} ERROR - Error fetching news for Microsoft: {'status': 'error', 'code': 'parameterInvalid', 'message': 'You are trying to request results too far in the past. Your plan permits you to request articles as far back as 2025-03-28, but you have requested 2025-03-18. You may need to upgrade to a paid plan.'}
+[2025-04-29T16:45:24.389+0000] {backfill_historical_news.py:38} WARNING - No articles found for Microsoft for week 2025-03-18 00:00:00
+[2025-04-29T16:45:24.390+0000] {backfill_historical_news.py:28} INFO - Backfilling news for Microsoft for week 2025-03-11 00:00:00
+[2025-04-29T16:45:24.390+0000] {news_api_client.py:37} INFO - Fetching news for Microsoft from 2025-03-11 00:00:00 to 2025-03-18 00:00:00
+[2025-04-29T16:45:24.791+0000] {news_api_client.py:50} ERROR - Error fetching news for Microsoft: {'status': 'error', 'code': 'parameterInvalid', 'message': 'You are trying to request results too far in the past. Your plan permits you to request articles as far back as 2025-03-28, but you have requested 2025-03-11. You may need to upgrade to a paid plan.'}
+[2025-04-29T16:45:24.792+0000] {backfill_historical_news.py:38} WARNING - No articles found for Microsoft for week 2025-03-11 00:00:00
+[2025-04-29T16:45:24.792+0000] {backfill_historical_news.py:28} INFO - Backfilling news for Microsoft for week 2025-03-04 00:00:00
+[2025-04-29T16:45:24.793+0000] {news_api_client.py:37} INFO - Fetching news for Microsoft from 2025-03-04 00:00:00 to 2025-03-11 00:00:00
+[2025-04-29T16:45:25.213+0000] {news_api_client.py:50} ERROR - Error fetching news for Microsoft: {'status': 'error', 'code': 'parameterInvalid', 'message': 'You are trying to request results too far in the past. Your plan permits you to request articles as far back as 2025-03-28, but you have requested 2025-03-04. You may need to upgrade to a paid plan.'}
+[2025-04-29T16:45:25.214+0000] {backfill_historical_news.py:38} WARNING - No articles found for Microsoft for week 2025-03-04 00:00:00
+[2025-04-29T16:45:25.214+0000] {backfill_historical_news.py:28} INFO - Backfilling news for Microsoft for week 2025-02-25 00:00:00
+[2025-04-29T16:45:25.214+0000] {news_api_client.py:37} INFO - Fetching news for Microsoft from 2025-02-25 00:00:00 to 2025-03-04 00:00:00
+[2025-04-29T16:45:25.665+0000] {news_api_client.py:50} ERROR - Error fetching news for Microsoft: {'status': 'error', 'code': 'parameterInvalid', 'message': 'You are trying to request results too far in the past. Your plan permits you to request articles as far back as 2025-03-28, but you have requested 2025-02-25. You may need to upgrade to a paid plan.'}
+[2025-04-29T16:45:25.666+0000] {backfill_historical_news.py:38} WARNING - No articles found for Microsoft for week 2025-02-25 00:00:00
+[2025-04-29T16:45:25.667+0000] {backfill_historical_news.py:28} INFO - Backfilling news for Microsoft for week 2025-02-18 00:00:00
+[2025-04-29T16:45:25.668+0000] {news_api_client.py:37} INFO - Fetching news for Microsoft from 2025-02-18 00:00:00 to 2025-02-25 00:00:00
+[2025-04-29T16:45:26.096+0000] {news_api_client.py:50} ERROR - Error fetching news for Microsoft: {'status': 'error', 'code': 'parameterInvalid', 'message': 'You are trying to request results too far in the past. Your plan permits you to request articles as far back as 2025-03-28, but you have requested 2025-02-18. You may need to upgrade to a paid plan.'}
+[2025-04-29T16:45:26.097+0000] {backfill_historical_news.py:38} WARNING - No articles found for Microsoft for week 2025-02-18 00:00:00
+[2025-04-29T16:45:26.098+0000] {backfill_historical_news.py:28} INFO - Backfilling news for Microsoft for week 2025-02-11 00:00:00
+[2025-04-29T16:45:26.098+0000] {news_api_client.py:37} INFO - Fetching news for Microsoft from 2025-02-11 00:00:00 to 2025-02-18 00:00:00
+[2025-04-29T16:45:26.454+0000] {news_api_client.py:50} ERROR - Error fetching news for Microsoft: {'status': 'error', 'code': 'parameterInvalid', 'message': 'You are trying to request results too far in the past. Your plan permits you to request articles as far back as 2025-03-28, but you have requested 2025-02-11. You may need to upgrade to a paid plan.'}
+[2025-04-29T16:45:26.454+0000] {backfill_historical_news.py:38} WARNING - No articles found for Microsoft for week 2025-02-11 00:00:00
+[2025-04-29T16:45:26.455+0000] {backfill_historical_news.py:28} INFO - Backfilling news for Tesla for week 2025-04-29 00:00:00
+[2025-04-29T16:45:26.455+0000] {news_api_client.py:37} INFO - Fetching news for Tesla from 2025-04-29 00:00:00 to 2025-05-06 00:00:00
+[2025-04-29T16:45:26.860+0000] {news_api_client.py:47} INFO - Retrieved 0 articles for Tesla
+[2025-04-29T16:45:26.860+0000] {backfill_historical_news.py:38} WARNING - No articles found for Tesla for week 2025-04-29 00:00:00
+[2025-04-29T16:45:26.861+0000] {backfill_historical_news.py:28} INFO - Backfilling news for Tesla for week 2025-04-22 00:00:00
+[2025-04-29T16:45:26.861+0000] {news_api_client.py:37} INFO - Fetching news for Tesla from 2025-04-22 00:00:00 to 2025-04-29 00:00:00
+[2025-04-29T16:45:27.269+0000] {news_api_client.py:47} INFO - Retrieved 10 articles for Tesla
+[2025-04-29T16:45:27.270+0000] {logging_mixin.py:190} INFO - Fetched 10 articles for Tesla for week 2025-04-22 00:00:00
+[2025-04-29T16:45:27.278+0000] {mongodb_client.py:55} INFO - Stored 10 articles for Tesla for week 2025-04-22 00:00:00
+[2025-04-29T16:45:27.278+0000] {logging_mixin.py:190} INFO - Stored 10 articles for Tesla for week 2025-04-22 00:00:00
+[2025-04-29T16:45:27.279+0000] {backfill_historical_news.py:28} INFO - Backfilling news for Tesla for week 2025-04-15 00:00:00
+[2025-04-29T16:45:27.279+0000] {news_api_client.py:37} INFO - Fetching news for Tesla from 2025-04-15 00:00:00 to 2025-04-22 00:00:00
+[2025-04-29T16:45:27.706+0000] {news_api_client.py:47} INFO - Retrieved 8 articles for Tesla
+[2025-04-29T16:45:27.706+0000] {logging_mixin.py:190} INFO - Fetched 8 articles for Tesla for week 2025-04-15 00:00:00
+[2025-04-29T16:45:27.713+0000] {mongodb_client.py:55} INFO - Stored 8 articles for Tesla for week 2025-04-15 00:00:00
+[2025-04-29T16:45:27.714+0000] {logging_mixin.py:190} INFO - Stored 8 articles for Tesla for week 2025-04-15 00:00:00
+[2025-04-29T16:45:27.714+0000] {backfill_historical_news.py:28} INFO - Backfilling news for Tesla for week 2025-04-08 00:00:00
+[2025-04-29T16:45:27.714+0000] {news_api_client.py:37} INFO - Fetching news for Tesla from 2025-04-08 00:00:00 to 2025-04-15 00:00:00
+[2025-04-29T16:45:28.115+0000] {news_api_client.py:47} INFO - Retrieved 8 articles for Tesla
+[2025-04-29T16:45:28.115+0000] {logging_mixin.py:190} INFO - Fetched 8 articles for Tesla for week 2025-04-08 00:00:00
+[2025-04-29T16:45:28.122+0000] {mongodb_client.py:55} INFO - Stored 8 articles for Tesla for week 2025-04-08 00:00:00
+[2025-04-29T16:45:28.122+0000] {logging_mixin.py:190} INFO - Stored 8 articles for Tesla for week 2025-04-08 00:00:00
+[2025-04-29T16:45:28.123+0000] {backfill_historical_news.py:28} INFO - Backfilling news for Tesla for week 2025-04-01 00:00:00
+[2025-04-29T16:45:28.123+0000] {news_api_client.py:37} INFO - Fetching news for Tesla from 2025-04-01 00:00:00 to 2025-04-08 00:00:00
+[2025-04-29T16:45:28.504+0000] {news_api_client.py:47} INFO - Retrieved 10 articles for Tesla
+[2025-04-29T16:45:28.504+0000] {logging_mixin.py:190} INFO - Fetched 10 articles for Tesla for week 2025-04-01 00:00:00
+[2025-04-29T16:45:28.512+0000] {mongodb_client.py:55} INFO - Stored 10 articles for Tesla for week 2025-04-01 00:00:00
+[2025-04-29T16:45:28.513+0000] {logging_mixin.py:190} INFO - Stored 10 articles for Tesla for week 2025-04-01 00:00:00
+[2025-04-29T16:45:28.513+0000] {backfill_historical_news.py:28} INFO - Backfilling news for Tesla for week 2025-03-25 00:00:00
+[2025-04-29T16:45:28.513+0000] {news_api_client.py:37} INFO - Fetching news for Tesla from 2025-03-25 00:00:00 to 2025-04-01 00:00:00
+[2025-04-29T16:45:28.934+0000] {news_api_client.py:50} ERROR - Error fetching news for Tesla: {'status': 'error', 'code': 'parameterInvalid', 'message': 'You are trying to request results too far in the past. Your plan permits you to request articles as far back as 2025-03-28, but you have requested 2025-03-25. You may need to upgrade to a paid plan.'}
+[2025-04-29T16:45:28.934+0000] {backfill_historical_news.py:38} WARNING - No articles found for Tesla for week 2025-03-25 00:00:00
+[2025-04-29T16:45:28.935+0000] {backfill_historical_news.py:28} INFO - Backfilling news for Tesla for week 2025-03-18 00:00:00
+[2025-04-29T16:45:28.935+0000] {news_api_client.py:37} INFO - Fetching news for Tesla from 2025-03-18 00:00:00 to 2025-03-25 00:00:00
+[2025-04-29T16:45:29.991+0000] {news_api_client.py:50} ERROR - Error fetching news for Tesla: {'status': 'error', 'code': 'parameterInvalid', 'message': 'You are trying to request results too far in the past. Your plan permits you to request articles as far back as 2025-03-28, but you have requested 2025-03-18. You may need to upgrade to a paid plan.'}
+[2025-04-29T16:45:29.992+0000] {backfill_historical_news.py:38} WARNING - No articles found for Tesla for week 2025-03-18 00:00:00
+[2025-04-29T16:45:29.992+0000] {backfill_historical_news.py:28} INFO - Backfilling news for Tesla for week 2025-03-11 00:00:00
+[2025-04-29T16:45:29.993+0000] {news_api_client.py:37} INFO - Fetching news for Tesla from 2025-03-11 00:00:00 to 2025-03-18 00:00:00
+[2025-04-29T16:45:30.618+0000] {news_api_client.py:50} ERROR - Error fetching news for Tesla: {'status': 'error', 'code': 'parameterInvalid', 'message': 'You are trying to request results too far in the past. Your plan permits you to request articles as far back as 2025-03-28, but you have requested 2025-03-11. You may need to upgrade to a paid plan.'}
+[2025-04-29T16:45:30.619+0000] {backfill_historical_news.py:38} WARNING - No articles found for Tesla for week 2025-03-11 00:00:00
+[2025-04-29T16:45:30.619+0000] {backfill_historical_news.py:28} INFO - Backfilling news for Tesla for week 2025-03-04 00:00:00
+[2025-04-29T16:45:30.620+0000] {news_api_client.py:37} INFO - Fetching news for Tesla from 2025-03-04 00:00:00 to 2025-03-11 00:00:00
+[2025-04-29T16:45:31.316+0000] {news_api_client.py:50} ERROR - Error fetching news for Tesla: {'status': 'error', 'code': 'parameterInvalid', 'message': 'You are trying to request results too far in the past. Your plan permits you to request articles as far back as 2025-03-28, but you have requested 2025-03-04. You may need to upgrade to a paid plan.'}
+[2025-04-29T16:45:31.317+0000] {backfill_historical_news.py:38} WARNING - No articles found for Tesla for week 2025-03-04 00:00:00
+[2025-04-29T16:45:31.317+0000] {backfill_historical_news.py:28} INFO - Backfilling news for Tesla for week 2025-02-25 00:00:00
+[2025-04-29T16:45:31.318+0000] {news_api_client.py:37} INFO - Fetching news for Tesla from 2025-02-25 00:00:00 to 2025-03-04 00:00:00
+[2025-04-29T16:45:31.993+0000] {news_api_client.py:50} ERROR - Error fetching news for Tesla: {'status': 'error', 'code': 'parameterInvalid', 'message': 'You are trying to request results too far in the past. Your plan permits you to request articles as far back as 2025-03-28, but you have requested 2025-02-25. You may need to upgrade to a paid plan.'}
+[2025-04-29T16:45:31.993+0000] {backfill_historical_news.py:38} WARNING - No articles found for Tesla for week 2025-02-25 00:00:00
+[2025-04-29T16:45:31.994+0000] {backfill_historical_news.py:28} INFO - Backfilling news for Tesla for week 2025-02-18 00:00:00
+[2025-04-29T16:45:31.994+0000] {news_api_client.py:37} INFO - Fetching news for Tesla from 2025-02-18 00:00:00 to 2025-02-25 00:00:00
+[2025-04-29T16:45:32.542+0000] {news_api_client.py:50} ERROR - Error fetching news for Tesla: {'status': 'error', 'code': 'parameterInvalid', 'message': 'You are trying to request results too far in the past. Your plan permits you to request articles as far back as 2025-03-28, but you have requested 2025-02-18. You may need to upgrade to a paid plan.'}
+[2025-04-29T16:45:32.543+0000] {backfill_historical_news.py:38} WARNING - No articles found for Tesla for week 2025-02-18 00:00:00
+[2025-04-29T16:45:32.543+0000] {backfill_historical_news.py:28} INFO - Backfilling news for Tesla for week 2025-02-11 00:00:00
+[2025-04-29T16:45:32.544+0000] {news_api_client.py:37} INFO - Fetching news for Tesla from 2025-02-11 00:00:00 to 2025-02-18 00:00:00
+[2025-04-29T16:45:33.012+0000] {news_api_client.py:50} ERROR - Error fetching news for Tesla: {'status': 'error', 'code': 'parameterInvalid', 'message': 'You are trying to request results too far in the past. Your plan permits you to request articles as far back as 2025-03-28, but you have requested 2025-02-11. You may need to upgrade to a paid plan.'}
+[2025-04-29T16:45:33.013+0000] {backfill_historical_news.py:38} WARNING - No articles found for Tesla for week 2025-02-11 00:00:00
+[2025-04-29T16:45:33.014+0000] {python.py:240} INFO - Done. Returned value was: None
+[2025-04-29T16:45:33.026+0000] {taskinstance.py:340} INFO - ::group::Post task execution logs
+[2025-04-29T16:45:33.026+0000] {taskinstance.py:352} INFO - Marking task as SUCCESS. dag_id=portfolio_news_pipeline, task_id=backfill_historical_news, run_id=manual__2025-04-29T16:45:07.412183+00:00, execution_date=20250429T164507, start_date=20250429T164509, end_date=20250429T164533
+[2025-04-29T16:45:33.083+0000] {local_task_job_runner.py:266} INFO - Task exited with return code 0
+[2025-04-29T16:45:33.107+0000] {taskinstance.py:3895} INFO - 1 downstream tasks scheduled from follow-on schedule check
+[2025-04-29T16:45:33.109+0000] {local_task_job_runner.py:245} INFO - ::endgroup::

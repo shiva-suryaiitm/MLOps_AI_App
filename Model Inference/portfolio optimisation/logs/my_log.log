@@ -191,3 +191,71 @@ Recommendation saved to outputs/recommendation.json
 2025-04-29 17:39:51 - dotenv.main - WARNING - Python-dotenv could not parse statement starting at line 1
 2025-04-29 17:39:51 - predict - INFO - Model loaded from MongoDB, trained on 2025-04-29 15:31:11.770000
 2025-04-29 17:39:51 - predict - INFO - Model loaded from MongoDB, trained on 2025-04-29 15:31:11.770000
+2025-04-29 22:31:28 - __main__ - INFO - Model loaded from MongoDB, trained on 2025-04-29 15:31:11.770000
+2025-04-29 22:33:17 - __main__ - INFO - Model loaded from MongoDB, trained on 2025-04-29 15:31:11.770000
+2025-04-29 22:33:27 - __main__ - INFO - Model loaded from MongoDB, trained on 2025-04-29 15:31:11.770000
+2025-04-29 22:34:03 - __main__ - INFO - Model loaded from MongoDB, trained on 2025-04-29 15:31:11.770000
+2025-04-29 22:35:29 - __main__ - INFO - Model loaded from MongoDB, trained on 2025-04-29 15:31:11.770000
+2025-04-29 22:36:09 - __main__ - INFO - Model loaded from MongoDB, trained on 2025-04-29 15:31:11.770000
+2025-04-29 22:39:13 - __main__ - INFO - Model loaded from MongoDB, trained on 2025-04-29 15:31:11.770000
+2025-04-29 22:39:49 - __main__ - INFO - Model loaded from MongoDB, trained on 2025-04-29 15:31:11.770000
+2025-04-29 22:40:57 - __main__ - INFO - Model loaded from MongoDB, trained on 2025-04-29 15:31:11.770000
+2025-04-29 22:42:45 - __main__ - INFO - Model loaded from MongoDB, trained on 2025-04-29 15:31:11.770000
+2025-04-29 22:43:04 - __main__ - INFO - Model loaded from MongoDB, trained on 2025-04-29 15:31:11.770000
+2025-04-29 22:44:04 - __main__ - INFO - Model loaded from MongoDB, trained on 2025-04-29 15:31:11.770000
+2025-04-29 22:45:17 - __main__ - INFO - Model loaded from MongoDB, trained on 2025-04-29 15:31:11.770000
+2025-04-29 22:45:27 - __main__ - INFO - Model loaded from MongoDB, trained on 2025-04-29 15:31:11.770000
+2025-04-29 22:46:08 - __main__ - INFO - Model loaded from MongoDB, trained on 2025-04-29 15:31:11.770000
+2025-04-29 22:55:08 - __main__ - INFO - Model loaded from MongoDB, trained on 2025-04-29 22:53:44.937000
+2025-04-29 22:55:39 - __main__ - INFO - Model loaded from MongoDB, trained on 2025-04-29 22:53:44.937000
+2025-04-29 22:55:40 - __main__ - INFO - Plot saved to outputs\portfolio_performance.png
+2025-04-29 22:55:40 - __main__ - INFO - --------- Optimal Portfolio Allocation ---------
+2025-04-29 22:55:40 - __main__ - INFO -   TSLA: 30.00%
+2025-04-29 22:55:40 - __main__ - INFO -   NVDA: 14.00%
+2025-04-29 22:55:40 - __main__ - INFO -   META: 14.00%
+2025-04-29 22:55:40 - __main__ - INFO -   JPM: 14.00%
+2025-04-29 22:55:40 - __main__ - INFO -   WMT: 14.00%
+2025-04-29 22:55:40 - __main__ - INFO -   V: 14.00%
+2025-04-29 22:55:40 - __main__ - INFO -   AAPL: 0.00%
+2025-04-29 22:55:40 - __main__ - INFO -   MSFT: 0.00%
+2025-04-29 22:55:40 - __main__ - INFO -   GOOGL: 0.00%
+2025-04-29 22:55:40 - __main__ - INFO -   AMZN: 0.00%
+2025-04-29 22:55:40 - __main__ - INFO - --------- Portfolio Performance Metrics ---------
+2025-04-29 22:55:40 - __main__ - INFO -   Cumulative Return: 3.40%
+2025-04-29 22:55:40 - __main__ - INFO -   Annualized Return: 55.77%
+2025-04-29 22:55:40 - __main__ - INFO -   Volatility: 76.49%
+2025-04-29 22:55:40 - __main__ - INFO -   Sharpe Ratio: 0.73
+2025-04-29 22:55:40 - __main__ - INFO - Recommendation saved to outputs/recommendation.json
+2025-04-29 22:55:40 - __main__ - INFO - Performance chart saved to outputs/portfolio_performance.png
+2025-04-29 22:55:40 - __main__ - INFO - ====================================================================================================
+2025-04-29 22:56:36 - __main__ - INFO - Model loaded from MongoDB, trained on 2025-04-29 22:53:44.937000
+2025-04-29 22:56:36 - __main__ - INFO - Only 20 days of data found for AAPL
+2025-04-29 22:56:36 - __main__ - INFO - Only 20 days of data found for MSFT
+2025-04-29 22:56:36 - __main__ - INFO - Only 20 days of data found for GOOGL
+2025-04-29 22:56:36 - __main__ - INFO - Only 20 days of data found for AMZN
+2025-04-29 22:56:36 - __main__ - INFO - Only 20 days of data found for TSLA
+2025-04-29 22:56:36 - __main__ - INFO - Only 20 days of data found for NVDA
+2025-04-29 22:56:36 - __main__ - INFO - Only 20 days of data found for META
+2025-04-29 22:56:36 - __main__ - INFO - Only 20 days of data found for JPM
+2025-04-29 22:56:36 - __main__ - INFO - Only 20 days of data found for WMT
+2025-04-29 22:56:36 - __main__ - INFO - Only 20 days of data found for V
+2025-04-29 22:56:37 - __main__ - INFO - Plot saved to outputs\portfolio_performance.png
+2025-04-29 22:56:37 - __main__ - INFO - --------- Optimal Portfolio Allocation ---------
+2025-04-29 22:56:37 - __main__ - INFO -   TSLA: 30.00%
+2025-04-29 22:56:37 - __main__ - INFO -   NVDA: 14.00%
+2025-04-29 22:56:37 - __main__ - INFO -   META: 14.00%
+2025-04-29 22:56:37 - __main__ - INFO -   JPM: 14.00%
+2025-04-29 22:56:37 - __main__ - INFO -   WMT: 14.00%
+2025-04-29 22:56:37 - __main__ - INFO -   V: 14.00%
+2025-04-29 22:56:37 - __main__ - INFO -   AAPL: 0.00%
+2025-04-29 22:56:37 - __main__ - INFO -   MSFT: 0.00%
+2025-04-29 22:56:37 - __main__ - INFO -   GOOGL: 0.00%
+2025-04-29 22:56:37 - __main__ - INFO -   AMZN: 0.00%
+2025-04-29 22:56:37 - __main__ - INFO - --------- Portfolio Performance Metrics ---------
+2025-04-29 22:56:37 - __main__ - INFO -   Cumulative Return: 3.40%
+2025-04-29 22:56:37 - __main__ - INFO -   Annualized Return: 55.77%
+2025-04-29 22:56:37 - __main__ - INFO -   Volatility: 76.49%
+2025-04-29 22:56:37 - __main__ - INFO -   Sharpe Ratio: 0.73
+2025-04-29 22:56:37 - __main__ - INFO - Recommendation saved to outputs/recommendation.json
+2025-04-29 22:56:37 - __main__ - INFO - Performance chart saved to outputs/portfolio_performance.png
+2025-04-29 22:56:37 - __main__ - INFO - ====================================================================================================

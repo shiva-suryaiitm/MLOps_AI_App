@@ -9,8 +9,11 @@ from dotenv import load_dotenv
 import matplotlib.pyplot as plt
 import json
 from pathlib import Path
+from pymongo import MongoClient
 import logging
 import time
+import pandas as pd
+from sklearn.preprocessing import MinMaxScaler
 
 log_dir = os.path.join(os.path.dirname(os.path.abspath(__file__)), "logs")
 os.makedirs(log_dir, exist_ok=True)
@@ -26,6 +29,12 @@ logging.basicConfig(
 )
 logging.Formatter.converter = time.localtime
 logger = logging.getLogger(__name__)
+
+MONGO_URI = "mongodb://localhost:27017/"
+MONGO_DB_NAME = "portfolio_management"
+SEQUENCE_LENGTH = 100
+COMPANIES = ["AAPL", "MSFT", "GOOGL", "AMZN", "TSLA", "NVDA", "META", "JPM", "WMT", "V"]
+
 
 # Load environment variables
 load_dotenv()
@@ -97,28 +106,58 @@ class PortfolioOptimizer:
                 }
             }
     
-    def fetch_current_data(self, days=30):
-        """Fetch recent stock data for the portfolio symbols."""
-        end_date = datetime.now()
-        start_date = end_date - timedelta(days=days)
+
+    def fetch_data(self, collection, company, n_days=30):
+        """Fetch data from MongoDB."""
+        try:
+            client = MongoClient(MONGO_URI)
+            db = client[MONGO_DB_NAME]
+            coll = db[collection]
+            end_date = datetime.now().replace(hour=0, minute=0, second=0, microsecond=0)
+            start_date = end_date - timedelta(days=n_days)
+            query = {
+                "company": company,
+                "date": {"$gte": start_date, "$lte": end_date}
+            }
+            data = list(coll.find(query).sort("date", 1))
+            client.close()
+            if len(data) < n_days:
+                logger.info(f"Only {len(data)} days of data found for {company}")
+            return data
+        except Exception as e:
+            logger.info(f"Error fetching data: {str(e)}")
+            raise
+
+    def create_stock_price_dataframe(self, companies):
+        # Initialize an empty list to store all data
+        collection='stock_prices'
+        all_data = []
+        # Fetch data for each company
+        for company in companies:
+            data = self.fetch_data(collection=collection, company=company)
+            for record in data:
+                all_data.append({
+                    'date': record['date'],
+                    'company': record['company'],
+                    'stock_price': record['stock_price']
+                })
         
-        # Create a dictionary to hold DataFrames for each symbol
-        data_dict = {}
+        # Create DataFrame from all data
+        df = pd.DataFrame(all_data)
         
-        for symbol in self.symbols:
-            try:
-                data = yf.download(symbol, start=start_date, end=end_date)
-                if not data.empty:
-                    # Calculate daily returns
-                    data['Returns'] = data['Close'].pct_change()
-                    # Store in dictionary with symbol as key
-                    data_dict[symbol] = data
-                else:
-                    logger.info(f"No data found for {symbol}")
-            except Exception as e:
-                logger.info(f"Error fetching data for {symbol}: {e}")
+        # Pivot the DataFrame to have dates as rows and companies as columns
+        pivot_df = df.pivot(index='date', columns='company', values='stock_price')
         
-        return data_dict
+        # Reset index to make 'date' a column
+        pivot_df = pivot_df.reset_index()
+        
+        # Ensure date is in datetime format
+        pivot_df['date'] = pd.to_datetime(pivot_df['date'])
+        
+        # Sort by date
+        pivot_df = pivot_df.sort_values('date')
+        
+        return pivot_df
     
     def get_portfolio_allocation(self):
         """Return the current portfolio allocation."""
@@ -127,126 +166,89 @@ class PortfolioOptimizer:
     def calculate_portfolio_performance(self, days=30):
         """Calculate performance metrics for the portfolio."""
         # Fetch recent data
-        data_dict = self.fetch_current_data(days)
-        
-        # Extract returns and close prices into separate DataFrames
-        returns_data = pd.DataFrame()
-        price_data = pd.DataFrame()
-        
-        for symbol in self.symbols:
-            if symbol in data_dict:
-                # Add returns to returns_data DataFrame
-                returns_data[symbol] = data_dict[symbol]['Returns']
-                # Add close prices to price_data DataFrame
-                price_data[symbol] = data_dict[symbol]['Close']
-        
-        # Drop NaN values
-        returns_data = returns_data.dropna()
+        data_dict = self.create_stock_price_dataframe(companies=COMPANIES)
+
+        # Ensure date is the index for calculations
+        price_data = data_dict.set_index('date')
+
+        # Filter for the symbols in self.symbols
+        price_data = price_data[[symbol for symbol in self.symbols if symbol in price_data.columns]]
+
+        # Drop rows with any NaN values
         price_data = price_data.dropna()
-        
+
+        # Calculate daily returns
+        returns_data = price_data.pct_change().dropna()
+
         # Calculate daily portfolio returns
-        portfolio_returns = returns_data.dot(self.weights)
-        
+        # portfolio_returns = returns_data.dot(self.weights)
+        # Ensure weights align with the columns in returns_data
+        weights = np.array([self.weights[i] for i in range(len(returns_data.columns))])
+        portfolio_returns = returns_data.dot(weights)
+
         # Calculate metrics
         cumulative_return = (1 + portfolio_returns).prod() - 1
         annualized_return = (1 + cumulative_return) ** (252 / len(portfolio_returns)) - 1
         volatility = portfolio_returns.std() * np.sqrt(252)
         sharpe_ratio = annualized_return / volatility if volatility > 0 else 0
-        
-        
-        # Normalize prices
+
+        # Normalize prices for visualization
         normalized_prices = price_data / price_data.iloc[0]
-        
+
         # Calculate portfolio value over time
         portfolio_value = normalized_prices.dot(self.weights)
-        
+
         # Create performance chart
-        import matplotlib.colors as mcolors
-        import os # To ensure the output directory exists
-
-        # --- Assume these are your data variables ---
-        # portfolio_value = pd.Series(...) # Your portfolio value Series (index=datetime, values=float)
-        # normalized_prices = pd.DataFrame(...) # DataFrame of normalized stock prices (index=datetime, columns=symbols)
-        # self.symbols = [...] # List of stock symbols
-        # ------------------------------------------
-
-        # Ensure the output directory exists
         output_dir = 'outputs'
         if not os.path.exists(output_dir):
             os.makedirs(output_dir)
         output_path = os.path.join(output_dir, 'portfolio_performance.png')
 
-        # --- Plotting Enhancements ---
+        plt.style.use('default')
+        fig, ax = plt.subplots(figsize=(14, 8))
 
-        plt.style.use('default') # Start with a default style
-
-        fig, ax = plt.subplots(figsize=(14, 8)) # Use fig, ax for better control
-
-        # Define a color cycle for stocks (using a perceptually uniform colormap)
-        # Using 'tab10' or 'tab20' is also a good choice for distinct colors
+        # Define colors for stocks
         stock_colors = plt.cm.viridis(np.linspace(0, 1, len(self.symbols)))
 
-        # 1. Plot Portfolio Line (Make it prominent)
-        portfolio_color = '#003366' # Or a strong distinct color like '#003366' (dark blue)
+        # Plot portfolio
+        portfolio_color = '#003366'
         ax.plot(portfolio_value.index, portfolio_value.values,
                 label='Portfolio',
                 color=portfolio_color,
-                linewidth=3, # Thicker line
-                zorder=10) # Ensure it's on top
+                linewidth=3,
+                zorder=10)
 
-        # 2. Plot Individual Stocks (Make them less prominent)
+        # Plot individual stocks
         for i, symbol in enumerate(self.symbols):
             if symbol in normalized_prices.columns:
                 ax.plot(normalized_prices.index, normalized_prices[symbol],
                         label=symbol,
                         color=stock_colors[i],
-                        linewidth=1.5, # Thinner than portfolio
-                        alpha=0.6) # More transparent
+                        linewidth=1.5,
+                        alpha=0.6)
 
-        # 3. Customize Labels and Title
+        # Customize plot
         ax.set_xlabel('Date', fontsize=12)
         ax.set_ylabel('Normalized Value', fontsize=12)
         ax.set_title('Portfolio Performance Over Time', fontsize=16, fontweight='bold', pad=20)
-
-        # 4. Enhance Legend
-        # Place legend outside or let matplotlib find the best spot, reduce clutter
-        legend = ax.legend(loc='upper left', bbox_to_anchor=(1.02, 1), borderaxespad=0.,
-                        fontsize=10, title='Assets', title_fontsize=11,
-                        frameon=False) # No frame for cleaner look
-        # Optional: Make legend text slightly gray
-        # for text in legend.get_texts():
-        #     text.set_color('dimgray')
-
-        # 5. Refine Grid
+        ax.legend(loc='upper left', bbox_to_anchor=(1.02, 1), borderaxespad=0.,
+                fontsize=10, title='Assets', title_fontsize=11, frameon=False)
         ax.grid(True, which='major', linestyle='--', linewidth=0.5, color='grey', alpha=0.5)
-
-        # 6. Customize Spines (Axis borders) for a cleaner look
         ax.spines['top'].set_visible(False)
         ax.spines['right'].set_visible(False)
         ax.spines['left'].set_color('grey')
         ax.spines['bottom'].set_color('grey')
-
-        # 7. Customize Ticks
-        ax.tick_params(axis='x', rotation=45, colors='dimgray', labelsize=10) # Rotate date labels
+        ax.tick_params(axis='x', rotation=45, colors='dimgray', labelsize=10)
         ax.tick_params(axis='y', colors='dimgray', labelsize=10)
-        ax.tick_params(axis='both', direction='in', length=4) # Ticks pointing inwards
+        ax.tick_params(axis='both', direction='in', length=4)
 
-        # 8. Adjust Layout
-        plt.tight_layout(rect=[0, 0, 0.85, 1]) # Adjust rect to make space for legend outside
-
-        # 9. Save the chart with TRANSPARENT background
-        # Use facecolor='none' for the figure. Also save with transparent=True.
-        fig.patch.set_facecolor('none') # Set figure background transparent
-        ax.patch.set_facecolor('none')  # Set axes background transparent
-
-        plt.savefig(output_path,
-                    dpi=300, # Higher resolution
-                    bbox_inches='tight', # Fit plot tightly
-                    transparent=True) # Explicitly save with transparency
-
+        plt.tight_layout(rect=[0, 0, 0.85, 1])
+        fig.patch.set_facecolor('none')
+        ax.patch.set_facecolor('none')
+        plt.savefig(output_path, dpi=300, bbox_inches='tight', transparent=True)
         logger.info(f"Plot saved to {output_path}")
         plt.close(fig)
-        
+
         # Save metrics
         metrics = {
             'cumulative_return': float(cumulative_return),
@@ -256,10 +258,10 @@ class PortfolioOptimizer:
             'evaluation_date': datetime.now().strftime('%Y-%m-%d'),
             'evaluation_period_days': days
         }
-        
+
         with open('outputs/performance_metrics.json', 'w') as f:
             json.dump(metrics, f, indent=4)
-        
+
         return metrics, portfolio_value
     
     def generate_recommendation(self):
@@ -288,7 +290,6 @@ class PortfolioOptimizer:
 if __name__ == "__main__":
     # Create portfolio optimizer
     optimizer = PortfolioOptimizer()
-    
     # Generate recommendation
     recommendation = optimizer.generate_recommendation()
     
