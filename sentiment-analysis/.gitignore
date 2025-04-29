@@ -1,0 +1,5 @@
+try_mongo.ipynb
+__pycache__/
+huggingface_cache/
+
+
