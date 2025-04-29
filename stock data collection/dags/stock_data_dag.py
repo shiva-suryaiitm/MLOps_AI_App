@@ -6,6 +6,7 @@ from datetime import timedelta, datetime
 from pymongo import MongoClient
 import requests
 import logging
+from stock_data_config import COMPANIES, MONGO_URI, MONGO_DB_NAME, PRICE_COLLECTION, MARKETSTACK_API_KEY, BASE_URL
 
 # Configure logging
 logging.basicConfig(level=logging.INFO, format='%(asctime)s - %(levelname)s - %(message)s')

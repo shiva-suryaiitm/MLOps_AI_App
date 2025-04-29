@@ -19,10 +19,10 @@ logger = logging.getLogger(__name__)
 # MongoDB configuration
 MONGO_URI = "mongodb://host.docker.internal:27017/"
 MONGO_DB_NAME = "portfolio_management"
-PRICE_COLLECTION = "stock_prices_fake"
-VOLUME_COLLECTION = "stock_volumes_fake"
-PRICE_PREDICTION_COLLECTION = "stock_predictions_fake"
-VOLUME_PREDICTION_COLLECTION = "volume_predictions_fake"
+PRICE_COLLECTION = "stock_prices"
+VOLUME_COLLECTION = "stock_volumes"
+PRICE_PREDICTION_COLLECTION = "stock_predictions"
+VOLUME_PREDICTION_COLLECTION = "volume_predictions"
 
 # # Model configuration
 SEQUENCE_LENGTH = 100
@@ -152,37 +152,9 @@ def predict_single_company(company, n_days=100):
     """Run predictions."""
     # Fetch data
     price_data = fetch_data(PRICE_COLLECTION, company, n_days)
-    volume_data = fetch_data(VOLUME_COLLECTION, company, n_days)
-    if len(price_data) < n_days or len(volume_data) < n_days:
+    if len(price_data) < n_days :
         logger.error("Insufficient data for prediction")
         return
-
-    # Initialize models with best hyperparameters
-    # price_params, price_model_weights = torch.load(price_weights)['params'], torch.load(price_weights)['weights']
-    # volume_params, volume_model_weights = torch.load(volume_weights)['params'], torch.load(volume_weights)['weights']
-
-    # price_model = LSTMModel(
-    #     hidden_size=price_params["hidden_size"],
-    #     dropout=price_params["dropout"]
-    # ).to(DEVICE)
-
-    # volume_model = GRUModel(
-    #     hidden_size=volume_params["hidden_size"],
-    #     dropout=volume_params["dropout"]
-    # ).to(DEVICE)
-
-    # # Load weights
-    # if not os.path.exists(price_weights):
-    #     logger.error(f"Price model weights not found at {price_weights}")
-    #     return
-    # price_model.load_state_dict(price_model_weights)
-    # logger.info(f"Loaded price model weights from {price_weights}")
-
-    # if not os.path.exists(volume_weights):
-    #     logger.error(f"Volume model weights not found at {volume_weights}")
-    #     return
-    # volume_model.load_state_dict(volume_model_weights)
-    # logger.info(f"Loaded volume model weights from {volume_weights}")
 
     # Predict prices
     last_price_sequence = np.array([item["stock_price"] for item in price_data[-n_days:]]).reshape(-1, 1)
@@ -192,11 +164,12 @@ def predict_single_company(company, n_days=100):
     save_predictions(PRICE_PREDICTION_COLLECTION, company, price_predictions, "LSTM", datetime.now())
 
     # Predict volumes
-    last_volume_sequence = np.array([item["volume"] for item in volume_data[-n_days:]]).reshape(-1, 1)
-    volume_scaler = MinMaxScaler().fit(last_volume_sequence)
-    last_volume_sequence = volume_scaler.transform(last_volume_sequence)[-SEQUENCE_LENGTH:].reshape(1, -1, 1)
-    volume_predictions = predict_iterative(volume_model, last_volume_sequence, volume_scaler)
-    save_predictions(VOLUME_PREDICTION_COLLECTION, company, volume_predictions, "GRU", datetime.now())
+    # volume_data = fetch_data(VOLUME_COLLECTION, company, n_days)
+    # last_volume_sequence = np.array([item["volume"] for item in volume_data[-n_days:]]).reshape(-1, 1)
+    # volume_scaler = MinMaxScaler().fit(last_volume_sequence)
+    # last_volume_sequence = volume_scaler.transform(last_volume_sequence)[-SEQUENCE_LENGTH:].reshape(1, -1, 1)
+    # volume_predictions = predict_iterative(volume_model, last_volume_sequence, volume_scaler)
+    # save_predictions(VOLUME_PREDICTION_COLLECTION, company, volume_predictions, "GRU", datetime.now())
 
 def main():
     """Run predictions daily."""
