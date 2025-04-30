@@ -28,7 +28,7 @@ logging.basicConfig(
 logging.Formatter.converter = time.localtime
 logger = logging.getLogger(__name__)
 
-MONGO_URI = "mongodb://localhost:27017/"
+MONGO_URI = "mongodb://host.docker.internal:27017/"
 MONGO_DB_NAME = "portfolio_management"
 SEQUENCE_LENGTH = 100
 COMPANIES = ["AAPL", "MSFT", "GOOGL", "AMZN", "TSLA", "NVDA", "META", "JPM", "WMT", "V"]
@@ -53,7 +53,7 @@ class PortfolioOptimizer:
         """Load the trained model either from MongoDB or local file."""
         try:
             # First try to load from MongoDB
-            mongo_uri = os.getenv('MONGO_URI')
+            mongo_uri = MONGO_URI
             if mongo_uri:
                 client = pymongo.MongoClient(mongo_uri)
                 db = client.portfolio_optimization
@@ -265,7 +265,9 @@ class PortfolioOptimizer:
     def generate_recommendation(self):
         """Generate investment recommendations based on the optimal portfolio."""
         allocation = self.get_portfolio_allocation()
-        metrics, _ = self.calculate_portfolio_performance()
+        # metrics, _ = self.calculate_portfolio_performance()
+        with open('./outputs/performance_metrics.json', 'r') as f:
+            metrics = json.load(f)
         
         # Sort stocks by weight
         sorted_allocation = {k: v for k, v in sorted(allocation.items(), key=lambda item: item[1], reverse=True)}

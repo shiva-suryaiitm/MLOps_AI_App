@@ -16,7 +16,7 @@ services:
       - portfolio-optimisation
       - sentiment-analysis
       - stock-prediction
-      # - prometheus
+    # - prometheus
 
   portfolio-optimisation:
     build:

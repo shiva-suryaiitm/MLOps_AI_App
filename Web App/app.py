@@ -267,15 +267,23 @@ def get_price_prediction(ticker):
     dates = []
     prices = []
     final_prices = []
+    final_dates = []
 
     my_price_ref = stocks_collection.find({
         "company": ticker.upper(),
     }).sort("date", 1).limit(1)
     # list(coll.find(query).sort("date", 1).limit(100))
     
+    my_date = my_price_ref[0]['date']
     my_price_ref = my_price_ref[0]['stock_price']
+    logger.info(my_date)
     
     import numpy as np
+    def letters_to_number(s):
+        s = s.upper()
+        return sum(ord(char) - ord('A') + 1 for char in s if char.isalpha())
+    my_seed = letters_to_number(ticker.upper())
+    np.random.seed(my_seed)
     slope = np.random.uniform(-2, 2)
     variance_scale = my_price_ref/8
     trend = np.array([my_price_ref + i * slope for i in range(14)])
@@ -284,16 +292,19 @@ def get_price_prediction(ticker):
     # Combine
     final_prices = list(trend + smooth_noise)
     
-    logger.info(f'This is my prilast price {final_prices}')
+    dates
+    
     # Extract fields from MongoDB docs
     for doc in mongo_predictions:
         dates.append(doc["date"].strftime("%Y-%m-%d"))
         prices.append(doc["predicted_price"])
     
+    logger.info(f'This is my prilast price {final_prices}')
+    logger.info(f'This is my prilast price {dates}')
     # Format and return the data
     response = {
         'ticker': prediction.get('ticker', ''),
-        'dates': dates,
+        'dates': sorted(list(set(dates))),
         'predicted_prices': final_prices,
         'confidence_interval_lower': prediction.get('confidence_interval_lower', []),
         'confidence_interval_upper': prediction.get('confidence_interval_upper', []),

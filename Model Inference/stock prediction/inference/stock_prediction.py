@@ -177,12 +177,12 @@ def main():
     logger.info("Starting prediction scheduler")
     predict_all_companies()
 
-    # Schedule the prediction function to run daily at midnight
-    schedule.every().day.at("00:00").do(predict_all_companies)
+    # # Schedule the prediction function to run daily at midnight
+    # schedule.every().day.at("00:00").do(predict_all_companies)
 
-    while True:
-        schedule.run_pending()
-        time.sleep(60)  # Check every minute
+    # while True:
+    #     schedule.run_pending()
+    #     time.sleep(60)  # Check every minute
 
 if __name__ == "__main__":
 
