@@ -1,14 +1,12 @@
 import os
 import numpy as np
 import pandas as pd
-import yfinance as yf
 import joblib
 from datetime import datetime, timedelta
 import pymongo
 from dotenv import load_dotenv
 import matplotlib.pyplot as plt
 import json
-from pathlib import Path
 from pymongo import MongoClient
 import logging
 import time
