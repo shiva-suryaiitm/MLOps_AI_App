@@ -1,10 +1,13 @@
 # MLOps AI Financial Application
 
-**Author:**
+**Author:** Achyutha Munimakula PH21B004 & Shiva Surya PH21B009
 
 ## Overview
 
 This repository contains an MLOps-enabled AI application for financial analysis, portfolio optimization, and stock prediction. The system integrates multiple machine learning models to provide insights for investment decision-making through a unified web interface.
+
+![Full Pipeline Visualization](./Diagrams/full_pipeline_visualization.png)
+_System Pipeline Overview: End-to-end data flow and component interactions_
 
 ## Repository Structure
 
@@ -18,6 +21,7 @@ MLOps_AI_App/
 ├── Data Ingestion/        # Data collection and processing pipelines
 │   └── stock data collection/   # Stock price data collection via Airflow
 ├── Monitoring/            # System monitoring and visualization
+├── Diagrams/              # System architecture and model diagrams
 ├── docker-compose.yml     # Container orchestration configuration
 ├── HIGH_LEVEL_DESIGN.md   # High-level system architecture design
 ├── LOW_LEVEL_DESIGN.md    # Low-level technical specifications
@@ -38,6 +42,9 @@ Contains three specialized ML services:
 - **Sentiment Analysis**: Analyzes financial news using NLP to determine market sentiment
 - **Stock Prediction**: Uses LSTM/GRU neural networks to forecast future stock prices
 
+![LSTM Architecture](./Diagrams/LSTM%20arch%20with%20hyper.png)
+_LSTM Architecture: Neural network design for stock price prediction with hyperparameters_
+
 ### Data Ingestion
 
 Contains data collection pipelines implemented with Apache Airflow:
@@ -47,6 +54,13 @@ Contains data collection pipelines implemented with Apache Airflow:
 ### Monitoring
 
 Includes Grafana dashboards and Prometheus configurations for monitoring system performance, resource utilization, and model metrics.
+
+## Training Pipeline
+
+The system includes a comprehensive training pipeline for the machine learning models:
+
+![Training Pipeline](./Diagrams/train%20pipeline.png)
+_Model Training Pipeline: Data preprocessing, model training, and evaluation workflow_
 
 ## Documentation
 

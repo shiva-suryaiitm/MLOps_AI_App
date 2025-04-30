@@ -82,7 +82,14 @@
 }
 ```
 
-### 1.2 Data Ingestion (Airflow)
+## 2. System Pipeline
+
+The following diagram illustrates the end-to-end data flow across all components of the system:
+
+![Full Pipeline Visualization](./Diagrams/full_pipeline_visualization.png)
+_End-to-end data and processing flow between system components_
+
+### 2.1 Data Ingestion (Airflow)
 
 #### DAG: `stock_data_collection`
 
@@ -110,7 +117,14 @@
   }
   ```
 
-### 1.3 Portfolio Optimization Service
+## 3. Model Training Pipeline
+
+The training pipeline for the machine learning models follows this process:
+
+![Training Pipeline](./Diagrams/train%20pipeline.png)
+_Model training workflow from data preparation to deployment_
+
+### 3.1 Portfolio Optimization Service
 
 #### Input Specifications
 
@@ -140,7 +154,7 @@
 - Objective: Maximize Sharpe ratio (risk-adjusted return)
 - Constraints: Sum of weights equals 1.0, no negative weights (no shorting)
 
-### 1.4 Sentiment Analysis Service
+### 3.2 Sentiment Analysis Service
 
 #### Input Specifications
 
@@ -173,7 +187,14 @@
 - Binary classification (POSITIVE/NEGATIVE) with confidence score
 - Processes articles without existing sentiment scores
 
-### 1.5 Stock Prediction Service
+### 3.3 Stock Prediction Service
+
+#### LSTM Architecture
+
+The stock prediction service uses a sophisticated LSTM neural network architecture:
+
+![LSTM Architecture](./Diagrams/LSTM%20arch%20with%20hyper.png)
+_LSTM neural network architecture with hyperparameters for stock price prediction_
 
 #### Input Specifications
 
@@ -202,9 +223,9 @@
 - Data preprocessing: MinMaxScaler normalization
 - Training approach: Sliding window with sequence length 100
 
-## 2. Database Design
+## 4. Database Design
 
-### 2.1 MongoDB Collections
+### 4.1 MongoDB Collections
 
 | Collection Name                 | Purpose                             | Key Fields                                  | Indexes         |
 | ------------------------------- | ----------------------------------- | ------------------------------------------- | --------------- |
@@ -213,9 +234,9 @@
 | `stock_predictions`             | Store price predictions             | company, date, predicted_price              | (company, date) |
 | `portfolio_optimization.models` | Store portfolio optimization models | symbols, weights, sharpe_ratio              | (training_date) |
 
-## 3. Deployment Configuration
+## 5. Deployment Configuration
 
-### 3.1 Docker Containers
+### 5.1 Docker Containers
 
 | Service                  | Image                 | Ports     | Volumes                                                       | Environment Variables              |
 | ------------------------ | --------------------- | --------- | ------------------------------------------------------------- | ---------------------------------- |
@@ -225,16 +246,16 @@
 | `stock-prediction`       | PyTorch + Python      | -         | ./Model Inference/stock prediction/inference:/app             | MONGO_URI, TZ                      |
 | `data-ingestion`         | Apache Airflow        | 8080:8080 | ./Data Ingestion/stock data collection/dags:/opt/airflow/dags | MONGO_URI, MARKETSTACK_API_KEY, TZ |
 
-### 3.2 Network Configuration
+### 5.2 Network Configuration
 
 All services communicate through Docker's internal network.
 
 - MongoDB connection string: `mongodb://host.docker.internal:27017/`
 - Inter-service communication: via service names (e.g., `http://web-app:5000`)
 
-## 4. Error Handling and Logging
+## 6. Error Handling and Logging
 
-### 4.1 Logging Configuration
+### 6.1 Logging Configuration
 
 All services use a consistent logging pattern:
 
@@ -243,7 +264,7 @@ All services use a consistent logging pattern:
 - Log levels: INFO for normal operation, ERROR for issues
 - Timestamps in local timezone (Asia/Kolkata)
 
-### 4.2 Error Handling Strategies
+### 6.2 Error Handling Strategies
 
 | Error Type                 | Handling Strategy                                         |
 | -------------------------- | --------------------------------------------------------- |
@@ -252,28 +273,28 @@ All services use a consistent logging pattern:
 | Missing data               | Default values or placeholders with warning logs          |
 | Model inference errors     | Skip problematic entries, log errors, continue processing |
 
-## 5. Performance Considerations
+## 7. Performance Considerations
 
-### 5.1 Database Performance
+### 7.1 Database Performance
 
 - Indexes on frequently queried fields (company, date)
 - Date range queries optimized with compound indexes
 - Bulk operations used for batch inserts
 
-### 5.2 API Performance
+### 7.2 API Performance
 
 - Caching of frequent API responses
 - Pagination for large result sets
 - Asynchronous processing for long-running operations
 
-## 6. Security Measures
+## 8. Security Measures
 
 - Environment variables for sensitive configuration
 - No hardcoded credentials in code
 - API rate limiting to prevent abuse
 - Input validation on all API endpoints
 
-## 7. Monitoring and Alerting
+## 9. Monitoring and Alerting
 
 Grafana and Prometheus setup (optional component):
 
