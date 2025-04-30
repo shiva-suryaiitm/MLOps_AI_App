@@ -1,0 +1,447 @@
+2025-04-30 02:52:55 - dotenv.main - WARNING - Python-dotenv could not parse statement starting at line 1
+2025-04-30 02:52:55 - werkzeug - INFO - [31m[1mWARNING: This is a development server. Do not use it in a production deployment. Use a production WSGI server instead.[0m
+ * Running on all addresses (0.0.0.0)
+ * Running on http://127.0.0.1:5000
+ * Running on http://10.22.25.100:5000
+2025-04-30 02:52:55 - werkzeug - INFO - [33mPress CTRL+C to quit[0m
+2025-04-30 02:52:55 - werkzeug - INFO -  * Restarting with stat
+2025-04-30 02:52:56 - dotenv.main - WARNING - Python-dotenv could not parse statement starting at line 1
+2025-04-30 02:52:56 - werkzeug - WARNING -  * Debugger is active!
+2025-04-30 02:52:56 - werkzeug - INFO -  * Debugger PIN: 105-309-678
+2025-04-30 02:52:58 - werkzeug - INFO - 127.0.0.1 - - [30/Apr/2025 02:52:58] "GET / HTTP/1.1" 200 -
+2025-04-30 02:53:08 - werkzeug - INFO - 127.0.0.1 - - [30/Apr/2025 02:53:08] "GET /api/stock/NVDA HTTP/1.1" 200 -
+2025-04-30 02:53:08 - werkzeug - INFO - 127.0.0.1 - - [30/Apr/2025 02:53:08] "GET /api/portfolio HTTP/1.1" 200 -
+2025-04-30 02:53:08 - werkzeug - INFO - 127.0.0.1 - - [30/Apr/2025 02:53:08] "GET /api/sentiment/NVDA HTTP/1.1" 200 -
+2025-04-30 02:53:08 - werkzeug - INFO - 127.0.0.1 - - [30/Apr/2025 02:53:08] "[33mGET /api/prediction/NVDA HTTP/1.1[0m" 404 -
+2025-04-30 02:53:13 - werkzeug - INFO - 127.0.0.1 - - [30/Apr/2025 02:53:13] "GET /api/portfolio HTTP/1.1" 200 -
+2025-04-30 02:53:13 - werkzeug - INFO - 127.0.0.1 - - [30/Apr/2025 02:53:13] "[33mGET /api/prediction/MSFT HTTP/1.1[0m" 404 -
+2025-04-30 02:53:13 - werkzeug - INFO - 127.0.0.1 - - [30/Apr/2025 02:53:13] "GET /api/stock/MSFT HTTP/1.1" 200 -
+2025-04-30 02:53:13 - werkzeug - INFO - 127.0.0.1 - - [30/Apr/2025 02:53:13] "GET /api/sentiment/MSFT HTTP/1.1" 200 -
+2025-04-30 02:53:48 - __main__ - INFO - Website is running
+2025-04-30 02:53:48 - __main__ - INFO - Website is running
+2025-04-30 10:24:40 - werkzeug - WARNING -  * Running on all addresses.
+   WARNING: This is a development server. Do not use it in a production deployment.
+2025-04-30 10:24:40 - werkzeug - INFO -  * Running on http://172.27.0.2:5000/ (Press CTRL+C to quit)
+2025-04-30 10:24:40 - werkzeug - INFO -  * Restarting with stat
+2025-04-30 10:24:40 - werkzeug - WARNING -  * Debugger is active!
+2025-04-30 10:24:40 - werkzeug - INFO -  * Debugger PIN: 595-582-856
+2025-04-30 10:24:52 - werkzeug - INFO - 172.27.0.1 - - [30/Apr/2025 10:24:52] "GET / HTTP/1.1" 200 -
+2025-04-30 10:24:54 - werkzeug - INFO - 172.27.0.1 - - [30/Apr/2025 10:24:54] "[33mGET /api/stock/NVDA HTTP/1.1[0m" 404 -
+2025-04-30 10:24:54 - werkzeug - INFO - 172.27.0.1 - - [30/Apr/2025 10:24:54] "GET /api/sentiment/NVDA HTTP/1.1" 200 -
+2025-04-30 10:24:54 - werkzeug - INFO - 172.27.0.1 - - [30/Apr/2025 10:24:54] "GET /api/portfolio HTTP/1.1" 200 -
+2025-04-30 10:24:54 - werkzeug - INFO - 172.27.0.1 - - [30/Apr/2025 10:24:54] "[33mGET /api/prediction/NVDA HTTP/1.1[0m" 404 -
+2025-04-30 10:26:43 - werkzeug - INFO -  * Detected change in '/app/app.py', reloading
+2025-04-30 10:26:44 - werkzeug - INFO -  * Restarting with stat
+2025-04-30 10:26:44 - werkzeug - WARNING -  * Debugger is active!
+2025-04-30 10:26:44 - werkzeug - INFO -  * Debugger PIN: 595-582-856
+2025-04-30 10:26:54 - werkzeug - WARNING -  * Running on all addresses.
+   WARNING: This is a development server. Do not use it in a production deployment.
+2025-04-30 10:26:54 - werkzeug - INFO -  * Running on http://172.27.0.2:5000/ (Press CTRL+C to quit)
+2025-04-30 10:26:54 - werkzeug - INFO -  * Restarting with stat
+2025-04-30 10:26:54 - werkzeug - WARNING -  * Debugger is active!
+2025-04-30 10:26:54 - werkzeug - INFO -  * Debugger PIN: 666-697-968
+2025-04-30 10:26:57 - werkzeug - INFO - 172.27.0.1 - - [30/Apr/2025 10:26:57] "GET / HTTP/1.1" 200 -
+2025-04-30 10:26:59 - werkzeug - INFO - 172.27.0.1 - - [30/Apr/2025 10:26:59] "GET /api/sentiment/NVDA HTTP/1.1" 200 -
+2025-04-30 10:26:59 - werkzeug - INFO - 172.27.0.1 - - [30/Apr/2025 10:26:59] "GET /api/portfolio HTTP/1.1" 200 -
+2025-04-30 10:26:59 - werkzeug - INFO - 172.27.0.1 - - [30/Apr/2025 10:26:59] "[33mGET /api/prediction/NVDA HTTP/1.1[0m" 404 -
+2025-04-30 10:26:59 - werkzeug - INFO - 172.27.0.1 - - [30/Apr/2025 10:26:59] "[35m[1mGET /api/stock/NVDA HTTP/1.1[0m" 500 -
+2025-04-30 10:27:02 - werkzeug - INFO - 172.27.0.1 - - [30/Apr/2025 10:27:02] "[35m[1mGET /api/stock/NVDA?period=1w HTTP/1.1[0m" 500 -
+2025-04-30 10:27:03 - werkzeug - INFO - 172.27.0.1 - - [30/Apr/2025 10:27:03] "[35m[1mGET /api/stock/NVDA?period=1m HTTP/1.1[0m" 500 -
+2025-04-30 10:27:03 - werkzeug - INFO - 172.27.0.1 - - [30/Apr/2025 10:27:03] "[35m[1mGET /api/stock/NVDA?period=3m HTTP/1.1[0m" 500 -
+2025-04-30 10:28:02 - werkzeug - INFO -  * Detected change in '/app/app.py', reloading
+2025-04-30 10:28:02 - werkzeug - INFO -  * Restarting with stat
+2025-04-30 10:28:02 - __main__ - INFO - None
+2025-04-30 10:28:02 - werkzeug - WARNING -  * Debugger is active!
+2025-04-30 10:28:02 - werkzeug - INFO -  * Debugger PIN: 666-697-968
+2025-04-30 10:28:31 - __main__ - INFO - {'_id': ObjectId('6810fc4dac9c66dbae45dd2f'), 'company': 'AAPL', 'date': datetime.datetime(2025, 4, 28, 0, 0), 'stock_price': 210.14}
+2025-04-30 10:28:31 - werkzeug - WARNING -  * Running on all addresses.
+   WARNING: This is a development server. Do not use it in a production deployment.
+2025-04-30 10:28:31 - werkzeug - INFO -  * Running on http://172.27.0.2:5000/ (Press CTRL+C to quit)
+2025-04-30 10:28:31 - werkzeug - INFO -  * Restarting with stat
+2025-04-30 10:28:32 - __main__ - INFO - None
+2025-04-30 10:28:32 - werkzeug - WARNING -  * Debugger is active!
+2025-04-30 10:28:32 - werkzeug - INFO -  * Debugger PIN: 320-304-079
+2025-04-30 10:30:03 - __main__ - INFO - {'_id': ObjectId('6810fc4dac9c66dbae45dd2f'), 'company': 'AAPL', 'date': datetime.datetime(2025, 4, 28, 0, 0), 'stock_price': 210.14}
+2025-04-30 10:30:03 - werkzeug - WARNING -  * Running on all addresses.
+   WARNING: This is a development server. Do not use it in a production deployment.
+2025-04-30 10:30:03 - werkzeug - INFO -  * Running on http://172.27.0.2:5000/ (Press CTRL+C to quit)
+2025-04-30 10:30:04 - werkzeug - INFO -  * Restarting with stat
+2025-04-30 10:30:04 - __main__ - INFO - None
+2025-04-30 10:30:04 - werkzeug - WARNING -  * Debugger is active!
+2025-04-30 10:30:04 - werkzeug - INFO -  * Debugger PIN: 857-603-710
+2025-04-30 10:30:05 - __main__ - INFO - ['models']
+2025-04-30 10:30:05 - werkzeug - INFO - 172.27.0.1 - - [30/Apr/2025 10:30:05] "GET / HTTP/1.1" 200 -
+2025-04-30 10:30:07 - werkzeug - INFO - 172.27.0.1 - - [30/Apr/2025 10:30:07] "GET /api/sentiment/GOOGL HTTP/1.1" 200 -
+2025-04-30 10:30:07 - werkzeug - INFO - 172.27.0.1 - - [30/Apr/2025 10:30:07] "GET /api/portfolio HTTP/1.1" 200 -
+2025-04-30 10:30:07 - werkzeug - INFO - 172.27.0.1 - - [30/Apr/2025 10:30:07] "[33mGET /api/prediction/GOOGL HTTP/1.1[0m" 404 -
+2025-04-30 10:30:07 - werkzeug - INFO - 172.27.0.1 - - [30/Apr/2025 10:30:07] "[35m[1mGET /api/stock/GOOGL HTTP/1.1[0m" 500 -
+2025-04-30 10:30:34 - werkzeug - INFO -  * Detected change in '/app/app.py', reloading
+2025-04-30 10:30:39 - __main__ - INFO - {'_id': ObjectId('6810fc4dac9c66dbae45dd2f'), 'company': 'AAPL', 'date': datetime.datetime(2025, 4, 28, 0, 0), 'stock_price': 210.14}
+2025-04-30 10:30:39 - werkzeug - WARNING -  * Running on all addresses.
+   WARNING: This is a development server. Do not use it in a production deployment.
+2025-04-30 10:30:39 - werkzeug - INFO -  * Running on http://172.27.0.2:5000/ (Press CTRL+C to quit)
+2025-04-30 10:30:39 - werkzeug - INFO -  * Restarting with stat
+2025-04-30 10:30:39 - __main__ - INFO - None
+2025-04-30 10:30:39 - werkzeug - WARNING -  * Debugger is active!
+2025-04-30 10:30:39 - werkzeug - INFO -  * Debugger PIN: 569-116-437
+2025-04-30 10:30:40 - werkzeug - INFO - 172.27.0.1 - - [30/Apr/2025 10:30:40] "GET / HTTP/1.1" 200 -
+2025-04-30 10:30:41 - __main__ - INFO - ['models']
+2025-04-30 10:30:41 - werkzeug - INFO - 172.27.0.1 - - [30/Apr/2025 10:30:41] "GET /api/sentiment/NVDA HTTP/1.1" 200 -
+2025-04-30 10:30:41 - werkzeug - INFO - 172.27.0.1 - - [30/Apr/2025 10:30:41] "[33mGET /api/prediction/NVDA HTTP/1.1[0m" 404 -
+2025-04-30 10:30:41 - werkzeug - INFO - 172.27.0.1 - - [30/Apr/2025 10:30:41] "GET /api/portfolio HTTP/1.1" 200 -
+2025-04-30 10:30:41 - werkzeug - INFO - 172.27.0.1 - - [30/Apr/2025 10:30:41] "[35m[1mGET /api/stock/NVDA HTTP/1.1[0m" 500 -
+2025-04-30 10:31:49 - werkzeug - INFO -  * Detected change in '/app/app.py', reloading
+2025-04-30 10:31:49 - werkzeug - INFO -  * Restarting with stat
+2025-04-30 10:31:49 - __main__ - INFO - {'_id': ObjectId('6810fc4dac9c66dbae45dd2f'), 'company': 'AAPL', 'date': datetime.datetime(2025, 4, 28, 0, 0), 'stock_price': 210.14}
+2025-04-30 10:31:49 - werkzeug - WARNING -  * Debugger is active!
+2025-04-30 10:31:49 - werkzeug - INFO -  * Debugger PIN: 569-116-437
+2025-04-30 10:31:56 - __main__ - INFO - {'_id': ObjectId('6810fc4dac9c66dbae45dd2f'), 'company': 'AAPL', 'date': datetime.datetime(2025, 4, 28, 0, 0), 'stock_price': 210.14}
+2025-04-30 10:31:56 - werkzeug - WARNING -  * Running on all addresses.
+   WARNING: This is a development server. Do not use it in a production deployment.
+2025-04-30 10:31:56 - werkzeug - INFO -  * Running on http://172.27.0.2:5000/ (Press CTRL+C to quit)
+2025-04-30 10:31:56 - werkzeug - INFO -  * Restarting with stat
+2025-04-30 10:31:56 - __main__ - INFO - {'_id': ObjectId('6810fc4dac9c66dbae45dd2f'), 'company': 'AAPL', 'date': datetime.datetime(2025, 4, 28, 0, 0), 'stock_price': 210.14}
+2025-04-30 10:31:56 - werkzeug - WARNING -  * Debugger is active!
+2025-04-30 10:31:56 - werkzeug - INFO -  * Debugger PIN: 253-366-893
+2025-04-30 10:32:08 - werkzeug - INFO - 172.27.0.1 - - [30/Apr/2025 10:32:08] "GET / HTTP/1.1" 200 -
+2025-04-30 10:32:10 - __main__ - INFO - ['models']
+2025-04-30 10:32:10 - werkzeug - INFO - 172.27.0.1 - - [30/Apr/2025 10:32:10] "GET /api/sentiment/NVDA HTTP/1.1" 200 -
+2025-04-30 10:32:10 - werkzeug - INFO - 172.27.0.1 - - [30/Apr/2025 10:32:10] "[33mGET /api/prediction/NVDA HTTP/1.1[0m" 404 -
+2025-04-30 10:32:10 - werkzeug - INFO - 172.27.0.1 - - [30/Apr/2025 10:32:10] "GET /api/portfolio HTTP/1.1" 200 -
+2025-04-30 10:32:10 - __main__ - INFO - {'_id': ObjectId('6810fc56ac9c66dbae45dfcc'), 'company': 'NVDA', 'date': datetime.datetime(2025, 1, 31, 0, 0), 'stock_price': 120.07}
+2025-04-30 10:32:10 - werkzeug - INFO - 172.27.0.1 - - [30/Apr/2025 10:32:10] "GET /api/stock/NVDA HTTP/1.1" 200 -
+2025-04-30 10:48:50 - werkzeug - INFO - 172.27.0.1 - - [30/Apr/2025 10:48:50] "GET /api/portfolio HTTP/1.1" 200 -
+2025-04-30 10:52:23 - werkzeug - INFO -  * Detected change in '/app/app.py', reloading
+2025-04-30 10:52:23 - werkzeug - INFO -  * Restarting with stat
+2025-04-30 10:52:23 - __main__ - INFO - {'_id': ObjectId('6810fc4dac9c66dbae45dd2f'), 'company': 'AAPL', 'date': datetime.datetime(2025, 4, 28, 0, 0), 'stock_price': 210.14}
+2025-04-30 10:52:23 - werkzeug - WARNING -  * Debugger is active!
+2025-04-30 10:52:23 - werkzeug - INFO -  * Debugger PIN: 253-366-893
+2025-04-30 10:52:25 - werkzeug - INFO -  * Detected change in '/app/app.py', reloading
+2025-04-30 10:52:26 - werkzeug - INFO -  * Restarting with stat
+2025-04-30 10:52:26 - __main__ - INFO - {'_id': ObjectId('6810fc4dac9c66dbae45dd2f'), 'company': 'AAPL', 'date': datetime.datetime(2025, 4, 28, 0, 0), 'stock_price': 210.14}
+2025-04-30 10:52:26 - werkzeug - WARNING -  * Debugger is active!
+2025-04-30 10:52:26 - werkzeug - INFO -  * Debugger PIN: 253-366-893
+2025-04-30 10:52:40 - __main__ - INFO - {'_id': ObjectId('6810fc4dac9c66dbae45dd2f'), 'company': 'AAPL', 'date': datetime.datetime(2025, 4, 28, 0, 0), 'stock_price': 210.14}
+2025-04-30 10:52:40 - werkzeug - WARNING -  * Running on all addresses.
+   WARNING: This is a development server. Do not use it in a production deployment.
+2025-04-30 10:52:40 - werkzeug - INFO -  * Running on http://172.27.0.2:5000/ (Press CTRL+C to quit)
+2025-04-30 10:52:40 - werkzeug - INFO -  * Restarting with stat
+2025-04-30 10:52:41 - __main__ - INFO - {'_id': ObjectId('6810fc4dac9c66dbae45dd2f'), 'company': 'AAPL', 'date': datetime.datetime(2025, 4, 28, 0, 0), 'stock_price': 210.14}
+2025-04-30 10:52:41 - werkzeug - WARNING -  * Debugger is active!
+2025-04-30 10:52:41 - werkzeug - INFO -  * Debugger PIN: 376-469-672
+2025-04-30 10:52:43 - werkzeug - INFO - 172.27.0.1 - - [30/Apr/2025 10:52:43] "GET / HTTP/1.1" 200 -
+2025-04-30 10:52:46 - __main__ - INFO - ['models']
+2025-04-30 10:52:46 - werkzeug - INFO - 172.27.0.1 - - [30/Apr/2025 10:52:46] "GET /api/sentiment/NVDA HTTP/1.1" 200 -
+2025-04-30 10:52:46 - werkzeug - INFO - 172.27.0.1 - - [30/Apr/2025 10:52:46] "GET /api/portfolio HTTP/1.1" 200 -
+2025-04-30 10:52:46 - werkzeug - INFO - 172.27.0.1 - - [30/Apr/2025 10:52:46] "[33mGET /api/prediction/NVDA HTTP/1.1[0m" 404 -
+2025-04-30 10:52:46 - __main__ - INFO - {'_id': ObjectId('6810fc56ac9c66dbae45dfcc'), 'company': 'NVDA', 'date': datetime.datetime(2025, 1, 31, 0, 0), 'stock_price': 120.07}
+2025-04-30 10:52:46 - werkzeug - INFO - 172.27.0.1 - - [30/Apr/2025 10:52:46] "GET /api/stock/NVDA HTTP/1.1" 200 -
+2025-04-30 10:52:46 - __main__ - INFO - ['models']
+2025-04-30 10:52:46 - werkzeug - INFO - 172.27.0.1 - - [30/Apr/2025 10:52:46] "[33mGET /api/prediction/NVDA HTTP/1.1[0m" 404 -
+2025-04-30 10:52:46 - __main__ - INFO - {'_id': ObjectId('6810fc56ac9c66dbae45dfcc'), 'company': 'NVDA', 'date': datetime.datetime(2025, 1, 31, 0, 0), 'stock_price': 120.07}
+2025-04-30 10:52:46 - werkzeug - INFO - 172.27.0.1 - - [30/Apr/2025 10:52:46] "GET /api/stock/NVDA HTTP/1.1" 200 -
+2025-04-30 10:54:15 - werkzeug - INFO -  * Detected change in '/app/app.py', reloading
+2025-04-30 10:54:15 - werkzeug - INFO -  * Restarting with stat
+2025-04-30 10:54:16 - __main__ - INFO - Connected to None - portfolio_management
+2025-04-30 10:55:20 - __main__ - INFO - Connected to mongodb://host.docker.internal:27017/ - portfolio_management
+2025-04-30 10:55:20 - __main__ - INFO - {'_id': ObjectId('6810fc4dac9c66dbae45dd2f'), 'company': 'AAPL', 'date': datetime.datetime(2025, 4, 28, 0, 0), 'stock_price': 210.14}
+2025-04-30 10:55:20 - werkzeug - WARNING -  * Running on all addresses.
+   WARNING: This is a development server. Do not use it in a production deployment.
+2025-04-30 10:55:20 - werkzeug - INFO -  * Running on http://172.27.0.2:5000/ (Press CTRL+C to quit)
+2025-04-30 10:55:20 - werkzeug - INFO -  * Restarting with stat
+2025-04-30 10:55:21 - __main__ - INFO - Connected to mongodb://host.docker.internal:27017/ - portfolio_management
+2025-04-30 10:55:21 - __main__ - INFO - {'_id': ObjectId('6810fc4dac9c66dbae45dd2f'), 'company': 'AAPL', 'date': datetime.datetime(2025, 4, 28, 0, 0), 'stock_price': 210.14}
+2025-04-30 10:55:21 - werkzeug - WARNING -  * Debugger is active!
+2025-04-30 10:55:21 - werkzeug - INFO -  * Debugger PIN: 545-833-359
+2025-04-30 10:55:24 - werkzeug - INFO - 172.27.0.1 - - [30/Apr/2025 10:55:24] "GET / HTTP/1.1" 200 -
+2025-04-30 10:55:25 - __main__ - INFO - ['models']
+2025-04-30 10:55:25 - werkzeug - INFO - 172.27.0.1 - - [30/Apr/2025 10:55:25] "GET /api/sentiment/TSLA HTTP/1.1" 200 -
+2025-04-30 10:55:25 - werkzeug - INFO - 172.27.0.1 - - [30/Apr/2025 10:55:25] "[33mGET /api/prediction/TSLA HTTP/1.1[0m" 404 -
+2025-04-30 10:55:25 - werkzeug - INFO - 172.27.0.1 - - [30/Apr/2025 10:55:25] "GET /api/portfolio HTTP/1.1" 200 -
+2025-04-30 10:55:25 - __main__ - INFO - {'_id': ObjectId('6810fc54ac9c66dbae45df52'), 'company': 'TSLA', 'date': datetime.datetime(2025, 1, 31, 0, 0), 'stock_price': 404.6}
+2025-04-30 10:55:25 - werkzeug - INFO - 172.27.0.1 - - [30/Apr/2025 10:55:25] "GET /api/stock/TSLA HTTP/1.1" 200 -
+2025-04-30 10:57:20 - werkzeug - INFO -  * Detected change in '/app/app.py', reloading
+2025-04-30 10:57:21 - werkzeug - INFO -  * Restarting with stat
+2025-04-30 10:57:21 - __main__ - INFO - Connected to mongodb://host.docker.internal:27017/ - portfolio_management
+2025-04-30 10:57:21 - __main__ - INFO - {'_id': ObjectId('6810fc4dac9c66dbae45dd2f'), 'company': 'AAPL', 'date': datetime.datetime(2025, 4, 28, 0, 0), 'stock_price': 210.14}
+2025-04-30 10:57:21 - werkzeug - WARNING -  * Debugger is active!
+2025-04-30 10:57:21 - werkzeug - INFO -  * Debugger PIN: 545-833-359
+2025-04-30 10:57:29 - __main__ - INFO - Connected to mongodb://host.docker.internal:27017/ - portfolio_management
+2025-04-30 10:57:29 - __main__ - INFO - {'_id': ObjectId('6810fc4dac9c66dbae45dd2f'), 'company': 'AAPL', 'date': datetime.datetime(2025, 4, 28, 0, 0), 'stock_price': 210.14}
+2025-04-30 10:57:29 - werkzeug - WARNING -  * Running on all addresses.
+   WARNING: This is a development server. Do not use it in a production deployment.
+2025-04-30 10:57:29 - werkzeug - INFO -  * Running on http://172.27.0.2:5000/ (Press CTRL+C to quit)
+2025-04-30 10:57:29 - werkzeug - INFO -  * Restarting with stat
+2025-04-30 10:57:29 - __main__ - INFO - Connected to mongodb://host.docker.internal:27017/ - portfolio_management
+2025-04-30 10:57:29 - __main__ - INFO - {'_id': ObjectId('6810fc4dac9c66dbae45dd2f'), 'company': 'AAPL', 'date': datetime.datetime(2025, 4, 28, 0, 0), 'stock_price': 210.14}
+2025-04-30 10:57:29 - werkzeug - WARNING -  * Debugger is active!
+2025-04-30 10:57:29 - werkzeug - INFO -  * Debugger PIN: 983-211-732
+2025-04-30 10:57:30 - werkzeug - INFO - 172.27.0.1 - - [30/Apr/2025 10:57:30] "GET / HTTP/1.1" 200 -
+2025-04-30 10:57:31 - werkzeug - INFO - 172.27.0.1 - - [30/Apr/2025 10:57:31] "GET / HTTP/1.1" 200 -
+2025-04-30 10:57:32 - __main__ - INFO - ['models']
+2025-04-30 10:57:32 - __main__ - INFO - {'_id': ObjectId('6810fc54ac9c66dbae45df52'), 'company': 'TSLA', 'date': datetime.datetime(2025, 1, 31, 0, 0), 'stock_price': 404.6}
+2025-04-30 10:57:32 - werkzeug - INFO - 172.27.0.1 - - [30/Apr/2025 10:57:32] "GET /api/portfolio HTTP/1.1" 200 -
+2025-04-30 10:57:32 - __main__ - INFO - {'_id': ObjectId('6811b24854fd7a8471f2b13f'), 'company': 'AAPL', 'predicted_price': 221.6172332763672, 'date': datetime.datetime(2025, 4, 30, 5, 16, 56, 506000), 'model': 'LSTM', 'created_at': datetime.datetime(2025, 4, 30, 5, 16, 56, 508000)}
+2025-04-30 10:57:32 - werkzeug - INFO - 172.27.0.1 - - [30/Apr/2025 10:57:32] "GET /api/sentiment/TSLA HTTP/1.1" 200 -
+2025-04-30 10:57:32 - werkzeug - INFO - 172.27.0.1 - - [30/Apr/2025 10:57:32] "GET /api/prediction/TSLA HTTP/1.1" 200 -
+2025-04-30 10:57:32 - werkzeug - INFO - 172.27.0.1 - - [30/Apr/2025 10:57:32] "GET /api/stock/TSLA HTTP/1.1" 200 -
+2025-04-30 10:57:34 - __main__ - INFO - ['models']
+2025-04-30 10:57:34 - __main__ - INFO - {'_id': ObjectId('6811b24854fd7a8471f2b13f'), 'company': 'AAPL', 'predicted_price': 221.6172332763672, 'date': datetime.datetime(2025, 4, 30, 5, 16, 56, 506000), 'model': 'LSTM', 'created_at': datetime.datetime(2025, 4, 30, 5, 16, 56, 508000)}
+2025-04-30 10:57:34 - __main__ - INFO - {'_id': ObjectId('6810fc54ac9c66dbae45df52'), 'company': 'TSLA', 'date': datetime.datetime(2025, 1, 31, 0, 0), 'stock_price': 404.6}
+2025-04-30 10:57:34 - werkzeug - INFO - 172.27.0.1 - - [30/Apr/2025 10:57:34] "GET /api/prediction/TSLA HTTP/1.1" 200 -
+2025-04-30 10:57:34 - werkzeug - INFO - 172.27.0.1 - - [30/Apr/2025 10:57:34] "GET /api/stock/TSLA HTTP/1.1" 200 -
+2025-04-30 10:57:48 - __main__ - INFO - ['models']
+2025-04-30 10:57:48 - werkzeug - INFO - 172.27.0.1 - - [30/Apr/2025 10:57:48] "GET /api/portfolio HTTP/1.1" 200 -
+2025-04-30 10:57:48 - __main__ - INFO - {'_id': ObjectId('6810fc50ac9c66dbae45de5e'), 'company': 'GOOGL', 'date': datetime.datetime(2025, 1, 31, 0, 0), 'stock_price': 204.02}
+2025-04-30 10:57:48 - werkzeug - INFO - 172.27.0.1 - - [30/Apr/2025 10:57:48] "GET /api/stock/GOOGL HTTP/1.1" 200 -
+2025-04-30 10:57:48 - werkzeug - INFO - 172.27.0.1 - - [30/Apr/2025 10:57:48] "GET /api/sentiment/GOOGL HTTP/1.1" 200 -
+2025-04-30 10:57:48 - __main__ - INFO - {'_id': ObjectId('6811b24854fd7a8471f2b13f'), 'company': 'AAPL', 'predicted_price': 221.6172332763672, 'date': datetime.datetime(2025, 4, 30, 5, 16, 56, 506000), 'model': 'LSTM', 'created_at': datetime.datetime(2025, 4, 30, 5, 16, 56, 508000)}
+2025-04-30 10:57:48 - werkzeug - INFO - 172.27.0.1 - - [30/Apr/2025 10:57:48] "GET /api/prediction/GOOGL HTTP/1.1" 200 -
+2025-04-30 10:57:50 - __main__ - INFO - ['models']
+2025-04-30 10:57:50 - __main__ - INFO - {'_id': ObjectId('6811b24854fd7a8471f2b13f'), 'company': 'AAPL', 'predicted_price': 221.6172332763672, 'date': datetime.datetime(2025, 4, 30, 5, 16, 56, 506000), 'model': 'LSTM', 'created_at': datetime.datetime(2025, 4, 30, 5, 16, 56, 508000)}
+2025-04-30 10:57:50 - __main__ - INFO - {'_id': ObjectId('6810fc50ac9c66dbae45de5e'), 'company': 'GOOGL', 'date': datetime.datetime(2025, 1, 31, 0, 0), 'stock_price': 204.02}
+2025-04-30 10:57:50 - werkzeug - INFO - 172.27.0.1 - - [30/Apr/2025 10:57:50] "GET /api/prediction/GOOGL HTTP/1.1" 200 -
+2025-04-30 10:57:50 - werkzeug - INFO - 172.27.0.1 - - [30/Apr/2025 10:57:50] "GET /api/stock/GOOGL HTTP/1.1" 200 -
+2025-04-30 10:58:14 - __main__ - INFO - ['models']
+2025-04-30 10:58:14 - __main__ - INFO - {'_id': ObjectId('6811b24854fd7a8471f2b13f'), 'company': 'AAPL', 'predicted_price': 221.6172332763672, 'date': datetime.datetime(2025, 4, 30, 5, 16, 56, 506000), 'model': 'LSTM', 'created_at': datetime.datetime(2025, 4, 30, 5, 16, 56, 508000)}
+2025-04-30 10:58:14 - __main__ - INFO - {'_id': ObjectId('6810fc50ac9c66dbae45de5e'), 'company': 'GOOGL', 'date': datetime.datetime(2025, 1, 31, 0, 0), 'stock_price': 204.02}
+2025-04-30 10:58:14 - werkzeug - INFO - 172.27.0.1 - - [30/Apr/2025 10:58:14] "GET /api/prediction/GOOGL HTTP/1.1" 200 -
+2025-04-30 10:58:14 - werkzeug - INFO - 172.27.0.1 - - [30/Apr/2025 10:58:14] "GET /api/stock/GOOGL HTTP/1.1" 200 -
+2025-04-30 10:59:13 - __main__ - INFO - ['models']
+2025-04-30 10:59:13 - werkzeug - INFO - 172.27.0.1 - - [30/Apr/2025 10:59:13] "GET /api/portfolio HTTP/1.1" 200 -
+2025-04-30 10:59:13 - __main__ - INFO - {'_id': ObjectId('6810fc54ac9c66dbae45df52'), 'company': 'TSLA', 'date': datetime.datetime(2025, 1, 31, 0, 0), 'stock_price': 404.6}
+2025-04-30 10:59:13 - werkzeug - INFO - 172.27.0.1 - - [30/Apr/2025 10:59:13] "GET /api/sentiment/TSLA HTTP/1.1" 200 -
+2025-04-30 10:59:13 - __main__ - INFO - {'_id': ObjectId('6811b24854fd7a8471f2b13f'), 'company': 'AAPL', 'predicted_price': 221.6172332763672, 'date': datetime.datetime(2025, 4, 30, 5, 16, 56, 506000), 'model': 'LSTM', 'created_at': datetime.datetime(2025, 4, 30, 5, 16, 56, 508000)}
+2025-04-30 10:59:13 - werkzeug - INFO - 172.27.0.1 - - [30/Apr/2025 10:59:13] "GET /api/stock/TSLA HTTP/1.1" 200 -
+2025-04-30 10:59:13 - werkzeug - INFO - 172.27.0.1 - - [30/Apr/2025 10:59:13] "GET /api/prediction/TSLA HTTP/1.1" 200 -
+2025-04-30 10:59:21 - werkzeug - INFO - 172.27.0.1 - - [30/Apr/2025 10:59:21] "GET / HTTP/1.1" 200 -
+2025-04-30 10:59:28 - werkzeug - INFO - 172.27.0.1 - - [30/Apr/2025 10:59:28] "GET /api/search?q=m HTTP/1.1" 200 -
+2025-04-30 10:59:28 - werkzeug - INFO - 172.27.0.1 - - [30/Apr/2025 10:59:28] "GET /api/search?q=me HTTP/1.1" 200 -
+2025-04-30 10:59:28 - werkzeug - INFO - 172.27.0.1 - - [30/Apr/2025 10:59:28] "GET /api/search?q=met HTTP/1.1" 200 -
+2025-04-30 10:59:29 - werkzeug - INFO - 172.27.0.1 - - [30/Apr/2025 10:59:29] "GET /api/search?q=meta HTTP/1.1" 200 -
+2025-04-30 10:59:30 - __main__ - INFO - ['models']
+2025-04-30 10:59:30 - werkzeug - INFO - 172.27.0.1 - - [30/Apr/2025 10:59:30] "GET /api/sentiment/META HTTP/1.1" 200 -
+2025-04-30 10:59:30 - __main__ - INFO - {'_id': ObjectId('6810fc58ac9c66dbae45e046'), 'company': 'META', 'date': datetime.datetime(2025, 1, 31, 0, 0), 'stock_price': 689.18}
+2025-04-30 10:59:30 - werkzeug - INFO - 172.27.0.1 - - [30/Apr/2025 10:59:30] "GET /api/portfolio HTTP/1.1" 200 -
+2025-04-30 10:59:30 - __main__ - INFO - {'_id': ObjectId('6811b24854fd7a8471f2b13f'), 'company': 'AAPL', 'predicted_price': 221.6172332763672, 'date': datetime.datetime(2025, 4, 30, 5, 16, 56, 506000), 'model': 'LSTM', 'created_at': datetime.datetime(2025, 4, 30, 5, 16, 56, 508000)}
+2025-04-30 10:59:30 - werkzeug - INFO - 172.27.0.1 - - [30/Apr/2025 10:59:30] "GET /api/prediction/META HTTP/1.1" 200 -
+2025-04-30 10:59:30 - werkzeug - INFO - 172.27.0.1 - - [30/Apr/2025 10:59:30] "GET /api/stock/META HTTP/1.1" 200 -
+2025-04-30 10:59:33 - __main__ - INFO - ['models']
+2025-04-30 10:59:33 - __main__ - INFO - {'_id': ObjectId('6810fc58ac9c66dbae45e01d'), 'company': 'META', 'date': datetime.datetime(2025, 4, 1, 0, 0), 'stock_price': 586.0}
+2025-04-30 10:59:33 - werkzeug - INFO - 172.27.0.1 - - [30/Apr/2025 10:59:33] "GET /api/stock/META?period=1m HTTP/1.1" 200 -
+2025-04-30 10:59:33 - __main__ - INFO - ['models']
+2025-04-30 10:59:33 - __main__ - INFO - {'_id': ObjectId('6810fc58ac9c66dbae45e00d'), 'company': 'META', 'date': datetime.datetime(2025, 4, 24, 0, 0), 'stock_price': 533.15}
+2025-04-30 10:59:33 - werkzeug - INFO - 172.27.0.1 - - [30/Apr/2025 10:59:33] "GET /api/stock/META?period=1w HTTP/1.1" 200 -
+2025-04-30 10:59:36 - werkzeug - INFO - 172.27.0.1 - - [30/Apr/2025 10:59:36] "GET /api/portfolio HTTP/1.1" 200 -
+2025-04-30 10:59:41 - werkzeug - INFO - 172.27.0.1 - - [30/Apr/2025 10:59:41] "GET /api/sentiment/META HTTP/1.1" 200 -
+2025-04-30 10:59:46 - __main__ - INFO - ['models']
+2025-04-30 10:59:46 - __main__ - INFO - {'_id': ObjectId('6811b24854fd7a8471f2b13f'), 'company': 'AAPL', 'predicted_price': 221.6172332763672, 'date': datetime.datetime(2025, 4, 30, 5, 16, 56, 506000), 'model': 'LSTM', 'created_at': datetime.datetime(2025, 4, 30, 5, 16, 56, 508000)}
+2025-04-30 10:59:46 - __main__ - INFO - {'_id': ObjectId('6810fc58ac9c66dbae45e046'), 'company': 'META', 'date': datetime.datetime(2025, 1, 31, 0, 0), 'stock_price': 689.18}
+2025-04-30 10:59:46 - werkzeug - INFO - 172.27.0.1 - - [30/Apr/2025 10:59:46] "GET /api/prediction/META HTTP/1.1" 200 -
+2025-04-30 10:59:46 - werkzeug - INFO - 172.27.0.1 - - [30/Apr/2025 10:59:46] "GET /api/stock/META HTTP/1.1" 200 -
+2025-04-30 11:01:41 - werkzeug - INFO -  * Detected change in '/app/app.py', reloading
+2025-04-30 11:01:41 - werkzeug - INFO -  * Restarting with stat
+2025-04-30 11:01:42 - __main__ - INFO - Connected to mongodb://host.docker.internal:27017/ - portfolio_management
+2025-04-30 11:01:42 - __main__ - INFO - {'_id': ObjectId('6810fc4dac9c66dbae45dd2f'), 'company': 'AAPL', 'date': datetime.datetime(2025, 4, 28, 0, 0), 'stock_price': 210.14}
+2025-04-30 11:01:42 - werkzeug - WARNING -  * Debugger is active!
+2025-04-30 11:01:42 - werkzeug - INFO -  * Debugger PIN: 983-211-732
+2025-04-30 11:01:46 - __main__ - INFO - Connected to mongodb://host.docker.internal:27017/ - portfolio_management
+2025-04-30 11:01:46 - __main__ - INFO - {'_id': ObjectId('6810fc4dac9c66dbae45dd2f'), 'company': 'AAPL', 'date': datetime.datetime(2025, 4, 28, 0, 0), 'stock_price': 210.14}
+2025-04-30 11:01:46 - werkzeug - WARNING -  * Running on all addresses.
+   WARNING: This is a development server. Do not use it in a production deployment.
+2025-04-30 11:01:46 - werkzeug - INFO -  * Running on http://172.27.0.2:5000/ (Press CTRL+C to quit)
+2025-04-30 11:01:46 - werkzeug - INFO -  * Restarting with stat
+2025-04-30 11:01:46 - __main__ - INFO - Connected to mongodb://host.docker.internal:27017/ - portfolio_management
+2025-04-30 11:01:46 - __main__ - INFO - {'_id': ObjectId('6810fc4dac9c66dbae45dd2f'), 'company': 'AAPL', 'date': datetime.datetime(2025, 4, 28, 0, 0), 'stock_price': 210.14}
+2025-04-30 11:01:46 - werkzeug - WARNING -  * Debugger is active!
+2025-04-30 11:01:46 - werkzeug - INFO -  * Debugger PIN: 578-734-825
+2025-04-30 11:01:53 - werkzeug - INFO - 172.27.0.1 - - [30/Apr/2025 11:01:53] "GET / HTTP/1.1" 200 -
+2025-04-30 11:01:54 - __main__ - INFO - ['models']
+2025-04-30 11:01:54 - werkzeug - INFO - 172.27.0.1 - - [30/Apr/2025 11:01:54] "GET /api/sentiment/AMZN HTTP/1.1" 200 -
+2025-04-30 11:01:54 - werkzeug - INFO - 172.27.0.1 - - [30/Apr/2025 11:01:54] "GET /api/portfolio HTTP/1.1" 200 -
+2025-04-30 11:01:54 - __main__ - INFO - {'_id': ObjectId('6810fc52ac9c66dbae45ded8'), 'company': 'AMZN', 'date': datetime.datetime(2025, 1, 31, 0, 0), 'stock_price': 237.68}
+2025-04-30 11:01:54 - __main__ - INFO - {'_id': ObjectId('6811b24854fd7a8471f2b13f'), 'company': 'AAPL', 'predicted_price': 221.6172332763672, 'date': datetime.datetime(2025, 4, 30, 5, 16, 56, 506000), 'model': 'LSTM', 'created_at': datetime.datetime(2025, 4, 30, 5, 16, 56, 508000)}
+2025-04-30 11:01:54 - werkzeug - INFO - 172.27.0.1 - - [30/Apr/2025 11:01:54] "GET /api/stock/AMZN HTTP/1.1" 200 -
+2025-04-30 11:01:54 - werkzeug - INFO - 172.27.0.1 - - [30/Apr/2025 11:01:54] "[35m[1mGET /api/prediction/AMZN HTTP/1.1[0m" 500 -
+2025-04-30 11:04:33 - werkzeug - INFO -  * Detected change in '/app/app.py', reloading
+2025-04-30 11:04:34 - werkzeug - INFO -  * Restarting with stat
+2025-04-30 11:04:34 - __main__ - INFO - Connected to mongodb://host.docker.internal:27017/ - portfolio_management
+2025-04-30 11:04:34 - __main__ - INFO - {'_id': ObjectId('6810fc4dac9c66dbae45dd2f'), 'company': 'AAPL', 'date': datetime.datetime(2025, 4, 28, 0, 0), 'stock_price': 210.14}
+2025-04-30 11:04:34 - werkzeug - WARNING -  * Debugger is active!
+2025-04-30 11:04:34 - werkzeug - INFO -  * Debugger PIN: 578-734-825
+2025-04-30 11:04:42 - __main__ - INFO - Connected to mongodb://host.docker.internal:27017/ - portfolio_management
+2025-04-30 11:04:42 - __main__ - INFO - {'_id': ObjectId('6810fc4dac9c66dbae45dd2f'), 'company': 'AAPL', 'date': datetime.datetime(2025, 4, 28, 0, 0), 'stock_price': 210.14}
+2025-04-30 11:04:42 - werkzeug - WARNING -  * Running on all addresses.
+   WARNING: This is a development server. Do not use it in a production deployment.
+2025-04-30 11:04:42 - werkzeug - INFO -  * Running on http://172.27.0.2:5000/ (Press CTRL+C to quit)
+2025-04-30 11:04:42 - werkzeug - INFO -  * Restarting with stat
+2025-04-30 11:04:43 - __main__ - INFO - Connected to mongodb://host.docker.internal:27017/ - portfolio_management
+2025-04-30 11:04:43 - __main__ - INFO - {'_id': ObjectId('6810fc4dac9c66dbae45dd2f'), 'company': 'AAPL', 'date': datetime.datetime(2025, 4, 28, 0, 0), 'stock_price': 210.14}
+2025-04-30 11:04:43 - werkzeug - WARNING -  * Debugger is active!
+2025-04-30 11:04:43 - werkzeug - INFO -  * Debugger PIN: 102-866-479
+2025-04-30 11:04:46 - werkzeug - INFO - 172.27.0.1 - - [30/Apr/2025 11:04:46] "GET / HTTP/1.1" 200 -
+2025-04-30 11:04:47 - __main__ - INFO - ['models']
+2025-04-30 11:04:47 - werkzeug - INFO - 172.27.0.1 - - [30/Apr/2025 11:04:47] "GET /api/sentiment/META HTTP/1.1" 200 -
+2025-04-30 11:04:47 - werkzeug - INFO - 172.27.0.1 - - [30/Apr/2025 11:04:47] "GET /api/portfolio HTTP/1.1" 200 -
+2025-04-30 11:04:47 - __main__ - INFO - {'_id': ObjectId('6811b24854fd7a8471f2b13f'), 'company': 'AAPL', 'predicted_price': 221.6172332763672, 'date': datetime.datetime(2025, 4, 30, 5, 16, 56, 506000), 'model': 'LSTM', 'created_at': datetime.datetime(2025, 4, 30, 5, 16, 56, 508000)}
+2025-04-30 11:04:47 - __main__ - INFO - {'_id': ObjectId('6810fc58ac9c66dbae45e046'), 'company': 'META', 'date': datetime.datetime(2025, 1, 31, 0, 0), 'stock_price': 689.18}
+2025-04-30 11:04:47 - __main__ - INFO - <pymongo.cursor.Cursor object at 0x7f07b74f52e0>
+2025-04-30 11:04:47 - werkzeug - INFO - 172.27.0.1 - - [30/Apr/2025 11:04:47] "GET /api/prediction/META HTTP/1.1" 200 -
+2025-04-30 11:04:47 - werkzeug - INFO - 172.27.0.1 - - [30/Apr/2025 11:04:47] "GET /api/stock/META HTTP/1.1" 200 -
+2025-04-30 11:04:59 - werkzeug - INFO -  * Detected change in '/app/app.py', reloading
+2025-04-30 11:04:59 - werkzeug - INFO -  * Restarting with stat
+2025-04-30 11:05:00 - __main__ - INFO - Connected to mongodb://host.docker.internal:27017/ - portfolio_management
+2025-04-30 11:05:00 - __main__ - INFO - {'_id': ObjectId('6810fc4dac9c66dbae45dd2f'), 'company': 'AAPL', 'date': datetime.datetime(2025, 4, 28, 0, 0), 'stock_price': 210.14}
+2025-04-30 11:05:00 - werkzeug - WARNING -  * Debugger is active!
+2025-04-30 11:05:00 - werkzeug - INFO -  * Debugger PIN: 102-866-479
+2025-04-30 11:05:08 - __main__ - INFO - Connected to mongodb://host.docker.internal:27017/ - portfolio_management
+2025-04-30 11:05:08 - __main__ - INFO - {'_id': ObjectId('6810fc4dac9c66dbae45dd2f'), 'company': 'AAPL', 'date': datetime.datetime(2025, 4, 28, 0, 0), 'stock_price': 210.14}
+2025-04-30 11:05:08 - werkzeug - WARNING -  * Running on all addresses.
+   WARNING: This is a development server. Do not use it in a production deployment.
+2025-04-30 11:05:08 - werkzeug - INFO -  * Running on http://172.27.0.2:5000/ (Press CTRL+C to quit)
+2025-04-30 11:05:08 - werkzeug - INFO -  * Restarting with stat
+2025-04-30 11:05:08 - __main__ - INFO - Connected to mongodb://host.docker.internal:27017/ - portfolio_management
+2025-04-30 11:05:08 - __main__ - INFO - {'_id': ObjectId('6810fc4dac9c66dbae45dd2f'), 'company': 'AAPL', 'date': datetime.datetime(2025, 4, 28, 0, 0), 'stock_price': 210.14}
+2025-04-30 11:05:08 - werkzeug - WARNING -  * Debugger is active!
+2025-04-30 11:05:08 - werkzeug - INFO -  * Debugger PIN: 385-861-578
+2025-04-30 11:05:08 - werkzeug - INFO - 172.27.0.1 - - [30/Apr/2025 11:05:08] "GET / HTTP/1.1" 200 -
+2025-04-30 11:05:10 - __main__ - INFO - ['models']
+2025-04-30 11:05:10 - __main__ - INFO - {'_id': ObjectId('6810fc50ac9c66dbae45de5e'), 'company': 'GOOGL', 'date': datetime.datetime(2025, 1, 31, 0, 0), 'stock_price': 204.02}
+2025-04-30 11:05:10 - werkzeug - INFO - 172.27.0.1 - - [30/Apr/2025 11:05:10] "GET /api/stock/GOOGL HTTP/1.1" 200 -
+2025-04-30 11:05:10 - werkzeug - INFO - 172.27.0.1 - - [30/Apr/2025 11:05:10] "GET /api/portfolio HTTP/1.1" 200 -
+2025-04-30 11:05:10 - __main__ - INFO - {'_id': ObjectId('6811b24854fd7a8471f2b13f'), 'company': 'AAPL', 'predicted_price': 221.6172332763672, 'date': datetime.datetime(2025, 4, 30, 5, 16, 56, 506000), 'model': 'LSTM', 'created_at': datetime.datetime(2025, 4, 30, 5, 16, 56, 508000)}
+2025-04-30 11:05:10 - werkzeug - INFO - 172.27.0.1 - - [30/Apr/2025 11:05:10] "GET /api/sentiment/GOOGL HTTP/1.1" 200 -
+2025-04-30 11:05:10 - __main__ - INFO - {'_id': ObjectId('6810fc50ac9c66dbae45de9b'), 'company': 'GOOGL', 'date': datetime.datetime(2024, 10, 31, 0, 0), 'stock_price': 171.11}
+2025-04-30 11:05:10 - werkzeug - INFO - 172.27.0.1 - - [30/Apr/2025 11:05:10] "GET /api/prediction/GOOGL HTTP/1.1" 200 -
+2025-04-30 11:06:04 - werkzeug - INFO -  * Detected change in '/app/app.py', reloading
+2025-04-30 11:06:04 - werkzeug - INFO -  * Restarting with stat
+2025-04-30 11:06:04 - __main__ - INFO - Connected to mongodb://host.docker.internal:27017/ - portfolio_management
+2025-04-30 11:06:04 - werkzeug - WARNING -  * Debugger is active!
+2025-04-30 11:06:04 - werkzeug - INFO -  * Debugger PIN: 385-861-578
+2025-04-30 11:06:09 - __main__ - INFO - Connected to mongodb://host.docker.internal:27017/ - portfolio_management
+2025-04-30 11:06:09 - werkzeug - WARNING -  * Running on all addresses.
+   WARNING: This is a development server. Do not use it in a production deployment.
+2025-04-30 11:06:09 - werkzeug - INFO -  * Running on http://172.27.0.2:5000/ (Press CTRL+C to quit)
+2025-04-30 11:06:09 - werkzeug - INFO -  * Restarting with stat
+2025-04-30 11:06:10 - __main__ - INFO - Connected to mongodb://host.docker.internal:27017/ - portfolio_management
+2025-04-30 11:06:10 - werkzeug - WARNING -  * Debugger is active!
+2025-04-30 11:06:10 - werkzeug - INFO -  * Debugger PIN: 380-474-663
+2025-04-30 11:06:10 - werkzeug - INFO - 172.27.0.1 - - [30/Apr/2025 11:06:10] "GET / HTTP/1.1" 200 -
+2025-04-30 11:06:11 - werkzeug - INFO - 172.27.0.1 - - [30/Apr/2025 11:06:11] "GET /api/stock/TSLA HTTP/1.1" 200 -
+2025-04-30 11:06:11 - __main__ - INFO - {'_id': ObjectId('6811b24854fd7a8471f2b13f'), 'company': 'AAPL', 'predicted_price': 221.6172332763672, 'date': datetime.datetime(2025, 4, 30, 5, 16, 56, 506000), 'model': 'LSTM', 'created_at': datetime.datetime(2025, 4, 30, 5, 16, 56, 508000)}
+2025-04-30 11:06:11 - werkzeug - INFO - 172.27.0.1 - - [30/Apr/2025 11:06:11] "GET /api/portfolio HTTP/1.1" 200 -
+2025-04-30 11:06:11 - werkzeug - INFO - 172.27.0.1 - - [30/Apr/2025 11:06:11] "GET /api/sentiment/TSLA HTTP/1.1" 200 -
+2025-04-30 11:06:11 - __main__ - INFO - This is my prilast price {'_id': ObjectId('6810fc54ac9c66dbae45df8f'), 'company': 'TSLA', 'date': datetime.datetime(2024, 10, 31, 0, 0), 'stock_price': 249.85}
+2025-04-30 11:06:11 - werkzeug - INFO - 172.27.0.1 - - [30/Apr/2025 11:06:11] "GET /api/prediction/TSLA HTTP/1.1" 200 -
+2025-04-30 11:06:55 - werkzeug - INFO -  * Detected change in '/app/app.py', reloading
+2025-04-30 11:06:56 - werkzeug - INFO -  * Restarting with stat
+2025-04-30 11:06:56 - __main__ - INFO - Connected to mongodb://host.docker.internal:27017/ - portfolio_management
+2025-04-30 11:06:56 - werkzeug - WARNING -  * Debugger is active!
+2025-04-30 11:06:56 - werkzeug - INFO -  * Debugger PIN: 380-474-663
+2025-04-30 11:06:57 - werkzeug - INFO -  * Detected change in '/app/app.py', reloading
+2025-04-30 11:06:57 - werkzeug - INFO -  * Restarting with stat
+2025-04-30 11:06:58 - __main__ - INFO - Connected to mongodb://host.docker.internal:27017/ - portfolio_management
+2025-04-30 11:06:58 - werkzeug - WARNING -  * Debugger is active!
+2025-04-30 11:06:58 - werkzeug - INFO -  * Debugger PIN: 380-474-663
+2025-04-30 11:10:14 - werkzeug - INFO -  * Detected change in '/app/app.py', reloading
+2025-04-30 11:10:15 - werkzeug - INFO -  * Restarting with stat
+2025-04-30 11:10:15 - __main__ - INFO - Connected to mongodb://host.docker.internal:27017/ - portfolio_management
+2025-04-30 11:10:15 - werkzeug - WARNING -  * Debugger is active!
+2025-04-30 11:10:15 - werkzeug - INFO -  * Debugger PIN: 380-474-663
+2025-04-30 11:10:16 - werkzeug - INFO -  * Detected change in '/app/app.py', reloading
+2025-04-30 11:10:17 - werkzeug - INFO -  * Restarting with stat
+2025-04-30 11:10:17 - __main__ - INFO - Connected to mongodb://host.docker.internal:27017/ - portfolio_management
+2025-04-30 11:10:17 - werkzeug - WARNING -  * Debugger is active!
+2025-04-30 11:10:17 - werkzeug - INFO -  * Debugger PIN: 380-474-663
+2025-04-30 11:10:26 - __main__ - INFO - Connected to mongodb://host.docker.internal:27017/ - portfolio_management
+2025-04-30 11:10:26 - werkzeug - WARNING -  * Running on all addresses.
+   WARNING: This is a development server. Do not use it in a production deployment.
+2025-04-30 11:10:26 - werkzeug - INFO -  * Running on http://172.27.0.2:5000/ (Press CTRL+C to quit)
+2025-04-30 11:10:26 - werkzeug - INFO -  * Restarting with stat
+2025-04-30 11:10:26 - __main__ - INFO - Connected to mongodb://host.docker.internal:27017/ - portfolio_management
+2025-04-30 11:10:26 - werkzeug - WARNING -  * Debugger is active!
+2025-04-30 11:10:26 - werkzeug - INFO -  * Debugger PIN: 616-274-793
+2025-04-30 11:10:26 - werkzeug - INFO - 172.27.0.1 - - [30/Apr/2025 11:10:26] "GET / HTTP/1.1" 200 -
+2025-04-30 11:10:28 - werkzeug - INFO - 172.27.0.1 - - [30/Apr/2025 11:10:28] "GET /api/stock/TSLA HTTP/1.1" 200 -
+2025-04-30 11:10:28 - __main__ - INFO - {'_id': ObjectId('6811b24854fd7a8471f2b13f'), 'company': 'AAPL', 'predicted_price': 221.6172332763672, 'date': datetime.datetime(2025, 4, 30, 5, 16, 56, 506000), 'model': 'LSTM', 'created_at': datetime.datetime(2025, 4, 30, 5, 16, 56, 508000)}
+2025-04-30 11:10:28 - werkzeug - INFO - 172.27.0.1 - - [30/Apr/2025 11:10:28] "GET /api/portfolio HTTP/1.1" 200 -
+2025-04-30 11:10:28 - werkzeug - INFO - 172.27.0.1 - - [30/Apr/2025 11:10:28] "GET /api/sentiment/TSLA HTTP/1.1" 200 -
+2025-04-30 11:10:28 - werkzeug - INFO - 172.27.0.1 - - [30/Apr/2025 11:10:28] "[35m[1mGET /api/prediction/TSLA HTTP/1.1[0m" 500 -
+2025-04-30 11:11:00 - __main__ - INFO - Connected to mongodb://host.docker.internal:27017/ - portfolio_management
+2025-04-30 11:11:00 - werkzeug - WARNING -  * Running on all addresses.
+   WARNING: This is a development server. Do not use it in a production deployment.
+2025-04-30 11:11:00 - werkzeug - INFO -  * Running on http://172.27.0.2:5000/ (Press CTRL+C to quit)
+2025-04-30 11:11:00 - werkzeug - INFO -  * Restarting with stat
+2025-04-30 11:11:00 - __main__ - INFO - Connected to mongodb://host.docker.internal:27017/ - portfolio_management
+2025-04-30 11:11:00 - werkzeug - WARNING -  * Debugger is active!
+2025-04-30 11:11:00 - werkzeug - INFO -  * Debugger PIN: 526-192-489
+2025-04-30 11:11:27 - werkzeug - INFO -  * Detected change in '/app/app.py', reloading
+2025-04-30 11:11:27 - werkzeug - INFO -  * Restarting with stat
+2025-04-30 11:11:27 - __main__ - INFO - Connected to mongodb://host.docker.internal:27017/ - portfolio_management
+2025-04-30 11:11:27 - werkzeug - WARNING -  * Debugger is active!
+2025-04-30 11:11:27 - werkzeug - INFO -  * Debugger PIN: 526-192-489
+2025-04-30 11:11:30 - werkzeug - INFO - 172.27.0.1 - - [30/Apr/2025 11:11:30] "GET / HTTP/1.1" 200 -
+2025-04-30 11:11:31 - werkzeug - INFO - 172.27.0.1 - - [30/Apr/2025 11:11:31] "GET /api/stock/GOOGL HTTP/1.1" 200 -
+2025-04-30 11:11:31 - werkzeug - INFO - 172.27.0.1 - - [30/Apr/2025 11:11:31] "GET /api/portfolio HTTP/1.1" 200 -
+2025-04-30 11:11:31 - werkzeug - INFO - 172.27.0.1 - - [30/Apr/2025 11:11:31] "GET /api/sentiment/GOOGL HTTP/1.1" 200 -
+2025-04-30 11:11:31 - __main__ - INFO - {'_id': ObjectId('6811b24854fd7a8471f2b13f'), 'company': 'AAPL', 'predicted_price': 221.6172332763672, 'date': datetime.datetime(2025, 4, 30, 5, 16, 56, 506000), 'model': 'LSTM', 'created_at': datetime.datetime(2025, 4, 30, 5, 16, 56, 508000)}
+2025-04-30 11:11:31 - __main__ - INFO - This is my prilast price []
+2025-04-30 11:11:31 - werkzeug - INFO - 172.27.0.1 - - [30/Apr/2025 11:11:31] "GET /api/prediction/GOOGL HTTP/1.1" 200 -
+2025-04-30 11:12:10 - werkzeug - INFO -  * Detected change in '/app/app.py', reloading
+2025-04-30 11:12:10 - werkzeug - INFO -  * Restarting with stat
+2025-04-30 11:12:11 - __main__ - INFO - Connected to mongodb://host.docker.internal:27017/ - portfolio_management
+2025-04-30 11:12:11 - werkzeug - WARNING -  * Debugger is active!
+2025-04-30 11:12:11 - werkzeug - INFO -  * Debugger PIN: 526-192-489
+2025-04-30 11:12:17 - __main__ - INFO - Connected to mongodb://host.docker.internal:27017/ - portfolio_management
+2025-04-30 11:12:17 - werkzeug - WARNING -  * Running on all addresses.
+   WARNING: This is a development server. Do not use it in a production deployment.
+2025-04-30 11:12:17 - werkzeug - INFO -  * Running on http://172.27.0.2:5000/ (Press CTRL+C to quit)
+2025-04-30 11:12:17 - werkzeug - INFO -  * Restarting with stat
+2025-04-30 11:12:17 - __main__ - INFO - Connected to mongodb://host.docker.internal:27017/ - portfolio_management
+2025-04-30 11:12:17 - werkzeug - WARNING -  * Debugger is active!
+2025-04-30 11:12:17 - werkzeug - INFO -  * Debugger PIN: 425-397-283
+2025-04-30 11:12:19 - werkzeug - INFO - 172.27.0.1 - - [30/Apr/2025 11:12:19] "GET / HTTP/1.1" 200 -
+2025-04-30 11:12:20 - werkzeug - INFO - 172.27.0.1 - - [30/Apr/2025 11:12:20] "GET /api/stock/GOOGL HTTP/1.1" 200 -
+2025-04-30 11:12:20 - __main__ - INFO - {'_id': ObjectId('6811b24854fd7a8471f2b13f'), 'company': 'AAPL', 'predicted_price': 221.6172332763672, 'date': datetime.datetime(2025, 4, 30, 5, 16, 56, 506000), 'model': 'LSTM', 'created_at': datetime.datetime(2025, 4, 30, 5, 16, 56, 508000)}
+2025-04-30 11:12:20 - werkzeug - INFO - 172.27.0.1 - - [30/Apr/2025 11:12:20] "GET /api/portfolio HTTP/1.1" 200 -
+2025-04-30 11:12:20 - werkzeug - INFO - 172.27.0.1 - - [30/Apr/2025 11:12:20] "GET /api/sentiment/GOOGL HTTP/1.1" 200 -
+2025-04-30 11:12:20 - __main__ - INFO - This is my prilast price [np.float64(156.8758899722602), np.float64(161.0343778444642), np.float64(168.03658212893225), np.float64(177.0271233681471), np.float64(162.08414086466695), np.float64(172.51864611838107), np.float64(161.9325140430655), np.float64(174.458729845834), np.float64(176.8494358671806), np.float64(198.60517511477522), np.float64(205.55100293167533), np.float64(210.1528137910089), np.float64(199.93732715546844), np.float64(197.18838052520405)]
+2025-04-30 11:12:20 - werkzeug - INFO - 172.27.0.1 - - [30/Apr/2025 11:12:20] "GET /api/prediction/GOOGL HTTP/1.1" 200 -
+2025-04-30 11:12:41 - werkzeug - INFO -  * Detected change in '/app/app.py', reloading
+2025-04-30 11:12:41 - werkzeug - INFO -  * Restarting with stat
+2025-04-30 11:12:42 - __main__ - INFO - Connected to mongodb://host.docker.internal:27017/ - portfolio_management
+2025-04-30 11:12:42 - werkzeug - WARNING -  * Debugger is active!
+2025-04-30 11:12:42 - werkzeug - INFO -  * Debugger PIN: 425-397-283
+2025-04-30 11:13:00 - __main__ - INFO - Connected to mongodb://host.docker.internal:27017/ - portfolio_management
+2025-04-30 11:13:00 - werkzeug - WARNING -  * Running on all addresses.
+   WARNING: This is a development server. Do not use it in a production deployment.
+2025-04-30 11:13:00 - werkzeug - INFO -  * Running on http://172.27.0.2:5000/ (Press CTRL+C to quit)
+2025-04-30 11:13:00 - werkzeug - INFO -  * Restarting with stat
+2025-04-30 11:13:00 - __main__ - INFO - Connected to mongodb://host.docker.internal:27017/ - portfolio_management
+2025-04-30 11:13:00 - werkzeug - WARNING -  * Debugger is active!
+2025-04-30 11:13:00 - werkzeug - INFO -  * Debugger PIN: 929-926-668
+2025-04-30 11:13:00 - werkzeug - INFO - 172.27.0.1 - - [30/Apr/2025 11:13:00] "GET / HTTP/1.1" 200 -
+2025-04-30 11:13:02 - werkzeug - INFO - 172.27.0.1 - - [30/Apr/2025 11:13:02] "GET /api/stock/AMZN HTTP/1.1" 200 -
+2025-04-30 11:13:02 - werkzeug - INFO - 172.27.0.1 - - [30/Apr/2025 11:13:02] "GET /api/portfolio HTTP/1.1" 200 -
+2025-04-30 11:13:02 - __main__ - INFO - {'_id': ObjectId('6811b24854fd7a8471f2b13f'), 'company': 'AAPL', 'predicted_price': 221.6172332763672, 'date': datetime.datetime(2025, 4, 30, 5, 16, 56, 506000), 'model': 'LSTM', 'created_at': datetime.datetime(2025, 4, 30, 5, 16, 56, 508000)}
+2025-04-30 11:13:02 - werkzeug - INFO - 172.27.0.1 - - [30/Apr/2025 11:13:02] "GET /api/sentiment/AMZN HTTP/1.1" 200 -
+2025-04-30 11:13:02 - __main__ - INFO - This is my prilast price [np.float64(182.58555263805903), np.float64(194.5099701922916), np.float64(202.05035176045482), np.float64(197.022060243142), np.float64(182.14282747785415), np.float64(178.71980070045245), np.float64(176.30051495653547), np.float64(176.4682511275998), np.float64(176.0896959266046), np.float64(190.14963942795262), np.float64(199.32794628632047), np.float64(216.50353912536013), np.float64(210.61360695414547), np.float64(211.1153085170144)]
+2025-04-30 11:13:02 - werkzeug - INFO - 172.27.0.1 - - [30/Apr/2025 11:13:02] "GET /api/prediction/AMZN HTTP/1.1" 200 -
+2025-04-30 11:13:04 - werkzeug - INFO - 172.27.0.1 - - [30/Apr/2025 11:13:04] "GET /api/stock/AMZN HTTP/1.1" 200 -
+2025-04-30 11:13:04 - __main__ - INFO - {'_id': ObjectId('6811b24854fd7a8471f2b13f'), 'company': 'AAPL', 'predicted_price': 221.6172332763672, 'date': datetime.datetime(2025, 4, 30, 5, 16, 56, 506000), 'model': 'LSTM', 'created_at': datetime.datetime(2025, 4, 30, 5, 16, 56, 508000)}
+2025-04-30 11:13:04 - __main__ - INFO - This is my prilast price [np.float64(184.8303487116098), np.float64(197.2006570941972), np.float64(199.69427165757733), np.float64(192.88758946359314), np.float64(182.73339042636147), np.float64(185.37920934651473), np.float64(191.34757995754876), np.float64(184.7391360424702), np.float64(172.4572233533853), np.float64(184.30813129619975), np.float64(178.09899735914422), np.float64(189.68493122935075), np.float64(172.2387393630668), np.float64(182.1797881215635)]
+2025-04-30 11:13:04 - werkzeug - INFO - 172.27.0.1 - - [30/Apr/2025 11:13:04] "GET /api/prediction/AMZN HTTP/1.1" 200 -
+2025-04-30 11:13:07 - werkzeug - INFO - 172.27.0.1 - - [30/Apr/2025 11:13:07] "GET /api/portfolio HTTP/1.1" 200 -
+2025-04-30 11:13:07 - werkzeug - INFO - 172.27.0.1 - - [30/Apr/2025 11:13:07] "GET /api/stock/TSLA HTTP/1.1" 200 -
+2025-04-30 11:13:07 - werkzeug - INFO - 172.27.0.1 - - [30/Apr/2025 11:13:07] "GET /api/sentiment/TSLA HTTP/1.1" 200 -
+2025-04-30 11:13:07 - __main__ - INFO - {'_id': ObjectId('6811b24854fd7a8471f2b13f'), 'company': 'AAPL', 'predicted_price': 221.6172332763672, 'date': datetime.datetime(2025, 4, 30, 5, 16, 56, 506000), 'model': 'LSTM', 'created_at': datetime.datetime(2025, 4, 30, 5, 16, 56, 508000)}
+2025-04-30 11:13:07 - __main__ - INFO - This is my prilast price [np.float64(255.49460749622386), np.float64(260.58856048108265), np.float64(249.21433696021924), np.float64(219.0649843668271), np.float64(195.21273612957327), np.float64(214.3016172457121), np.float64(231.1011509255916), np.float64(241.232899343605), np.float64(245.56992999402692), np.float64(222.5388083593439), np.float64(212.6873585838203), np.float64(188.12201912629263), np.float64(213.38728735304412), np.float64(223.09508537236954)]
+2025-04-30 11:13:07 - werkzeug - INFO - 172.27.0.1 - - [30/Apr/2025 11:13:07] "GET /api/prediction/TSLA HTTP/1.1" 200 -
+2025-04-30 11:13:09 - werkzeug - INFO - 172.27.0.1 - - [30/Apr/2025 11:13:09] "GET /api/stock/TSLA HTTP/1.1" 200 -
+2025-04-30 11:13:09 - __main__ - INFO - {'_id': ObjectId('6811b24854fd7a8471f2b13f'), 'company': 'AAPL', 'predicted_price': 221.6172332763672, 'date': datetime.datetime(2025, 4, 30, 5, 16, 56, 506000), 'model': 'LSTM', 'created_at': datetime.datetime(2025, 4, 30, 5, 16, 56, 508000)}
+2025-04-30 11:13:09 - __main__ - INFO - This is my prilast price [np.float64(230.6060273157721), np.float64(236.5446647976645), np.float64(259.5494183461959), np.float64(294.46176383707774), np.float64(297.1659787138107), np.float64(271.26879645628105), np.float64(261.7191651940694), np.float64(260.58315865723625), np.float64(281.791216251055), np.float64(258.1350145939748), np.float64(259.2649326310671), np.float64(242.92100373375422), np.float64(257.0373704137935), np.float64(251.69520752657996)]
+2025-04-30 11:13:09 - werkzeug - INFO - 172.27.0.1 - - [30/Apr/2025 11:13:09] "GET /api/prediction/TSLA HTTP/1.1" 200 -
+2025-04-30 11:13:33 - werkzeug - INFO - 172.27.0.1 - - [30/Apr/2025 11:13:33] "GET /api/stock/TSLA HTTP/1.1" 200 -
+2025-04-30 11:13:33 - __main__ - INFO - {'_id': ObjectId('6811b24854fd7a8471f2b13f'), 'company': 'AAPL', 'predicted_price': 221.6172332763672, 'date': datetime.datetime(2025, 4, 30, 5, 16, 56, 506000), 'model': 'LSTM', 'created_at': datetime.datetime(2025, 4, 30, 5, 16, 56, 508000)}
+2025-04-30 11:13:33 - __main__ - INFO - This is my prilast price [np.float64(258.8768424854814), np.float64(262.5444050095315), np.float64(267.31755713560244), np.float64(272.7866444644669), np.float64(261.40303337630763), np.float64(252.85269038374327), np.float64(228.01215937558362), np.float64(208.8374587933074), np.float64(206.2696752657075), np.float64(223.25747320041037), np.float64(245.30606217350885), np.float64(253.55686184019783), np.float64(246.49398888788633), np.float64(244.79377027659072)]
+2025-04-30 11:13:33 - werkzeug - INFO - 172.27.0.1 - - [30/Apr/2025 11:13:33] "GET /api/prediction/TSLA HTTP/1.1" 200 -

@@ -1,0 +1,480 @@
+[2025-04-29T20:43:41.511+0000] {local_task_job_runner.py:123} INFO - ::group::Pre task execution logs
+[2025-04-29T20:43:41.528+0000] {taskinstance.py:2613} INFO - Dependencies all met for dep_context=non-requeueable deps ti=<TaskInstance: portfolio_news_pipeline.backfill_historical_news manual__2025-04-29T20:43:38.495539+00:00 [queued]>
+[2025-04-29T20:43:41.536+0000] {taskinstance.py:2613} INFO - Dependencies all met for dep_context=requeueable deps ti=<TaskInstance: portfolio_news_pipeline.backfill_historical_news manual__2025-04-29T20:43:38.495539+00:00 [queued]>
+[2025-04-29T20:43:41.536+0000] {taskinstance.py:2866} INFO - Starting attempt 1 of 2
+[2025-04-29T20:43:41.546+0000] {taskinstance.py:2889} INFO - Executing <Task(_PythonDecoratedOperator): backfill_historical_news> on 2025-04-29 20:43:38.495539+00:00
+[2025-04-29T20:43:41.550+0000] {warnings.py:112} WARNING - /home/***/.local/lib/python3.12/site-packages/***/task/task_runner/standard_task_runner.py:70: DeprecationWarning: This process (pid=657) is multi-threaded, use of fork() may lead to deadlocks in the child.
+  pid = os.fork()
+
+[2025-04-29T20:43:41.552+0000] {standard_task_runner.py:72} INFO - Started process 660 to run task
+[2025-04-29T20:43:41.552+0000] {standard_task_runner.py:104} INFO - Running: ['***', 'tasks', 'run', 'portfolio_news_pipeline', 'backfill_historical_news', 'manual__2025-04-29T20:43:38.495539+00:00', '--job-id', '12', '--raw', '--subdir', 'DAGS_FOLDER/news_pipeline.py', '--cfg-path', '/tmp/tmp8tzv04gv']
+[2025-04-29T20:43:41.553+0000] {standard_task_runner.py:105} INFO - Job 12: Subtask backfill_historical_news
+[2025-04-29T20:43:41.585+0000] {task_command.py:467} INFO - Running <TaskInstance: portfolio_news_pipeline.backfill_historical_news manual__2025-04-29T20:43:38.495539+00:00 [running]> on host 67118760a44b
+[2025-04-29T20:43:41.660+0000] {taskinstance.py:3132} INFO - Exporting env vars: AIRFLOW_CTX_DAG_OWNER='***' AIRFLOW_CTX_DAG_ID='portfolio_news_pipeline' AIRFLOW_CTX_TASK_ID='backfill_historical_news' AIRFLOW_CTX_EXECUTION_DATE='2025-04-29T20:43:38.495539+00:00' AIRFLOW_CTX_TRY_NUMBER='1' AIRFLOW_CTX_DAG_RUN_ID='manual__2025-04-29T20:43:38.495539+00:00'
+[2025-04-29T20:43:41.661+0000] {taskinstance.py:731} INFO - ::endgroup::
+[2025-04-29T20:43:41.662+0000] {news_api_client.py:19} INFO - NewsAPI client initialized successfully
+[2025-04-29T20:43:41.669+0000] {mongodb_client.py:26} INFO - Connected to MongoDB successfully
+[2025-04-29T20:43:41.670+0000] {backfill_historical_news.py:28} INFO - Backfilling news for Apple for week 2025-04-29 00:00:00
+[2025-04-29T20:43:41.670+0000] {news_api_client.py:37} INFO - Fetching news for Apple from 2025-04-29 00:00:00 to 2025-05-06 00:00:00
+[2025-04-29T20:43:42.696+0000] {news_api_client.py:47} INFO - Retrieved 0 articles for Apple
+[2025-04-29T20:43:42.696+0000] {backfill_historical_news.py:38} WARNING - No articles found for Apple for week 2025-04-29 00:00:00
+[2025-04-29T20:43:42.697+0000] {backfill_historical_news.py:28} INFO - Backfilling news for Apple for week 2025-03-25 00:00:00
+[2025-04-29T20:43:42.697+0000] {news_api_client.py:37} INFO - Fetching news for Apple from 2025-03-25 00:00:00 to 2025-04-01 00:00:00
+[2025-04-29T20:43:42.952+0000] {news_api_client.py:50} ERROR - Error fetching news for Apple: {'status': 'error', 'code': 'parameterInvalid', 'message': 'You are trying to request results too far in the past. Your plan permits you to request articles as far back as 2025-03-28, but you have requested 2025-03-25. You may need to upgrade to a paid plan.'}
+[2025-04-29T20:43:42.953+0000] {backfill_historical_news.py:38} WARNING - No articles found for Apple for week 2025-03-25 00:00:00
+[2025-04-29T20:43:42.954+0000] {backfill_historical_news.py:28} INFO - Backfilling news for Apple for week 2025-03-18 00:00:00
+[2025-04-29T20:43:42.954+0000] {news_api_client.py:37} INFO - Fetching news for Apple from 2025-03-18 00:00:00 to 2025-03-25 00:00:00
+[2025-04-29T20:43:43.220+0000] {news_api_client.py:50} ERROR - Error fetching news for Apple: {'status': 'error', 'code': 'parameterInvalid', 'message': 'You are trying to request results too far in the past. Your plan permits you to request articles as far back as 2025-03-28, but you have requested 2025-03-18. You may need to upgrade to a paid plan.'}
+[2025-04-29T20:43:43.221+0000] {backfill_historical_news.py:38} WARNING - No articles found for Apple for week 2025-03-18 00:00:00
+[2025-04-29T20:43:43.221+0000] {backfill_historical_news.py:28} INFO - Backfilling news for Apple for week 2025-03-11 00:00:00
+[2025-04-29T20:43:43.222+0000] {news_api_client.py:37} INFO - Fetching news for Apple from 2025-03-11 00:00:00 to 2025-03-18 00:00:00
+[2025-04-29T20:43:44.183+0000] {news_api_client.py:50} ERROR - Error fetching news for Apple: {'status': 'error', 'code': 'parameterInvalid', 'message': 'You are trying to request results too far in the past. Your plan permits you to request articles as far back as 2025-03-28, but you have requested 2025-03-11. You may need to upgrade to a paid plan.'}
+[2025-04-29T20:43:44.185+0000] {backfill_historical_news.py:38} WARNING - No articles found for Apple for week 2025-03-11 00:00:00
+[2025-04-29T20:43:44.185+0000] {backfill_historical_news.py:28} INFO - Backfilling news for Apple for week 2025-03-04 00:00:00
+[2025-04-29T20:43:44.186+0000] {news_api_client.py:37} INFO - Fetching news for Apple from 2025-03-04 00:00:00 to 2025-03-11 00:00:00
+[2025-04-29T20:43:44.728+0000] {news_api_client.py:50} ERROR - Error fetching news for Apple: {'status': 'error', 'code': 'parameterInvalid', 'message': 'You are trying to request results too far in the past. Your plan permits you to request articles as far back as 2025-03-28, but you have requested 2025-03-04. You may need to upgrade to a paid plan.'}
+[2025-04-29T20:43:44.729+0000] {backfill_historical_news.py:38} WARNING - No articles found for Apple for week 2025-03-04 00:00:00
+[2025-04-29T20:43:44.729+0000] {backfill_historical_news.py:28} INFO - Backfilling news for Apple for week 2025-02-25 00:00:00
+[2025-04-29T20:43:44.730+0000] {news_api_client.py:37} INFO - Fetching news for Apple from 2025-02-25 00:00:00 to 2025-03-04 00:00:00
+[2025-04-29T20:43:45.132+0000] {news_api_client.py:50} ERROR - Error fetching news for Apple: {'status': 'error', 'code': 'parameterInvalid', 'message': 'You are trying to request results too far in the past. Your plan permits you to request articles as far back as 2025-03-28, but you have requested 2025-02-25. You may need to upgrade to a paid plan.'}
+[2025-04-29T20:43:45.132+0000] {backfill_historical_news.py:38} WARNING - No articles found for Apple for week 2025-02-25 00:00:00
+[2025-04-29T20:43:45.133+0000] {backfill_historical_news.py:28} INFO - Backfilling news for Apple for week 2025-02-18 00:00:00
+[2025-04-29T20:43:45.133+0000] {news_api_client.py:37} INFO - Fetching news for Apple from 2025-02-18 00:00:00 to 2025-02-25 00:00:00
+[2025-04-29T20:43:46.054+0000] {news_api_client.py:50} ERROR - Error fetching news for Apple: {'status': 'error', 'code': 'parameterInvalid', 'message': 'You are trying to request results too far in the past. Your plan permits you to request articles as far back as 2025-03-28, but you have requested 2025-02-18. You may need to upgrade to a paid plan.'}
+[2025-04-29T20:43:46.055+0000] {backfill_historical_news.py:38} WARNING - No articles found for Apple for week 2025-02-18 00:00:00
+[2025-04-29T20:43:46.056+0000] {backfill_historical_news.py:28} INFO - Backfilling news for Apple for week 2025-02-11 00:00:00
+[2025-04-29T20:43:46.057+0000] {news_api_client.py:37} INFO - Fetching news for Apple from 2025-02-11 00:00:00 to 2025-02-18 00:00:00
+[2025-04-29T20:43:46.322+0000] {news_api_client.py:50} ERROR - Error fetching news for Apple: {'status': 'error', 'code': 'parameterInvalid', 'message': 'You are trying to request results too far in the past. Your plan permits you to request articles as far back as 2025-03-28, but you have requested 2025-02-11. You may need to upgrade to a paid plan.'}
+[2025-04-29T20:43:46.323+0000] {backfill_historical_news.py:38} WARNING - No articles found for Apple for week 2025-02-11 00:00:00
+[2025-04-29T20:43:46.323+0000] {backfill_historical_news.py:28} INFO - Backfilling news for Microsoft for week 2025-04-29 00:00:00
+[2025-04-29T20:43:46.324+0000] {news_api_client.py:37} INFO - Fetching news for Microsoft from 2025-04-29 00:00:00 to 2025-05-06 00:00:00
+[2025-04-29T20:43:48.374+0000] {news_api_client.py:47} INFO - Retrieved 0 articles for Microsoft
+[2025-04-29T20:43:48.375+0000] {backfill_historical_news.py:38} WARNING - No articles found for Microsoft for week 2025-04-29 00:00:00
+[2025-04-29T20:43:48.375+0000] {backfill_historical_news.py:28} INFO - Backfilling news for Microsoft for week 2025-03-25 00:00:00
+[2025-04-29T20:43:48.376+0000] {news_api_client.py:37} INFO - Fetching news for Microsoft from 2025-03-25 00:00:00 to 2025-04-01 00:00:00
+[2025-04-29T20:43:48.650+0000] {news_api_client.py:50} ERROR - Error fetching news for Microsoft: {'status': 'error', 'code': 'parameterInvalid', 'message': 'You are trying to request results too far in the past. Your plan permits you to request articles as far back as 2025-03-28, but you have requested 2025-03-25. You may need to upgrade to a paid plan.'}
+[2025-04-29T20:43:48.651+0000] {backfill_historical_news.py:38} WARNING - No articles found for Microsoft for week 2025-03-25 00:00:00
+[2025-04-29T20:43:48.652+0000] {backfill_historical_news.py:28} INFO - Backfilling news for Microsoft for week 2025-03-18 00:00:00
+[2025-04-29T20:43:48.652+0000] {news_api_client.py:37} INFO - Fetching news for Microsoft from 2025-03-18 00:00:00 to 2025-03-25 00:00:00
+[2025-04-29T20:43:48.910+0000] {news_api_client.py:50} ERROR - Error fetching news for Microsoft: {'status': 'error', 'code': 'parameterInvalid', 'message': 'You are trying to request results too far in the past. Your plan permits you to request articles as far back as 2025-03-28, but you have requested 2025-03-18. You may need to upgrade to a paid plan.'}
+[2025-04-29T20:43:48.911+0000] {backfill_historical_news.py:38} WARNING - No articles found for Microsoft for week 2025-03-18 00:00:00
+[2025-04-29T20:43:48.912+0000] {backfill_historical_news.py:28} INFO - Backfilling news for Microsoft for week 2025-03-11 00:00:00
+[2025-04-29T20:43:48.912+0000] {news_api_client.py:37} INFO - Fetching news for Microsoft from 2025-03-11 00:00:00 to 2025-03-18 00:00:00
+[2025-04-29T20:43:49.191+0000] {news_api_client.py:50} ERROR - Error fetching news for Microsoft: {'status': 'error', 'code': 'parameterInvalid', 'message': 'You are trying to request results too far in the past. Your plan permits you to request articles as far back as 2025-03-28, but you have requested 2025-03-11. You may need to upgrade to a paid plan.'}
+[2025-04-29T20:43:49.192+0000] {backfill_historical_news.py:38} WARNING - No articles found for Microsoft for week 2025-03-11 00:00:00
+[2025-04-29T20:43:49.192+0000] {backfill_historical_news.py:28} INFO - Backfilling news for Microsoft for week 2025-03-04 00:00:00
+[2025-04-29T20:43:49.192+0000] {news_api_client.py:37} INFO - Fetching news for Microsoft from 2025-03-04 00:00:00 to 2025-03-11 00:00:00
+[2025-04-29T20:43:49.447+0000] {news_api_client.py:50} ERROR - Error fetching news for Microsoft: {'status': 'error', 'code': 'parameterInvalid', 'message': 'You are trying to request results too far in the past. Your plan permits you to request articles as far back as 2025-03-28, but you have requested 2025-03-04. You may need to upgrade to a paid plan.'}
+[2025-04-29T20:43:49.448+0000] {backfill_historical_news.py:38} WARNING - No articles found for Microsoft for week 2025-03-04 00:00:00
+[2025-04-29T20:43:49.449+0000] {backfill_historical_news.py:28} INFO - Backfilling news for Microsoft for week 2025-02-25 00:00:00
+[2025-04-29T20:43:49.449+0000] {news_api_client.py:37} INFO - Fetching news for Microsoft from 2025-02-25 00:00:00 to 2025-03-04 00:00:00
+[2025-04-29T20:43:49.787+0000] {news_api_client.py:50} ERROR - Error fetching news for Microsoft: {'status': 'error', 'code': 'parameterInvalid', 'message': 'You are trying to request results too far in the past. Your plan permits you to request articles as far back as 2025-03-28, but you have requested 2025-02-25. You may need to upgrade to a paid plan.'}
+[2025-04-29T20:43:49.788+0000] {backfill_historical_news.py:38} WARNING - No articles found for Microsoft for week 2025-02-25 00:00:00
+[2025-04-29T20:43:49.789+0000] {backfill_historical_news.py:28} INFO - Backfilling news for Microsoft for week 2025-02-18 00:00:00
+[2025-04-29T20:43:49.789+0000] {news_api_client.py:37} INFO - Fetching news for Microsoft from 2025-02-18 00:00:00 to 2025-02-25 00:00:00
+[2025-04-29T20:43:50.187+0000] {news_api_client.py:50} ERROR - Error fetching news for Microsoft: {'status': 'error', 'code': 'parameterInvalid', 'message': 'You are trying to request results too far in the past. Your plan permits you to request articles as far back as 2025-03-28, but you have requested 2025-02-18. You may need to upgrade to a paid plan.'}
+[2025-04-29T20:43:50.187+0000] {backfill_historical_news.py:38} WARNING - No articles found for Microsoft for week 2025-02-18 00:00:00
+[2025-04-29T20:43:50.188+0000] {backfill_historical_news.py:28} INFO - Backfilling news for Microsoft for week 2025-02-11 00:00:00
+[2025-04-29T20:43:50.188+0000] {news_api_client.py:37} INFO - Fetching news for Microsoft from 2025-02-11 00:00:00 to 2025-02-18 00:00:00
+[2025-04-29T20:43:50.633+0000] {news_api_client.py:50} ERROR - Error fetching news for Microsoft: {'status': 'error', 'code': 'parameterInvalid', 'message': 'You are trying to request results too far in the past. Your plan permits you to request articles as far back as 2025-03-28, but you have requested 2025-02-11. You may need to upgrade to a paid plan.'}
+[2025-04-29T20:43:50.634+0000] {backfill_historical_news.py:38} WARNING - No articles found for Microsoft for week 2025-02-11 00:00:00
+[2025-04-29T20:43:50.634+0000] {backfill_historical_news.py:28} INFO - Backfilling news for Alphabet for week 2025-04-29 00:00:00
+[2025-04-29T20:43:50.634+0000] {news_api_client.py:37} INFO - Fetching news for Alphabet from 2025-04-29 00:00:00 to 2025-05-06 00:00:00
+[2025-04-29T20:43:50.978+0000] {news_api_client.py:47} INFO - Retrieved 0 articles for Alphabet
+[2025-04-29T20:43:50.978+0000] {backfill_historical_news.py:38} WARNING - No articles found for Alphabet for week 2025-04-29 00:00:00
+[2025-04-29T20:43:50.979+0000] {backfill_historical_news.py:28} INFO - Backfilling news for Alphabet for week 2025-04-22 00:00:00
+[2025-04-29T20:43:50.979+0000] {news_api_client.py:37} INFO - Fetching news for Alphabet from 2025-04-22 00:00:00 to 2025-04-29 00:00:00
+[2025-04-29T20:43:51.255+0000] {news_api_client.py:47} INFO - Retrieved 9 articles for Alphabet
+[2025-04-29T20:43:51.255+0000] {logging_mixin.py:190} INFO - Fetched 9 articles for Alphabet for week 2025-04-22 00:00:00
+[2025-04-29T20:43:51.268+0000] {mongodb_client.py:55} INFO - Stored 9 articles for Alphabet for week 2025-04-22 00:00:00
+[2025-04-29T20:43:51.268+0000] {logging_mixin.py:190} INFO - Stored 9 articles for Alphabet for week 2025-04-22 00:00:00
+[2025-04-29T20:43:51.269+0000] {backfill_historical_news.py:28} INFO - Backfilling news for Alphabet for week 2025-04-15 00:00:00
+[2025-04-29T20:43:51.269+0000] {news_api_client.py:37} INFO - Fetching news for Alphabet from 2025-04-15 00:00:00 to 2025-04-22 00:00:00
+[2025-04-29T20:43:51.574+0000] {news_api_client.py:47} INFO - Retrieved 10 articles for Alphabet
+[2025-04-29T20:43:51.574+0000] {logging_mixin.py:190} INFO - Fetched 10 articles for Alphabet for week 2025-04-15 00:00:00
+[2025-04-29T20:43:51.584+0000] {mongodb_client.py:55} INFO - Stored 10 articles for Alphabet for week 2025-04-15 00:00:00
+[2025-04-29T20:43:51.584+0000] {logging_mixin.py:190} INFO - Stored 10 articles for Alphabet for week 2025-04-15 00:00:00
+[2025-04-29T20:43:51.584+0000] {backfill_historical_news.py:28} INFO - Backfilling news for Alphabet for week 2025-04-08 00:00:00
+[2025-04-29T20:43:51.585+0000] {news_api_client.py:37} INFO - Fetching news for Alphabet from 2025-04-08 00:00:00 to 2025-04-15 00:00:00
+[2025-04-29T20:43:51.865+0000] {news_api_client.py:47} INFO - Retrieved 10 articles for Alphabet
+[2025-04-29T20:43:51.865+0000] {logging_mixin.py:190} INFO - Fetched 10 articles for Alphabet for week 2025-04-08 00:00:00
+[2025-04-29T20:43:51.875+0000] {mongodb_client.py:55} INFO - Stored 10 articles for Alphabet for week 2025-04-08 00:00:00
+[2025-04-29T20:43:51.876+0000] {logging_mixin.py:190} INFO - Stored 10 articles for Alphabet for week 2025-04-08 00:00:00
+[2025-04-29T20:43:51.876+0000] {backfill_historical_news.py:28} INFO - Backfilling news for Alphabet for week 2025-04-01 00:00:00
+[2025-04-29T20:43:51.876+0000] {news_api_client.py:37} INFO - Fetching news for Alphabet from 2025-04-01 00:00:00 to 2025-04-08 00:00:00
+[2025-04-29T20:43:52.794+0000] {news_api_client.py:47} INFO - Retrieved 10 articles for Alphabet
+[2025-04-29T20:43:52.794+0000] {logging_mixin.py:190} INFO - Fetched 10 articles for Alphabet for week 2025-04-01 00:00:00
+[2025-04-29T20:43:52.807+0000] {mongodb_client.py:55} INFO - Stored 10 articles for Alphabet for week 2025-04-01 00:00:00
+[2025-04-29T20:43:52.808+0000] {logging_mixin.py:190} INFO - Stored 10 articles for Alphabet for week 2025-04-01 00:00:00
+[2025-04-29T20:43:52.808+0000] {backfill_historical_news.py:28} INFO - Backfilling news for Alphabet for week 2025-03-25 00:00:00
+[2025-04-29T20:43:52.809+0000] {news_api_client.py:37} INFO - Fetching news for Alphabet from 2025-03-25 00:00:00 to 2025-04-01 00:00:00
+[2025-04-29T20:43:53.114+0000] {news_api_client.py:50} ERROR - Error fetching news for Alphabet: {'status': 'error', 'code': 'parameterInvalid', 'message': 'You are trying to request results too far in the past. Your plan permits you to request articles as far back as 2025-03-28, but you have requested 2025-03-25. You may need to upgrade to a paid plan.'}
+[2025-04-29T20:43:53.115+0000] {backfill_historical_news.py:38} WARNING - No articles found for Alphabet for week 2025-03-25 00:00:00
+[2025-04-29T20:43:53.116+0000] {backfill_historical_news.py:28} INFO - Backfilling news for Alphabet for week 2025-03-18 00:00:00
+[2025-04-29T20:43:53.116+0000] {news_api_client.py:37} INFO - Fetching news for Alphabet from 2025-03-18 00:00:00 to 2025-03-25 00:00:00
+[2025-04-29T20:43:53.366+0000] {news_api_client.py:50} ERROR - Error fetching news for Alphabet: {'status': 'error', 'code': 'parameterInvalid', 'message': 'You are trying to request results too far in the past. Your plan permits you to request articles as far back as 2025-03-28, but you have requested 2025-03-18. You may need to upgrade to a paid plan.'}
+[2025-04-29T20:43:53.367+0000] {backfill_historical_news.py:38} WARNING - No articles found for Alphabet for week 2025-03-18 00:00:00
+[2025-04-29T20:43:53.367+0000] {backfill_historical_news.py:28} INFO - Backfilling news for Alphabet for week 2025-03-11 00:00:00
+[2025-04-29T20:43:53.368+0000] {news_api_client.py:37} INFO - Fetching news for Alphabet from 2025-03-11 00:00:00 to 2025-03-18 00:00:00
+[2025-04-29T20:43:53.748+0000] {news_api_client.py:50} ERROR - Error fetching news for Alphabet: {'status': 'error', 'code': 'parameterInvalid', 'message': 'You are trying to request results too far in the past. Your plan permits you to request articles as far back as 2025-03-28, but you have requested 2025-03-11. You may need to upgrade to a paid plan.'}
+[2025-04-29T20:43:53.750+0000] {backfill_historical_news.py:38} WARNING - No articles found for Alphabet for week 2025-03-11 00:00:00
+[2025-04-29T20:43:53.751+0000] {backfill_historical_news.py:28} INFO - Backfilling news for Alphabet for week 2025-03-04 00:00:00
+[2025-04-29T20:43:53.752+0000] {news_api_client.py:37} INFO - Fetching news for Alphabet from 2025-03-04 00:00:00 to 2025-03-11 00:00:00
+[2025-04-29T20:43:54.166+0000] {news_api_client.py:50} ERROR - Error fetching news for Alphabet: {'status': 'error', 'code': 'parameterInvalid', 'message': 'You are trying to request results too far in the past. Your plan permits you to request articles as far back as 2025-03-28, but you have requested 2025-03-04. You may need to upgrade to a paid plan.'}
+[2025-04-29T20:43:54.167+0000] {backfill_historical_news.py:38} WARNING - No articles found for Alphabet for week 2025-03-04 00:00:00
+[2025-04-29T20:43:54.167+0000] {backfill_historical_news.py:28} INFO - Backfilling news for Alphabet for week 2025-02-25 00:00:00
+[2025-04-29T20:43:54.167+0000] {news_api_client.py:37} INFO - Fetching news for Alphabet from 2025-02-25 00:00:00 to 2025-03-04 00:00:00
+[2025-04-29T20:43:54.454+0000] {news_api_client.py:50} ERROR - Error fetching news for Alphabet: {'status': 'error', 'code': 'parameterInvalid', 'message': 'You are trying to request results too far in the past. Your plan permits you to request articles as far back as 2025-03-28, but you have requested 2025-02-25. You may need to upgrade to a paid plan.'}
+[2025-04-29T20:43:54.455+0000] {backfill_historical_news.py:38} WARNING - No articles found for Alphabet for week 2025-02-25 00:00:00
+[2025-04-29T20:43:54.455+0000] {backfill_historical_news.py:28} INFO - Backfilling news for Alphabet for week 2025-02-18 00:00:00
+[2025-04-29T20:43:54.455+0000] {news_api_client.py:37} INFO - Fetching news for Alphabet from 2025-02-18 00:00:00 to 2025-02-25 00:00:00
+[2025-04-29T20:43:54.728+0000] {news_api_client.py:50} ERROR - Error fetching news for Alphabet: {'status': 'error', 'code': 'parameterInvalid', 'message': 'You are trying to request results too far in the past. Your plan permits you to request articles as far back as 2025-03-28, but you have requested 2025-02-18. You may need to upgrade to a paid plan.'}
+[2025-04-29T20:43:54.729+0000] {backfill_historical_news.py:38} WARNING - No articles found for Alphabet for week 2025-02-18 00:00:00
+[2025-04-29T20:43:54.730+0000] {backfill_historical_news.py:28} INFO - Backfilling news for Alphabet for week 2025-02-11 00:00:00
+[2025-04-29T20:43:54.730+0000] {news_api_client.py:37} INFO - Fetching news for Alphabet from 2025-02-11 00:00:00 to 2025-02-18 00:00:00
+[2025-04-29T20:43:55.079+0000] {news_api_client.py:50} ERROR - Error fetching news for Alphabet: {'status': 'error', 'code': 'parameterInvalid', 'message': 'You are trying to request results too far in the past. Your plan permits you to request articles as far back as 2025-03-28, but you have requested 2025-02-11. You may need to upgrade to a paid plan.'}
+[2025-04-29T20:43:55.079+0000] {backfill_historical_news.py:38} WARNING - No articles found for Alphabet for week 2025-02-11 00:00:00
+[2025-04-29T20:43:55.080+0000] {backfill_historical_news.py:28} INFO - Backfilling news for Amazon for week 2025-04-29 00:00:00
+[2025-04-29T20:43:55.080+0000] {news_api_client.py:37} INFO - Fetching news for Amazon from 2025-04-29 00:00:00 to 2025-05-06 00:00:00
+[2025-04-29T20:43:55.354+0000] {news_api_client.py:47} INFO - Retrieved 0 articles for Amazon
+[2025-04-29T20:43:55.355+0000] {backfill_historical_news.py:38} WARNING - No articles found for Amazon for week 2025-04-29 00:00:00
+[2025-04-29T20:43:55.355+0000] {backfill_historical_news.py:28} INFO - Backfilling news for Amazon for week 2025-04-22 00:00:00
+[2025-04-29T20:43:55.356+0000] {news_api_client.py:37} INFO - Fetching news for Amazon from 2025-04-22 00:00:00 to 2025-04-29 00:00:00
+[2025-04-29T20:43:56.275+0000] {news_api_client.py:47} INFO - Retrieved 8 articles for Amazon
+[2025-04-29T20:43:56.276+0000] {logging_mixin.py:190} INFO - Fetched 8 articles for Amazon for week 2025-04-22 00:00:00
+[2025-04-29T20:43:56.290+0000] {mongodb_client.py:55} INFO - Stored 8 articles for Amazon for week 2025-04-22 00:00:00
+[2025-04-29T20:43:56.291+0000] {logging_mixin.py:190} INFO - Stored 8 articles for Amazon for week 2025-04-22 00:00:00
+[2025-04-29T20:43:56.291+0000] {backfill_historical_news.py:28} INFO - Backfilling news for Amazon for week 2025-04-15 00:00:00
+[2025-04-29T20:43:56.292+0000] {news_api_client.py:37} INFO - Fetching news for Amazon from 2025-04-15 00:00:00 to 2025-04-22 00:00:00
+[2025-04-29T20:43:57.256+0000] {news_api_client.py:47} INFO - Retrieved 8 articles for Amazon
+[2025-04-29T20:43:57.257+0000] {logging_mixin.py:190} INFO - Fetched 8 articles for Amazon for week 2025-04-15 00:00:00
+[2025-04-29T20:43:57.266+0000] {mongodb_client.py:55} INFO - Stored 8 articles for Amazon for week 2025-04-15 00:00:00
+[2025-04-29T20:43:57.266+0000] {logging_mixin.py:190} INFO - Stored 8 articles for Amazon for week 2025-04-15 00:00:00
+[2025-04-29T20:43:57.267+0000] {backfill_historical_news.py:28} INFO - Backfilling news for Amazon for week 2025-04-08 00:00:00
+[2025-04-29T20:43:57.267+0000] {news_api_client.py:37} INFO - Fetching news for Amazon from 2025-04-08 00:00:00 to 2025-04-15 00:00:00
+[2025-04-29T20:43:57.557+0000] {news_api_client.py:47} INFO - Retrieved 9 articles for Amazon
+[2025-04-29T20:43:57.558+0000] {logging_mixin.py:190} INFO - Fetched 9 articles for Amazon for week 2025-04-08 00:00:00
+[2025-04-29T20:43:57.569+0000] {mongodb_client.py:55} INFO - Stored 9 articles for Amazon for week 2025-04-08 00:00:00
+[2025-04-29T20:43:57.569+0000] {logging_mixin.py:190} INFO - Stored 9 articles for Amazon for week 2025-04-08 00:00:00
+[2025-04-29T20:43:57.570+0000] {backfill_historical_news.py:28} INFO - Backfilling news for Amazon for week 2025-04-01 00:00:00
+[2025-04-29T20:43:57.570+0000] {news_api_client.py:37} INFO - Fetching news for Amazon from 2025-04-01 00:00:00 to 2025-04-08 00:00:00
+[2025-04-29T20:43:57.857+0000] {news_api_client.py:47} INFO - Retrieved 7 articles for Amazon
+[2025-04-29T20:43:57.858+0000] {logging_mixin.py:190} INFO - Fetched 7 articles for Amazon for week 2025-04-01 00:00:00
+[2025-04-29T20:43:57.866+0000] {mongodb_client.py:55} INFO - Stored 7 articles for Amazon for week 2025-04-01 00:00:00
+[2025-04-29T20:43:57.867+0000] {logging_mixin.py:190} INFO - Stored 7 articles for Amazon for week 2025-04-01 00:00:00
+[2025-04-29T20:43:57.867+0000] {backfill_historical_news.py:28} INFO - Backfilling news for Amazon for week 2025-03-25 00:00:00
+[2025-04-29T20:43:57.867+0000] {news_api_client.py:37} INFO - Fetching news for Amazon from 2025-03-25 00:00:00 to 2025-04-01 00:00:00
+[2025-04-29T20:43:58.133+0000] {news_api_client.py:50} ERROR - Error fetching news for Amazon: {'status': 'error', 'code': 'parameterInvalid', 'message': 'You are trying to request results too far in the past. Your plan permits you to request articles as far back as 2025-03-28, but you have requested 2025-03-25. You may need to upgrade to a paid plan.'}
+[2025-04-29T20:43:58.134+0000] {backfill_historical_news.py:38} WARNING - No articles found for Amazon for week 2025-03-25 00:00:00
+[2025-04-29T20:43:58.134+0000] {backfill_historical_news.py:28} INFO - Backfilling news for Amazon for week 2025-03-18 00:00:00
+[2025-04-29T20:43:58.135+0000] {news_api_client.py:37} INFO - Fetching news for Amazon from 2025-03-18 00:00:00 to 2025-03-25 00:00:00
+[2025-04-29T20:43:58.386+0000] {news_api_client.py:50} ERROR - Error fetching news for Amazon: {'status': 'error', 'code': 'parameterInvalid', 'message': 'You are trying to request results too far in the past. Your plan permits you to request articles as far back as 2025-03-28, but you have requested 2025-03-18. You may need to upgrade to a paid plan.'}
+[2025-04-29T20:43:58.387+0000] {backfill_historical_news.py:38} WARNING - No articles found for Amazon for week 2025-03-18 00:00:00
+[2025-04-29T20:43:58.387+0000] {backfill_historical_news.py:28} INFO - Backfilling news for Amazon for week 2025-03-11 00:00:00
+[2025-04-29T20:43:58.387+0000] {news_api_client.py:37} INFO - Fetching news for Amazon from 2025-03-11 00:00:00 to 2025-03-18 00:00:00
+[2025-04-29T20:43:58.640+0000] {news_api_client.py:50} ERROR - Error fetching news for Amazon: {'status': 'error', 'code': 'parameterInvalid', 'message': 'You are trying to request results too far in the past. Your plan permits you to request articles as far back as 2025-03-28, but you have requested 2025-03-11. You may need to upgrade to a paid plan.'}
+[2025-04-29T20:43:58.641+0000] {backfill_historical_news.py:38} WARNING - No articles found for Amazon for week 2025-03-11 00:00:00
+[2025-04-29T20:43:58.642+0000] {backfill_historical_news.py:28} INFO - Backfilling news for Amazon for week 2025-03-04 00:00:00
+[2025-04-29T20:43:58.642+0000] {news_api_client.py:37} INFO - Fetching news for Amazon from 2025-03-04 00:00:00 to 2025-03-11 00:00:00
+[2025-04-29T20:43:58.940+0000] {news_api_client.py:50} ERROR - Error fetching news for Amazon: {'status': 'error', 'code': 'parameterInvalid', 'message': 'You are trying to request results too far in the past. Your plan permits you to request articles as far back as 2025-03-28, but you have requested 2025-03-04. You may need to upgrade to a paid plan.'}
+[2025-04-29T20:43:58.941+0000] {backfill_historical_news.py:38} WARNING - No articles found for Amazon for week 2025-03-04 00:00:00
+[2025-04-29T20:43:58.941+0000] {backfill_historical_news.py:28} INFO - Backfilling news for Amazon for week 2025-02-25 00:00:00
+[2025-04-29T20:43:58.941+0000] {news_api_client.py:37} INFO - Fetching news for Amazon from 2025-02-25 00:00:00 to 2025-03-04 00:00:00
+[2025-04-29T20:43:59.203+0000] {news_api_client.py:50} ERROR - Error fetching news for Amazon: {'status': 'error', 'code': 'parameterInvalid', 'message': 'You are trying to request results too far in the past. Your plan permits you to request articles as far back as 2025-03-28, but you have requested 2025-02-25. You may need to upgrade to a paid plan.'}
+[2025-04-29T20:43:59.204+0000] {backfill_historical_news.py:38} WARNING - No articles found for Amazon for week 2025-02-25 00:00:00
+[2025-04-29T20:43:59.205+0000] {backfill_historical_news.py:28} INFO - Backfilling news for Amazon for week 2025-02-18 00:00:00
+[2025-04-29T20:43:59.205+0000] {news_api_client.py:37} INFO - Fetching news for Amazon from 2025-02-18 00:00:00 to 2025-02-25 00:00:00
+[2025-04-29T20:44:00.126+0000] {news_api_client.py:50} ERROR - Error fetching news for Amazon: {'status': 'error', 'code': 'parameterInvalid', 'message': 'You are trying to request results too far in the past. Your plan permits you to request articles as far back as 2025-03-28, but you have requested 2025-02-18. You may need to upgrade to a paid plan.'}
+[2025-04-29T20:44:00.127+0000] {backfill_historical_news.py:38} WARNING - No articles found for Amazon for week 2025-02-18 00:00:00
+[2025-04-29T20:44:00.127+0000] {backfill_historical_news.py:28} INFO - Backfilling news for Amazon for week 2025-02-11 00:00:00
+[2025-04-29T20:44:00.127+0000] {news_api_client.py:37} INFO - Fetching news for Amazon from 2025-02-11 00:00:00 to 2025-02-18 00:00:00
+[2025-04-29T20:44:00.384+0000] {news_api_client.py:50} ERROR - Error fetching news for Amazon: {'status': 'error', 'code': 'parameterInvalid', 'message': 'You are trying to request results too far in the past. Your plan permits you to request articles as far back as 2025-03-28, but you have requested 2025-02-11. You may need to upgrade to a paid plan.'}
+[2025-04-29T20:44:00.385+0000] {backfill_historical_news.py:38} WARNING - No articles found for Amazon for week 2025-02-11 00:00:00
+[2025-04-29T20:44:00.386+0000] {backfill_historical_news.py:28} INFO - Backfilling news for Tesla for week 2025-04-29 00:00:00
+[2025-04-29T20:44:00.386+0000] {news_api_client.py:37} INFO - Fetching news for Tesla from 2025-04-29 00:00:00 to 2025-05-06 00:00:00
+[2025-04-29T20:44:00.647+0000] {news_api_client.py:47} INFO - Retrieved 0 articles for Tesla
+[2025-04-29T20:44:00.648+0000] {backfill_historical_news.py:38} WARNING - No articles found for Tesla for week 2025-04-29 00:00:00
+[2025-04-29T20:44:00.648+0000] {backfill_historical_news.py:28} INFO - Backfilling news for Tesla for week 2025-03-25 00:00:00
+[2025-04-29T20:44:00.649+0000] {news_api_client.py:37} INFO - Fetching news for Tesla from 2025-03-25 00:00:00 to 2025-04-01 00:00:00
+[2025-04-29T20:44:00.936+0000] {news_api_client.py:50} ERROR - Error fetching news for Tesla: {'status': 'error', 'code': 'parameterInvalid', 'message': 'You are trying to request results too far in the past. Your plan permits you to request articles as far back as 2025-03-28, but you have requested 2025-03-25. You may need to upgrade to a paid plan.'}
+[2025-04-29T20:44:00.936+0000] {backfill_historical_news.py:38} WARNING - No articles found for Tesla for week 2025-03-25 00:00:00
+[2025-04-29T20:44:00.937+0000] {backfill_historical_news.py:28} INFO - Backfilling news for Tesla for week 2025-03-18 00:00:00
+[2025-04-29T20:44:00.937+0000] {news_api_client.py:37} INFO - Fetching news for Tesla from 2025-03-18 00:00:00 to 2025-03-25 00:00:00
+[2025-04-29T20:44:01.215+0000] {news_api_client.py:50} ERROR - Error fetching news for Tesla: {'status': 'error', 'code': 'parameterInvalid', 'message': 'You are trying to request results too far in the past. Your plan permits you to request articles as far back as 2025-03-28, but you have requested 2025-03-18. You may need to upgrade to a paid plan.'}
+[2025-04-29T20:44:01.216+0000] {backfill_historical_news.py:38} WARNING - No articles found for Tesla for week 2025-03-18 00:00:00
+[2025-04-29T20:44:01.216+0000] {backfill_historical_news.py:28} INFO - Backfilling news for Tesla for week 2025-03-11 00:00:00
+[2025-04-29T20:44:01.217+0000] {news_api_client.py:37} INFO - Fetching news for Tesla from 2025-03-11 00:00:00 to 2025-03-18 00:00:00
+[2025-04-29T20:44:01.510+0000] {news_api_client.py:50} ERROR - Error fetching news for Tesla: {'status': 'error', 'code': 'parameterInvalid', 'message': 'You are trying to request results too far in the past. Your plan permits you to request articles as far back as 2025-03-28, but you have requested 2025-03-11. You may need to upgrade to a paid plan.'}
+[2025-04-29T20:44:01.511+0000] {backfill_historical_news.py:38} WARNING - No articles found for Tesla for week 2025-03-11 00:00:00
+[2025-04-29T20:44:01.511+0000] {backfill_historical_news.py:28} INFO - Backfilling news for Tesla for week 2025-03-04 00:00:00
+[2025-04-29T20:44:01.511+0000] {news_api_client.py:37} INFO - Fetching news for Tesla from 2025-03-04 00:00:00 to 2025-03-11 00:00:00
+[2025-04-29T20:44:01.778+0000] {news_api_client.py:50} ERROR - Error fetching news for Tesla: {'status': 'error', 'code': 'parameterInvalid', 'message': 'You are trying to request results too far in the past. Your plan permits you to request articles as far back as 2025-03-28, but you have requested 2025-03-04. You may need to upgrade to a paid plan.'}
+[2025-04-29T20:44:01.779+0000] {backfill_historical_news.py:38} WARNING - No articles found for Tesla for week 2025-03-04 00:00:00
+[2025-04-29T20:44:01.779+0000] {backfill_historical_news.py:28} INFO - Backfilling news for Tesla for week 2025-02-25 00:00:00
+[2025-04-29T20:44:01.779+0000] {news_api_client.py:37} INFO - Fetching news for Tesla from 2025-02-25 00:00:00 to 2025-03-04 00:00:00
+[2025-04-29T20:44:02.122+0000] {news_api_client.py:50} ERROR - Error fetching news for Tesla: {'status': 'error', 'code': 'parameterInvalid', 'message': 'You are trying to request results too far in the past. Your plan permits you to request articles as far back as 2025-03-28, but you have requested 2025-02-25. You may need to upgrade to a paid plan.'}
+[2025-04-29T20:44:02.123+0000] {backfill_historical_news.py:38} WARNING - No articles found for Tesla for week 2025-02-25 00:00:00
+[2025-04-29T20:44:02.124+0000] {backfill_historical_news.py:28} INFO - Backfilling news for Tesla for week 2025-02-18 00:00:00
+[2025-04-29T20:44:02.124+0000] {news_api_client.py:37} INFO - Fetching news for Tesla from 2025-02-18 00:00:00 to 2025-02-25 00:00:00
+[2025-04-29T20:44:02.405+0000] {news_api_client.py:50} ERROR - Error fetching news for Tesla: {'status': 'error', 'code': 'parameterInvalid', 'message': 'You are trying to request results too far in the past. Your plan permits you to request articles as far back as 2025-03-28, but you have requested 2025-02-18. You may need to upgrade to a paid plan.'}
+[2025-04-29T20:44:02.406+0000] {backfill_historical_news.py:38} WARNING - No articles found for Tesla for week 2025-02-18 00:00:00
+[2025-04-29T20:44:02.406+0000] {backfill_historical_news.py:28} INFO - Backfilling news for Tesla for week 2025-02-11 00:00:00
+[2025-04-29T20:44:02.406+0000] {news_api_client.py:37} INFO - Fetching news for Tesla from 2025-02-11 00:00:00 to 2025-02-18 00:00:00
+[2025-04-29T20:44:02.665+0000] {news_api_client.py:50} ERROR - Error fetching news for Tesla: {'status': 'error', 'code': 'parameterInvalid', 'message': 'You are trying to request results too far in the past. Your plan permits you to request articles as far back as 2025-03-28, but you have requested 2025-02-11. You may need to upgrade to a paid plan.'}
+[2025-04-29T20:44:02.665+0000] {backfill_historical_news.py:38} WARNING - No articles found for Tesla for week 2025-02-11 00:00:00
+[2025-04-29T20:44:02.666+0000] {backfill_historical_news.py:28} INFO - Backfilling news for NVIDIA for week 2025-04-29 00:00:00
+[2025-04-29T20:44:02.666+0000] {news_api_client.py:37} INFO - Fetching news for NVIDIA from 2025-04-29 00:00:00 to 2025-05-06 00:00:00
+[2025-04-29T20:44:02.934+0000] {news_api_client.py:47} INFO - Retrieved 0 articles for NVIDIA
+[2025-04-29T20:44:02.935+0000] {backfill_historical_news.py:38} WARNING - No articles found for NVIDIA for week 2025-04-29 00:00:00
+[2025-04-29T20:44:02.935+0000] {backfill_historical_news.py:28} INFO - Backfilling news for NVIDIA for week 2025-04-22 00:00:00
+[2025-04-29T20:44:02.935+0000] {news_api_client.py:37} INFO - Fetching news for NVIDIA from 2025-04-22 00:00:00 to 2025-04-29 00:00:00
+[2025-04-29T20:44:03.222+0000] {news_api_client.py:47} INFO - Retrieved 9 articles for NVIDIA
+[2025-04-29T20:44:03.222+0000] {logging_mixin.py:190} INFO - Fetched 9 articles for NVIDIA for week 2025-04-22 00:00:00
+[2025-04-29T20:44:03.237+0000] {mongodb_client.py:55} INFO - Stored 9 articles for NVIDIA for week 2025-04-22 00:00:00
+[2025-04-29T20:44:03.238+0000] {logging_mixin.py:190} INFO - Stored 9 articles for NVIDIA for week 2025-04-22 00:00:00
+[2025-04-29T20:44:03.238+0000] {backfill_historical_news.py:28} INFO - Backfilling news for NVIDIA for week 2025-04-15 00:00:00
+[2025-04-29T20:44:03.238+0000] {news_api_client.py:37} INFO - Fetching news for NVIDIA from 2025-04-15 00:00:00 to 2025-04-22 00:00:00
+[2025-04-29T20:44:03.555+0000] {news_api_client.py:47} INFO - Retrieved 8 articles for NVIDIA
+[2025-04-29T20:44:03.556+0000] {logging_mixin.py:190} INFO - Fetched 8 articles for NVIDIA for week 2025-04-15 00:00:00
+[2025-04-29T20:44:03.563+0000] {mongodb_client.py:55} INFO - Stored 8 articles for NVIDIA for week 2025-04-15 00:00:00
+[2025-04-29T20:44:03.564+0000] {logging_mixin.py:190} INFO - Stored 8 articles for NVIDIA for week 2025-04-15 00:00:00
+[2025-04-29T20:44:03.564+0000] {backfill_historical_news.py:28} INFO - Backfilling news for NVIDIA for week 2025-04-08 00:00:00
+[2025-04-29T20:44:03.565+0000] {news_api_client.py:37} INFO - Fetching news for NVIDIA from 2025-04-08 00:00:00 to 2025-04-15 00:00:00
+[2025-04-29T20:44:03.892+0000] {news_api_client.py:47} INFO - Retrieved 7 articles for NVIDIA
+[2025-04-29T20:44:03.893+0000] {logging_mixin.py:190} INFO - Fetched 7 articles for NVIDIA for week 2025-04-08 00:00:00
+[2025-04-29T20:44:03.898+0000] {mongodb_client.py:55} INFO - Stored 7 articles for NVIDIA for week 2025-04-08 00:00:00
+[2025-04-29T20:44:03.898+0000] {logging_mixin.py:190} INFO - Stored 7 articles for NVIDIA for week 2025-04-08 00:00:00
+[2025-04-29T20:44:03.899+0000] {backfill_historical_news.py:28} INFO - Backfilling news for NVIDIA for week 2025-04-01 00:00:00
+[2025-04-29T20:44:03.899+0000] {news_api_client.py:37} INFO - Fetching news for NVIDIA from 2025-04-01 00:00:00 to 2025-04-08 00:00:00
+[2025-04-29T20:44:04.181+0000] {news_api_client.py:47} INFO - Retrieved 7 articles for NVIDIA
+[2025-04-29T20:44:04.181+0000] {logging_mixin.py:190} INFO - Fetched 7 articles for NVIDIA for week 2025-04-01 00:00:00
+[2025-04-29T20:44:04.187+0000] {mongodb_client.py:55} INFO - Stored 7 articles for NVIDIA for week 2025-04-01 00:00:00
+[2025-04-29T20:44:04.187+0000] {logging_mixin.py:190} INFO - Stored 7 articles for NVIDIA for week 2025-04-01 00:00:00
+[2025-04-29T20:44:04.188+0000] {backfill_historical_news.py:28} INFO - Backfilling news for NVIDIA for week 2025-03-25 00:00:00
+[2025-04-29T20:44:04.188+0000] {news_api_client.py:37} INFO - Fetching news for NVIDIA from 2025-03-25 00:00:00 to 2025-04-01 00:00:00
+[2025-04-29T20:44:04.542+0000] {news_api_client.py:50} ERROR - Error fetching news for NVIDIA: {'status': 'error', 'code': 'parameterInvalid', 'message': 'You are trying to request results too far in the past. Your plan permits you to request articles as far back as 2025-03-28, but you have requested 2025-03-25. You may need to upgrade to a paid plan.'}
+[2025-04-29T20:44:04.543+0000] {backfill_historical_news.py:38} WARNING - No articles found for NVIDIA for week 2025-03-25 00:00:00
+[2025-04-29T20:44:04.543+0000] {backfill_historical_news.py:28} INFO - Backfilling news for NVIDIA for week 2025-03-18 00:00:00
+[2025-04-29T20:44:04.544+0000] {news_api_client.py:37} INFO - Fetching news for NVIDIA from 2025-03-18 00:00:00 to 2025-03-25 00:00:00
+[2025-04-29T20:44:04.794+0000] {news_api_client.py:50} ERROR - Error fetching news for NVIDIA: {'status': 'error', 'code': 'parameterInvalid', 'message': 'You are trying to request results too far in the past. Your plan permits you to request articles as far back as 2025-03-28, but you have requested 2025-03-18. You may need to upgrade to a paid plan.'}
+[2025-04-29T20:44:04.795+0000] {backfill_historical_news.py:38} WARNING - No articles found for NVIDIA for week 2025-03-18 00:00:00
+[2025-04-29T20:44:04.795+0000] {backfill_historical_news.py:28} INFO - Backfilling news for NVIDIA for week 2025-03-11 00:00:00
+[2025-04-29T20:44:04.795+0000] {news_api_client.py:37} INFO - Fetching news for NVIDIA from 2025-03-11 00:00:00 to 2025-03-18 00:00:00
+[2025-04-29T20:44:05.083+0000] {news_api_client.py:50} ERROR - Error fetching news for NVIDIA: {'status': 'error', 'code': 'parameterInvalid', 'message': 'You are trying to request results too far in the past. Your plan permits you to request articles as far back as 2025-03-28, but you have requested 2025-03-11. You may need to upgrade to a paid plan.'}
+[2025-04-29T20:44:05.084+0000] {backfill_historical_news.py:38} WARNING - No articles found for NVIDIA for week 2025-03-11 00:00:00
+[2025-04-29T20:44:05.084+0000] {backfill_historical_news.py:28} INFO - Backfilling news for NVIDIA for week 2025-03-04 00:00:00
+[2025-04-29T20:44:05.085+0000] {news_api_client.py:37} INFO - Fetching news for NVIDIA from 2025-03-04 00:00:00 to 2025-03-11 00:00:00
+[2025-04-29T20:44:05.370+0000] {news_api_client.py:50} ERROR - Error fetching news for NVIDIA: {'status': 'error', 'code': 'parameterInvalid', 'message': 'You are trying to request results too far in the past. Your plan permits you to request articles as far back as 2025-03-28, but you have requested 2025-03-04. You may need to upgrade to a paid plan.'}
+[2025-04-29T20:44:05.371+0000] {backfill_historical_news.py:38} WARNING - No articles found for NVIDIA for week 2025-03-04 00:00:00
+[2025-04-29T20:44:05.371+0000] {backfill_historical_news.py:28} INFO - Backfilling news for NVIDIA for week 2025-02-25 00:00:00
+[2025-04-29T20:44:05.371+0000] {news_api_client.py:37} INFO - Fetching news for NVIDIA from 2025-02-25 00:00:00 to 2025-03-04 00:00:00
+[2025-04-29T20:44:05.680+0000] {news_api_client.py:50} ERROR - Error fetching news for NVIDIA: {'status': 'error', 'code': 'parameterInvalid', 'message': 'You are trying to request results too far in the past. Your plan permits you to request articles as far back as 2025-03-28, but you have requested 2025-02-25. You may need to upgrade to a paid plan.'}
+[2025-04-29T20:44:05.680+0000] {backfill_historical_news.py:38} WARNING - No articles found for NVIDIA for week 2025-02-25 00:00:00
+[2025-04-29T20:44:05.681+0000] {backfill_historical_news.py:28} INFO - Backfilling news for NVIDIA for week 2025-02-18 00:00:00
+[2025-04-29T20:44:05.681+0000] {news_api_client.py:37} INFO - Fetching news for NVIDIA from 2025-02-18 00:00:00 to 2025-02-25 00:00:00
+[2025-04-29T20:44:05.940+0000] {news_api_client.py:50} ERROR - Error fetching news for NVIDIA: {'status': 'error', 'code': 'parameterInvalid', 'message': 'You are trying to request results too far in the past. Your plan permits you to request articles as far back as 2025-03-28, but you have requested 2025-02-18. You may need to upgrade to a paid plan.'}
+[2025-04-29T20:44:05.941+0000] {backfill_historical_news.py:38} WARNING - No articles found for NVIDIA for week 2025-02-18 00:00:00
+[2025-04-29T20:44:05.942+0000] {backfill_historical_news.py:28} INFO - Backfilling news for NVIDIA for week 2025-02-11 00:00:00
+[2025-04-29T20:44:05.942+0000] {news_api_client.py:37} INFO - Fetching news for NVIDIA from 2025-02-11 00:00:00 to 2025-02-18 00:00:00
+[2025-04-29T20:44:06.269+0000] {news_api_client.py:50} ERROR - Error fetching news for NVIDIA: {'status': 'error', 'code': 'parameterInvalid', 'message': 'You are trying to request results too far in the past. Your plan permits you to request articles as far back as 2025-03-28, but you have requested 2025-02-11. You may need to upgrade to a paid plan.'}
+[2025-04-29T20:44:06.270+0000] {backfill_historical_news.py:38} WARNING - No articles found for NVIDIA for week 2025-02-11 00:00:00
+[2025-04-29T20:44:06.271+0000] {backfill_historical_news.py:28} INFO - Backfilling news for Meta for week 2025-04-29 00:00:00
+[2025-04-29T20:44:06.271+0000] {news_api_client.py:37} INFO - Fetching news for Meta from 2025-04-29 00:00:00 to 2025-05-06 00:00:00
+[2025-04-29T20:44:06.554+0000] {news_api_client.py:47} INFO - Retrieved 0 articles for Meta
+[2025-04-29T20:44:06.554+0000] {backfill_historical_news.py:38} WARNING - No articles found for Meta for week 2025-04-29 00:00:00
+[2025-04-29T20:44:06.554+0000] {backfill_historical_news.py:28} INFO - Backfilling news for Meta for week 2025-04-22 00:00:00
+[2025-04-29T20:44:06.555+0000] {news_api_client.py:37} INFO - Fetching news for Meta from 2025-04-22 00:00:00 to 2025-04-29 00:00:00
+[2025-04-29T20:44:06.834+0000] {news_api_client.py:47} INFO - Retrieved 5 articles for Meta
+[2025-04-29T20:44:06.835+0000] {logging_mixin.py:190} INFO - Fetched 5 articles for Meta for week 2025-04-22 00:00:00
+[2025-04-29T20:44:06.840+0000] {mongodb_client.py:55} INFO - Stored 5 articles for Meta for week 2025-04-22 00:00:00
+[2025-04-29T20:44:06.841+0000] {logging_mixin.py:190} INFO - Stored 5 articles for Meta for week 2025-04-22 00:00:00
+[2025-04-29T20:44:06.841+0000] {backfill_historical_news.py:28} INFO - Backfilling news for Meta for week 2025-04-15 00:00:00
+[2025-04-29T20:44:06.841+0000] {news_api_client.py:37} INFO - Fetching news for Meta from 2025-04-15 00:00:00 to 2025-04-22 00:00:00
+[2025-04-29T20:44:07.123+0000] {news_api_client.py:50} ERROR - Error fetching news for Meta: {'status': 'error', 'code': 'rateLimited', 'message': 'You have made too many requests recently. Developer accounts are limited to 100 requests over a 24 hour period (50 requests available every 12 hours). Please upgrade to a paid plan if you need more requests.'}
+[2025-04-29T20:44:07.123+0000] {backfill_historical_news.py:38} WARNING - No articles found for Meta for week 2025-04-15 00:00:00
+[2025-04-29T20:44:07.124+0000] {backfill_historical_news.py:28} INFO - Backfilling news for Meta for week 2025-04-08 00:00:00
+[2025-04-29T20:44:07.124+0000] {news_api_client.py:37} INFO - Fetching news for Meta from 2025-04-08 00:00:00 to 2025-04-15 00:00:00
+[2025-04-29T20:44:07.388+0000] {news_api_client.py:50} ERROR - Error fetching news for Meta: {'status': 'error', 'code': 'rateLimited', 'message': 'You have made too many requests recently. Developer accounts are limited to 100 requests over a 24 hour period (50 requests available every 12 hours). Please upgrade to a paid plan if you need more requests.'}
+[2025-04-29T20:44:07.389+0000] {backfill_historical_news.py:38} WARNING - No articles found for Meta for week 2025-04-08 00:00:00
+[2025-04-29T20:44:07.389+0000] {backfill_historical_news.py:28} INFO - Backfilling news for Meta for week 2025-04-01 00:00:00
+[2025-04-29T20:44:07.389+0000] {news_api_client.py:37} INFO - Fetching news for Meta from 2025-04-01 00:00:00 to 2025-04-08 00:00:00
+[2025-04-29T20:44:07.638+0000] {news_api_client.py:50} ERROR - Error fetching news for Meta: {'status': 'error', 'code': 'rateLimited', 'message': 'You have made too many requests recently. Developer accounts are limited to 100 requests over a 24 hour period (50 requests available every 12 hours). Please upgrade to a paid plan if you need more requests.'}
+[2025-04-29T20:44:07.639+0000] {backfill_historical_news.py:38} WARNING - No articles found for Meta for week 2025-04-01 00:00:00
+[2025-04-29T20:44:07.640+0000] {backfill_historical_news.py:28} INFO - Backfilling news for Meta for week 2025-03-25 00:00:00
+[2025-04-29T20:44:07.640+0000] {news_api_client.py:37} INFO - Fetching news for Meta from 2025-03-25 00:00:00 to 2025-04-01 00:00:00
+[2025-04-29T20:44:07.902+0000] {news_api_client.py:50} ERROR - Error fetching news for Meta: {'status': 'error', 'code': 'rateLimited', 'message': 'You have made too many requests recently. Developer accounts are limited to 100 requests over a 24 hour period (50 requests available every 12 hours). Please upgrade to a paid plan if you need more requests.'}
+[2025-04-29T20:44:07.902+0000] {backfill_historical_news.py:38} WARNING - No articles found for Meta for week 2025-03-25 00:00:00
+[2025-04-29T20:44:07.903+0000] {backfill_historical_news.py:28} INFO - Backfilling news for Meta for week 2025-03-18 00:00:00
+[2025-04-29T20:44:07.903+0000] {news_api_client.py:37} INFO - Fetching news for Meta from 2025-03-18 00:00:00 to 2025-03-25 00:00:00
+[2025-04-29T20:44:08.164+0000] {news_api_client.py:50} ERROR - Error fetching news for Meta: {'status': 'error', 'code': 'rateLimited', 'message': 'You have made too many requests recently. Developer accounts are limited to 100 requests over a 24 hour period (50 requests available every 12 hours). Please upgrade to a paid plan if you need more requests.'}
+[2025-04-29T20:44:08.165+0000] {backfill_historical_news.py:38} WARNING - No articles found for Meta for week 2025-03-18 00:00:00
+[2025-04-29T20:44:08.165+0000] {backfill_historical_news.py:28} INFO - Backfilling news for Meta for week 2025-03-11 00:00:00
+[2025-04-29T20:44:08.166+0000] {news_api_client.py:37} INFO - Fetching news for Meta from 2025-03-11 00:00:00 to 2025-03-18 00:00:00
+[2025-04-29T20:44:08.429+0000] {news_api_client.py:50} ERROR - Error fetching news for Meta: {'status': 'error', 'code': 'rateLimited', 'message': 'You have made too many requests recently. Developer accounts are limited to 100 requests over a 24 hour period (50 requests available every 12 hours). Please upgrade to a paid plan if you need more requests.'}
+[2025-04-29T20:44:08.430+0000] {backfill_historical_news.py:38} WARNING - No articles found for Meta for week 2025-03-11 00:00:00
+[2025-04-29T20:44:08.431+0000] {backfill_historical_news.py:28} INFO - Backfilling news for Meta for week 2025-03-04 00:00:00
+[2025-04-29T20:44:08.431+0000] {news_api_client.py:37} INFO - Fetching news for Meta from 2025-03-04 00:00:00 to 2025-03-11 00:00:00
+[2025-04-29T20:44:08.714+0000] {news_api_client.py:50} ERROR - Error fetching news for Meta: {'status': 'error', 'code': 'rateLimited', 'message': 'You have made too many requests recently. Developer accounts are limited to 100 requests over a 24 hour period (50 requests available every 12 hours). Please upgrade to a paid plan if you need more requests.'}
+[2025-04-29T20:44:08.714+0000] {backfill_historical_news.py:38} WARNING - No articles found for Meta for week 2025-03-04 00:00:00
+[2025-04-29T20:44:08.715+0000] {backfill_historical_news.py:28} INFO - Backfilling news for Meta for week 2025-02-25 00:00:00
+[2025-04-29T20:44:08.715+0000] {news_api_client.py:37} INFO - Fetching news for Meta from 2025-02-25 00:00:00 to 2025-03-04 00:00:00
+[2025-04-29T20:44:08.979+0000] {news_api_client.py:50} ERROR - Error fetching news for Meta: {'status': 'error', 'code': 'rateLimited', 'message': 'You have made too many requests recently. Developer accounts are limited to 100 requests over a 24 hour period (50 requests available every 12 hours). Please upgrade to a paid plan if you need more requests.'}
+[2025-04-29T20:44:08.981+0000] {backfill_historical_news.py:38} WARNING - No articles found for Meta for week 2025-02-25 00:00:00
+[2025-04-29T20:44:08.982+0000] {backfill_historical_news.py:28} INFO - Backfilling news for Meta for week 2025-02-18 00:00:00
+[2025-04-29T20:44:08.982+0000] {news_api_client.py:37} INFO - Fetching news for Meta from 2025-02-18 00:00:00 to 2025-02-25 00:00:00
+[2025-04-29T20:44:09.280+0000] {news_api_client.py:50} ERROR - Error fetching news for Meta: {'status': 'error', 'code': 'rateLimited', 'message': 'You have made too many requests recently. Developer accounts are limited to 100 requests over a 24 hour period (50 requests available every 12 hours). Please upgrade to a paid plan if you need more requests.'}
+[2025-04-29T20:44:09.281+0000] {backfill_historical_news.py:38} WARNING - No articles found for Meta for week 2025-02-18 00:00:00
+[2025-04-29T20:44:09.281+0000] {backfill_historical_news.py:28} INFO - Backfilling news for Meta for week 2025-02-11 00:00:00
+[2025-04-29T20:44:09.282+0000] {news_api_client.py:37} INFO - Fetching news for Meta from 2025-02-11 00:00:00 to 2025-02-18 00:00:00
+[2025-04-29T20:44:09.543+0000] {news_api_client.py:50} ERROR - Error fetching news for Meta: {'status': 'error', 'code': 'rateLimited', 'message': 'You have made too many requests recently. Developer accounts are limited to 100 requests over a 24 hour period (50 requests available every 12 hours). Please upgrade to a paid plan if you need more requests.'}
+[2025-04-29T20:44:09.544+0000] {backfill_historical_news.py:38} WARNING - No articles found for Meta for week 2025-02-11 00:00:00
+[2025-04-29T20:44:09.544+0000] {backfill_historical_news.py:28} INFO - Backfilling news for JPMorgan for week 2025-04-29 00:00:00
+[2025-04-29T20:44:09.545+0000] {news_api_client.py:37} INFO - Fetching news for JPMorgan from 2025-04-29 00:00:00 to 2025-05-06 00:00:00
+[2025-04-29T20:44:09.826+0000] {news_api_client.py:50} ERROR - Error fetching news for JPMorgan: {'status': 'error', 'code': 'rateLimited', 'message': 'You have made too many requests recently. Developer accounts are limited to 100 requests over a 24 hour period (50 requests available every 12 hours). Please upgrade to a paid plan if you need more requests.'}
+[2025-04-29T20:44:09.826+0000] {backfill_historical_news.py:38} WARNING - No articles found for JPMorgan for week 2025-04-29 00:00:00
+[2025-04-29T20:44:09.827+0000] {backfill_historical_news.py:28} INFO - Backfilling news for JPMorgan for week 2025-04-22 00:00:00
+[2025-04-29T20:44:09.827+0000] {news_api_client.py:37} INFO - Fetching news for JPMorgan from 2025-04-22 00:00:00 to 2025-04-29 00:00:00
+[2025-04-29T20:44:10.095+0000] {news_api_client.py:50} ERROR - Error fetching news for JPMorgan: {'status': 'error', 'code': 'rateLimited', 'message': 'You have made too many requests recently. Developer accounts are limited to 100 requests over a 24 hour period (50 requests available every 12 hours). Please upgrade to a paid plan if you need more requests.'}
+[2025-04-29T20:44:10.096+0000] {backfill_historical_news.py:38} WARNING - No articles found for JPMorgan for week 2025-04-22 00:00:00
+[2025-04-29T20:44:10.096+0000] {backfill_historical_news.py:28} INFO - Backfilling news for JPMorgan for week 2025-04-15 00:00:00
+[2025-04-29T20:44:10.097+0000] {news_api_client.py:37} INFO - Fetching news for JPMorgan from 2025-04-15 00:00:00 to 2025-04-22 00:00:00
+[2025-04-29T20:44:10.376+0000] {news_api_client.py:50} ERROR - Error fetching news for JPMorgan: {'status': 'error', 'code': 'rateLimited', 'message': 'You have made too many requests recently. Developer accounts are limited to 100 requests over a 24 hour period (50 requests available every 12 hours). Please upgrade to a paid plan if you need more requests.'}
+[2025-04-29T20:44:10.377+0000] {backfill_historical_news.py:38} WARNING - No articles found for JPMorgan for week 2025-04-15 00:00:00
+[2025-04-29T20:44:10.377+0000] {backfill_historical_news.py:28} INFO - Backfilling news for JPMorgan for week 2025-04-08 00:00:00
+[2025-04-29T20:44:10.377+0000] {news_api_client.py:37} INFO - Fetching news for JPMorgan from 2025-04-08 00:00:00 to 2025-04-15 00:00:00
+[2025-04-29T20:44:10.627+0000] {news_api_client.py:50} ERROR - Error fetching news for JPMorgan: {'status': 'error', 'code': 'rateLimited', 'message': 'You have made too many requests recently. Developer accounts are limited to 100 requests over a 24 hour period (50 requests available every 12 hours). Please upgrade to a paid plan if you need more requests.'}
+[2025-04-29T20:44:10.628+0000] {backfill_historical_news.py:38} WARNING - No articles found for JPMorgan for week 2025-04-08 00:00:00
+[2025-04-29T20:44:10.628+0000] {backfill_historical_news.py:28} INFO - Backfilling news for JPMorgan for week 2025-04-01 00:00:00
+[2025-04-29T20:44:10.629+0000] {news_api_client.py:37} INFO - Fetching news for JPMorgan from 2025-04-01 00:00:00 to 2025-04-08 00:00:00
+[2025-04-29T20:44:10.887+0000] {news_api_client.py:50} ERROR - Error fetching news for JPMorgan: {'status': 'error', 'code': 'rateLimited', 'message': 'You have made too many requests recently. Developer accounts are limited to 100 requests over a 24 hour period (50 requests available every 12 hours). Please upgrade to a paid plan if you need more requests.'}
+[2025-04-29T20:44:10.887+0000] {backfill_historical_news.py:38} WARNING - No articles found for JPMorgan for week 2025-04-01 00:00:00
+[2025-04-29T20:44:10.888+0000] {backfill_historical_news.py:28} INFO - Backfilling news for JPMorgan for week 2025-03-25 00:00:00
+[2025-04-29T20:44:10.888+0000] {news_api_client.py:37} INFO - Fetching news for JPMorgan from 2025-03-25 00:00:00 to 2025-04-01 00:00:00
+[2025-04-29T20:44:11.213+0000] {news_api_client.py:50} ERROR - Error fetching news for JPMorgan: {'status': 'error', 'code': 'rateLimited', 'message': 'You have made too many requests recently. Developer accounts are limited to 100 requests over a 24 hour period (50 requests available every 12 hours). Please upgrade to a paid plan if you need more requests.'}
+[2025-04-29T20:44:11.213+0000] {backfill_historical_news.py:38} WARNING - No articles found for JPMorgan for week 2025-03-25 00:00:00
+[2025-04-29T20:44:11.214+0000] {backfill_historical_news.py:28} INFO - Backfilling news for JPMorgan for week 2025-03-18 00:00:00
+[2025-04-29T20:44:11.214+0000] {news_api_client.py:37} INFO - Fetching news for JPMorgan from 2025-03-18 00:00:00 to 2025-03-25 00:00:00
+[2025-04-29T20:44:11.512+0000] {news_api_client.py:50} ERROR - Error fetching news for JPMorgan: {'status': 'error', 'code': 'rateLimited', 'message': 'You have made too many requests recently. Developer accounts are limited to 100 requests over a 24 hour period (50 requests available every 12 hours). Please upgrade to a paid plan if you need more requests.'}
+[2025-04-29T20:44:11.513+0000] {backfill_historical_news.py:38} WARNING - No articles found for JPMorgan for week 2025-03-18 00:00:00
+[2025-04-29T20:44:11.513+0000] {backfill_historical_news.py:28} INFO - Backfilling news for JPMorgan for week 2025-03-11 00:00:00
+[2025-04-29T20:44:11.514+0000] {news_api_client.py:37} INFO - Fetching news for JPMorgan from 2025-03-11 00:00:00 to 2025-03-18 00:00:00
+[2025-04-29T20:44:11.778+0000] {news_api_client.py:50} ERROR - Error fetching news for JPMorgan: {'status': 'error', 'code': 'rateLimited', 'message': 'You have made too many requests recently. Developer accounts are limited to 100 requests over a 24 hour period (50 requests available every 12 hours). Please upgrade to a paid plan if you need more requests.'}
+[2025-04-29T20:44:11.778+0000] {backfill_historical_news.py:38} WARNING - No articles found for JPMorgan for week 2025-03-11 00:00:00
+[2025-04-29T20:44:11.779+0000] {backfill_historical_news.py:28} INFO - Backfilling news for JPMorgan for week 2025-03-04 00:00:00
+[2025-04-29T20:44:11.779+0000] {news_api_client.py:37} INFO - Fetching news for JPMorgan from 2025-03-04 00:00:00 to 2025-03-11 00:00:00
+[2025-04-29T20:44:12.051+0000] {news_api_client.py:50} ERROR - Error fetching news for JPMorgan: {'status': 'error', 'code': 'rateLimited', 'message': 'You have made too many requests recently. Developer accounts are limited to 100 requests over a 24 hour period (50 requests available every 12 hours). Please upgrade to a paid plan if you need more requests.'}
+[2025-04-29T20:44:12.051+0000] {backfill_historical_news.py:38} WARNING - No articles found for JPMorgan for week 2025-03-04 00:00:00
+[2025-04-29T20:44:12.052+0000] {backfill_historical_news.py:28} INFO - Backfilling news for JPMorgan for week 2025-02-25 00:00:00
+[2025-04-29T20:44:12.052+0000] {news_api_client.py:37} INFO - Fetching news for JPMorgan from 2025-02-25 00:00:00 to 2025-03-04 00:00:00
+[2025-04-29T20:44:12.321+0000] {news_api_client.py:50} ERROR - Error fetching news for JPMorgan: {'status': 'error', 'code': 'rateLimited', 'message': 'You have made too many requests recently. Developer accounts are limited to 100 requests over a 24 hour period (50 requests available every 12 hours). Please upgrade to a paid plan if you need more requests.'}
+[2025-04-29T20:44:12.321+0000] {backfill_historical_news.py:38} WARNING - No articles found for JPMorgan for week 2025-02-25 00:00:00
+[2025-04-29T20:44:12.322+0000] {backfill_historical_news.py:28} INFO - Backfilling news for JPMorgan for week 2025-02-18 00:00:00
+[2025-04-29T20:44:12.322+0000] {news_api_client.py:37} INFO - Fetching news for JPMorgan from 2025-02-18 00:00:00 to 2025-02-25 00:00:00
+[2025-04-29T20:44:12.591+0000] {news_api_client.py:50} ERROR - Error fetching news for JPMorgan: {'status': 'error', 'code': 'rateLimited', 'message': 'You have made too many requests recently. Developer accounts are limited to 100 requests over a 24 hour period (50 requests available every 12 hours). Please upgrade to a paid plan if you need more requests.'}
+[2025-04-29T20:44:12.591+0000] {backfill_historical_news.py:38} WARNING - No articles found for JPMorgan for week 2025-02-18 00:00:00
+[2025-04-29T20:44:12.592+0000] {backfill_historical_news.py:28} INFO - Backfilling news for JPMorgan for week 2025-02-11 00:00:00
+[2025-04-29T20:44:12.592+0000] {news_api_client.py:37} INFO - Fetching news for JPMorgan from 2025-02-11 00:00:00 to 2025-02-18 00:00:00
+[2025-04-29T20:44:12.857+0000] {news_api_client.py:50} ERROR - Error fetching news for JPMorgan: {'status': 'error', 'code': 'rateLimited', 'message': 'You have made too many requests recently. Developer accounts are limited to 100 requests over a 24 hour period (50 requests available every 12 hours). Please upgrade to a paid plan if you need more requests.'}
+[2025-04-29T20:44:12.858+0000] {backfill_historical_news.py:38} WARNING - No articles found for JPMorgan for week 2025-02-11 00:00:00
+[2025-04-29T20:44:12.859+0000] {backfill_historical_news.py:28} INFO - Backfilling news for Walmart for week 2025-04-29 00:00:00
+[2025-04-29T20:44:12.859+0000] {news_api_client.py:37} INFO - Fetching news for Walmart from 2025-04-29 00:00:00 to 2025-05-06 00:00:00
+[2025-04-29T20:44:13.119+0000] {news_api_client.py:50} ERROR - Error fetching news for Walmart: {'status': 'error', 'code': 'rateLimited', 'message': 'You have made too many requests recently. Developer accounts are limited to 100 requests over a 24 hour period (50 requests available every 12 hours). Please upgrade to a paid plan if you need more requests.'}
+[2025-04-29T20:44:13.120+0000] {backfill_historical_news.py:38} WARNING - No articles found for Walmart for week 2025-04-29 00:00:00
+[2025-04-29T20:44:13.120+0000] {backfill_historical_news.py:28} INFO - Backfilling news for Walmart for week 2025-04-22 00:00:00
+[2025-04-29T20:44:13.120+0000] {news_api_client.py:37} INFO - Fetching news for Walmart from 2025-04-22 00:00:00 to 2025-04-29 00:00:00
+[2025-04-29T20:44:13.383+0000] {news_api_client.py:50} ERROR - Error fetching news for Walmart: {'status': 'error', 'code': 'rateLimited', 'message': 'You have made too many requests recently. Developer accounts are limited to 100 requests over a 24 hour period (50 requests available every 12 hours). Please upgrade to a paid plan if you need more requests.'}
+[2025-04-29T20:44:13.384+0000] {backfill_historical_news.py:38} WARNING - No articles found for Walmart for week 2025-04-22 00:00:00
+[2025-04-29T20:44:13.384+0000] {backfill_historical_news.py:28} INFO - Backfilling news for Walmart for week 2025-04-15 00:00:00
+[2025-04-29T20:44:13.385+0000] {news_api_client.py:37} INFO - Fetching news for Walmart from 2025-04-15 00:00:00 to 2025-04-22 00:00:00
+[2025-04-29T20:44:13.649+0000] {news_api_client.py:50} ERROR - Error fetching news for Walmart: {'status': 'error', 'code': 'rateLimited', 'message': 'You have made too many requests recently. Developer accounts are limited to 100 requests over a 24 hour period (50 requests available every 12 hours). Please upgrade to a paid plan if you need more requests.'}
+[2025-04-29T20:44:13.650+0000] {backfill_historical_news.py:38} WARNING - No articles found for Walmart for week 2025-04-15 00:00:00
+[2025-04-29T20:44:13.650+0000] {backfill_historical_news.py:28} INFO - Backfilling news for Walmart for week 2025-04-08 00:00:00
+[2025-04-29T20:44:13.650+0000] {news_api_client.py:37} INFO - Fetching news for Walmart from 2025-04-08 00:00:00 to 2025-04-15 00:00:00
+[2025-04-29T20:44:13.959+0000] {news_api_client.py:50} ERROR - Error fetching news for Walmart: {'status': 'error', 'code': 'rateLimited', 'message': 'You have made too many requests recently. Developer accounts are limited to 100 requests over a 24 hour period (50 requests available every 12 hours). Please upgrade to a paid plan if you need more requests.'}
+[2025-04-29T20:44:13.960+0000] {backfill_historical_news.py:38} WARNING - No articles found for Walmart for week 2025-04-08 00:00:00
+[2025-04-29T20:44:13.961+0000] {backfill_historical_news.py:28} INFO - Backfilling news for Walmart for week 2025-04-01 00:00:00
+[2025-04-29T20:44:13.961+0000] {news_api_client.py:37} INFO - Fetching news for Walmart from 2025-04-01 00:00:00 to 2025-04-08 00:00:00
+[2025-04-29T20:44:14.228+0000] {news_api_client.py:50} ERROR - Error fetching news for Walmart: {'status': 'error', 'code': 'rateLimited', 'message': 'You have made too many requests recently. Developer accounts are limited to 100 requests over a 24 hour period (50 requests available every 12 hours). Please upgrade to a paid plan if you need more requests.'}
+[2025-04-29T20:44:14.229+0000] {backfill_historical_news.py:38} WARNING - No articles found for Walmart for week 2025-04-01 00:00:00
+[2025-04-29T20:44:14.229+0000] {backfill_historical_news.py:28} INFO - Backfilling news for Walmart for week 2025-03-25 00:00:00
+[2025-04-29T20:44:14.229+0000] {news_api_client.py:37} INFO - Fetching news for Walmart from 2025-03-25 00:00:00 to 2025-04-01 00:00:00
+[2025-04-29T20:44:14.486+0000] {news_api_client.py:50} ERROR - Error fetching news for Walmart: {'status': 'error', 'code': 'rateLimited', 'message': 'You have made too many requests recently. Developer accounts are limited to 100 requests over a 24 hour period (50 requests available every 12 hours). Please upgrade to a paid plan if you need more requests.'}
+[2025-04-29T20:44:14.486+0000] {backfill_historical_news.py:38} WARNING - No articles found for Walmart for week 2025-03-25 00:00:00
+[2025-04-29T20:44:14.487+0000] {backfill_historical_news.py:28} INFO - Backfilling news for Walmart for week 2025-03-18 00:00:00
+[2025-04-29T20:44:14.487+0000] {news_api_client.py:37} INFO - Fetching news for Walmart from 2025-03-18 00:00:00 to 2025-03-25 00:00:00
+[2025-04-29T20:44:14.745+0000] {news_api_client.py:50} ERROR - Error fetching news for Walmart: {'status': 'error', 'code': 'rateLimited', 'message': 'You have made too many requests recently. Developer accounts are limited to 100 requests over a 24 hour period (50 requests available every 12 hours). Please upgrade to a paid plan if you need more requests.'}
+[2025-04-29T20:44:14.746+0000] {backfill_historical_news.py:38} WARNING - No articles found for Walmart for week 2025-03-18 00:00:00
+[2025-04-29T20:44:14.746+0000] {backfill_historical_news.py:28} INFO - Backfilling news for Walmart for week 2025-03-11 00:00:00
+[2025-04-29T20:44:14.746+0000] {news_api_client.py:37} INFO - Fetching news for Walmart from 2025-03-11 00:00:00 to 2025-03-18 00:00:00
+[2025-04-29T20:44:15.014+0000] {news_api_client.py:50} ERROR - Error fetching news for Walmart: {'status': 'error', 'code': 'rateLimited', 'message': 'You have made too many requests recently. Developer accounts are limited to 100 requests over a 24 hour period (50 requests available every 12 hours). Please upgrade to a paid plan if you need more requests.'}
+[2025-04-29T20:44:15.015+0000] {backfill_historical_news.py:38} WARNING - No articles found for Walmart for week 2025-03-11 00:00:00
+[2025-04-29T20:44:15.015+0000] {backfill_historical_news.py:28} INFO - Backfilling news for Walmart for week 2025-03-04 00:00:00
+[2025-04-29T20:44:15.016+0000] {news_api_client.py:37} INFO - Fetching news for Walmart from 2025-03-04 00:00:00 to 2025-03-11 00:00:00
+[2025-04-29T20:44:15.288+0000] {news_api_client.py:50} ERROR - Error fetching news for Walmart: {'status': 'error', 'code': 'rateLimited', 'message': 'You have made too many requests recently. Developer accounts are limited to 100 requests over a 24 hour period (50 requests available every 12 hours). Please upgrade to a paid plan if you need more requests.'}
+[2025-04-29T20:44:15.289+0000] {backfill_historical_news.py:38} WARNING - No articles found for Walmart for week 2025-03-04 00:00:00
+[2025-04-29T20:44:15.289+0000] {backfill_historical_news.py:28} INFO - Backfilling news for Walmart for week 2025-02-25 00:00:00
+[2025-04-29T20:44:15.290+0000] {news_api_client.py:37} INFO - Fetching news for Walmart from 2025-02-25 00:00:00 to 2025-03-04 00:00:00
+[2025-04-29T20:44:15.567+0000] {news_api_client.py:50} ERROR - Error fetching news for Walmart: {'status': 'error', 'code': 'rateLimited', 'message': 'You have made too many requests recently. Developer accounts are limited to 100 requests over a 24 hour period (50 requests available every 12 hours). Please upgrade to a paid plan if you need more requests.'}
+[2025-04-29T20:44:15.568+0000] {backfill_historical_news.py:38} WARNING - No articles found for Walmart for week 2025-02-25 00:00:00
+[2025-04-29T20:44:15.568+0000] {backfill_historical_news.py:28} INFO - Backfilling news for Walmart for week 2025-02-18 00:00:00
+[2025-04-29T20:44:15.569+0000] {news_api_client.py:37} INFO - Fetching news for Walmart from 2025-02-18 00:00:00 to 2025-02-25 00:00:00
+[2025-04-29T20:44:15.823+0000] {news_api_client.py:50} ERROR - Error fetching news for Walmart: {'status': 'error', 'code': 'rateLimited', 'message': 'You have made too many requests recently. Developer accounts are limited to 100 requests over a 24 hour period (50 requests available every 12 hours). Please upgrade to a paid plan if you need more requests.'}
+[2025-04-29T20:44:15.824+0000] {backfill_historical_news.py:38} WARNING - No articles found for Walmart for week 2025-02-18 00:00:00
+[2025-04-29T20:44:15.824+0000] {backfill_historical_news.py:28} INFO - Backfilling news for Walmart for week 2025-02-11 00:00:00
+[2025-04-29T20:44:15.825+0000] {news_api_client.py:37} INFO - Fetching news for Walmart from 2025-02-11 00:00:00 to 2025-02-18 00:00:00
+[2025-04-29T20:44:16.090+0000] {news_api_client.py:50} ERROR - Error fetching news for Walmart: {'status': 'error', 'code': 'rateLimited', 'message': 'You have made too many requests recently. Developer accounts are limited to 100 requests over a 24 hour period (50 requests available every 12 hours). Please upgrade to a paid plan if you need more requests.'}
+[2025-04-29T20:44:16.090+0000] {backfill_historical_news.py:38} WARNING - No articles found for Walmart for week 2025-02-11 00:00:00
+[2025-04-29T20:44:16.091+0000] {backfill_historical_news.py:28} INFO - Backfilling news for Visa for week 2025-04-29 00:00:00
+[2025-04-29T20:44:16.091+0000] {news_api_client.py:37} INFO - Fetching news for Visa from 2025-04-29 00:00:00 to 2025-05-06 00:00:00
+[2025-04-29T20:44:16.366+0000] {news_api_client.py:50} ERROR - Error fetching news for Visa: {'status': 'error', 'code': 'rateLimited', 'message': 'You have made too many requests recently. Developer accounts are limited to 100 requests over a 24 hour period (50 requests available every 12 hours). Please upgrade to a paid plan if you need more requests.'}
+[2025-04-29T20:44:16.367+0000] {backfill_historical_news.py:38} WARNING - No articles found for Visa for week 2025-04-29 00:00:00
+[2025-04-29T20:44:16.367+0000] {backfill_historical_news.py:28} INFO - Backfilling news for Visa for week 2025-04-22 00:00:00
+[2025-04-29T20:44:16.367+0000] {news_api_client.py:37} INFO - Fetching news for Visa from 2025-04-22 00:00:00 to 2025-04-29 00:00:00
+[2025-04-29T20:44:16.681+0000] {news_api_client.py:50} ERROR - Error fetching news for Visa: {'status': 'error', 'code': 'rateLimited', 'message': 'You have made too many requests recently. Developer accounts are limited to 100 requests over a 24 hour period (50 requests available every 12 hours). Please upgrade to a paid plan if you need more requests.'}
+[2025-04-29T20:44:16.682+0000] {backfill_historical_news.py:38} WARNING - No articles found for Visa for week 2025-04-22 00:00:00
+[2025-04-29T20:44:16.682+0000] {backfill_historical_news.py:28} INFO - Backfilling news for Visa for week 2025-04-15 00:00:00
+[2025-04-29T20:44:16.683+0000] {news_api_client.py:37} INFO - Fetching news for Visa from 2025-04-15 00:00:00 to 2025-04-22 00:00:00
+[2025-04-29T20:44:16.944+0000] {news_api_client.py:50} ERROR - Error fetching news for Visa: {'status': 'error', 'code': 'rateLimited', 'message': 'You have made too many requests recently. Developer accounts are limited to 100 requests over a 24 hour period (50 requests available every 12 hours). Please upgrade to a paid plan if you need more requests.'}
+[2025-04-29T20:44:16.945+0000] {backfill_historical_news.py:38} WARNING - No articles found for Visa for week 2025-04-15 00:00:00
+[2025-04-29T20:44:16.946+0000] {backfill_historical_news.py:28} INFO - Backfilling news for Visa for week 2025-04-08 00:00:00
+[2025-04-29T20:44:16.946+0000] {news_api_client.py:37} INFO - Fetching news for Visa from 2025-04-08 00:00:00 to 2025-04-15 00:00:00
+[2025-04-29T20:44:17.241+0000] {news_api_client.py:50} ERROR - Error fetching news for Visa: {'status': 'error', 'code': 'rateLimited', 'message': 'You have made too many requests recently. Developer accounts are limited to 100 requests over a 24 hour period (50 requests available every 12 hours). Please upgrade to a paid plan if you need more requests.'}
+[2025-04-29T20:44:17.241+0000] {backfill_historical_news.py:38} WARNING - No articles found for Visa for week 2025-04-08 00:00:00
+[2025-04-29T20:44:17.242+0000] {backfill_historical_news.py:28} INFO - Backfilling news for Visa for week 2025-04-01 00:00:00
+[2025-04-29T20:44:17.242+0000] {news_api_client.py:37} INFO - Fetching news for Visa from 2025-04-01 00:00:00 to 2025-04-08 00:00:00
+[2025-04-29T20:44:17.529+0000] {news_api_client.py:50} ERROR - Error fetching news for Visa: {'status': 'error', 'code': 'rateLimited', 'message': 'You have made too many requests recently. Developer accounts are limited to 100 requests over a 24 hour period (50 requests available every 12 hours). Please upgrade to a paid plan if you need more requests.'}
+[2025-04-29T20:44:17.530+0000] {backfill_historical_news.py:38} WARNING - No articles found for Visa for week 2025-04-01 00:00:00
+[2025-04-29T20:44:17.530+0000] {backfill_historical_news.py:28} INFO - Backfilling news for Visa for week 2025-03-25 00:00:00
+[2025-04-29T20:44:17.531+0000] {news_api_client.py:37} INFO - Fetching news for Visa from 2025-03-25 00:00:00 to 2025-04-01 00:00:00
+[2025-04-29T20:44:17.796+0000] {news_api_client.py:50} ERROR - Error fetching news for Visa: {'status': 'error', 'code': 'rateLimited', 'message': 'You have made too many requests recently. Developer accounts are limited to 100 requests over a 24 hour period (50 requests available every 12 hours). Please upgrade to a paid plan if you need more requests.'}
+[2025-04-29T20:44:17.797+0000] {backfill_historical_news.py:38} WARNING - No articles found for Visa for week 2025-03-25 00:00:00
+[2025-04-29T20:44:17.797+0000] {backfill_historical_news.py:28} INFO - Backfilling news for Visa for week 2025-03-18 00:00:00
+[2025-04-29T20:44:17.798+0000] {news_api_client.py:37} INFO - Fetching news for Visa from 2025-03-18 00:00:00 to 2025-03-25 00:00:00
+[2025-04-29T20:44:19.098+0000] {news_api_client.py:50} ERROR - Error fetching news for Visa: {'status': 'error', 'code': 'rateLimited', 'message': 'You have made too many requests recently. Developer accounts are limited to 100 requests over a 24 hour period (50 requests available every 12 hours). Please upgrade to a paid plan if you need more requests.'}
+[2025-04-29T20:44:19.099+0000] {backfill_historical_news.py:38} WARNING - No articles found for Visa for week 2025-03-18 00:00:00
+[2025-04-29T20:44:19.099+0000] {backfill_historical_news.py:28} INFO - Backfilling news for Visa for week 2025-03-11 00:00:00
+[2025-04-29T20:44:19.099+0000] {news_api_client.py:37} INFO - Fetching news for Visa from 2025-03-11 00:00:00 to 2025-03-18 00:00:00
+[2025-04-29T20:44:19.374+0000] {news_api_client.py:50} ERROR - Error fetching news for Visa: {'status': 'error', 'code': 'rateLimited', 'message': 'You have made too many requests recently. Developer accounts are limited to 100 requests over a 24 hour period (50 requests available every 12 hours). Please upgrade to a paid plan if you need more requests.'}
+[2025-04-29T20:44:19.375+0000] {backfill_historical_news.py:38} WARNING - No articles found for Visa for week 2025-03-11 00:00:00
+[2025-04-29T20:44:19.375+0000] {backfill_historical_news.py:28} INFO - Backfilling news for Visa for week 2025-03-04 00:00:00
+[2025-04-29T20:44:19.375+0000] {news_api_client.py:37} INFO - Fetching news for Visa from 2025-03-04 00:00:00 to 2025-03-11 00:00:00
+[2025-04-29T20:44:19.667+0000] {news_api_client.py:50} ERROR - Error fetching news for Visa: {'status': 'error', 'code': 'rateLimited', 'message': 'You have made too many requests recently. Developer accounts are limited to 100 requests over a 24 hour period (50 requests available every 12 hours). Please upgrade to a paid plan if you need more requests.'}
+[2025-04-29T20:44:19.668+0000] {backfill_historical_news.py:38} WARNING - No articles found for Visa for week 2025-03-04 00:00:00
+[2025-04-29T20:44:19.668+0000] {backfill_historical_news.py:28} INFO - Backfilling news for Visa for week 2025-02-25 00:00:00
+[2025-04-29T20:44:19.669+0000] {news_api_client.py:37} INFO - Fetching news for Visa from 2025-02-25 00:00:00 to 2025-03-04 00:00:00
+[2025-04-29T20:44:19.997+0000] {news_api_client.py:50} ERROR - Error fetching news for Visa: {'status': 'error', 'code': 'rateLimited', 'message': 'You have made too many requests recently. Developer accounts are limited to 100 requests over a 24 hour period (50 requests available every 12 hours). Please upgrade to a paid plan if you need more requests.'}
+[2025-04-29T20:44:19.998+0000] {backfill_historical_news.py:38} WARNING - No articles found for Visa for week 2025-02-25 00:00:00
+[2025-04-29T20:44:19.998+0000] {backfill_historical_news.py:28} INFO - Backfilling news for Visa for week 2025-02-18 00:00:00
+[2025-04-29T20:44:19.999+0000] {news_api_client.py:37} INFO - Fetching news for Visa from 2025-02-18 00:00:00 to 2025-02-25 00:00:00
+[2025-04-29T20:44:20.281+0000] {news_api_client.py:50} ERROR - Error fetching news for Visa: {'status': 'error', 'code': 'rateLimited', 'message': 'You have made too many requests recently. Developer accounts are limited to 100 requests over a 24 hour period (50 requests available every 12 hours). Please upgrade to a paid plan if you need more requests.'}
+[2025-04-29T20:44:20.282+0000] {backfill_historical_news.py:38} WARNING - No articles found for Visa for week 2025-02-18 00:00:00
+[2025-04-29T20:44:20.282+0000] {backfill_historical_news.py:28} INFO - Backfilling news for Visa for week 2025-02-11 00:00:00
+[2025-04-29T20:44:20.283+0000] {news_api_client.py:37} INFO - Fetching news for Visa from 2025-02-11 00:00:00 to 2025-02-18 00:00:00
+[2025-04-29T20:44:20.553+0000] {news_api_client.py:50} ERROR - Error fetching news for Visa: {'status': 'error', 'code': 'rateLimited', 'message': 'You have made too many requests recently. Developer accounts are limited to 100 requests over a 24 hour period (50 requests available every 12 hours). Please upgrade to a paid plan if you need more requests.'}
+[2025-04-29T20:44:20.553+0000] {backfill_historical_news.py:38} WARNING - No articles found for Visa for week 2025-02-11 00:00:00
+[2025-04-29T20:44:20.554+0000] {python.py:240} INFO - Done. Returned value was: None
+[2025-04-29T20:44:20.563+0000] {taskinstance.py:340} INFO - ::group::Post task execution logs
+[2025-04-29T20:44:20.563+0000] {taskinstance.py:352} INFO - Marking task as SUCCESS. dag_id=portfolio_news_pipeline, task_id=backfill_historical_news, run_id=manual__2025-04-29T20:43:38.495539+00:00, execution_date=20250429T204338, start_date=20250429T204341, end_date=20250429T204420
+[2025-04-29T20:44:20.586+0000] {local_task_job_runner.py:266} INFO - Task exited with return code 0
+[2025-04-29T20:44:20.606+0000] {taskinstance.py:3895} INFO - 1 downstream tasks scheduled from follow-on schedule check
+[2025-04-29T20:44:20.607+0000] {local_task_job_runner.py:245} INFO - ::endgroup::

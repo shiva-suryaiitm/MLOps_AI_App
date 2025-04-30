@@ -445,6 +445,92 @@
         margin-left: auto;
         font-weight: bold;
       }
+
+
+      .info-icon {
+        color: var(--text-secondary);
+        margin-left: 8px;
+        font-size: 16px;
+        cursor: pointer;
+        transition: color 0.2s;
+      }
+
+      .info-icon:hover {
+        color: var(--primary-color);
+      }
+
+      .tooltip {
+        position: relative;
+        display: inline-block;
+      }
+
+      .tooltip .tooltiptext {
+        visibility: hidden;
+        width: 250px;
+        background-color: #333;
+        color: #fff;
+        text-align: left;
+        border-radius: 6px;
+        padding: 10px;
+        position: absolute;
+        z-index: 1;
+        bottom: 125%;
+        left: 50%;
+        transform: translateX(-50%);
+        opacity: 0;
+        transition: opacity 0.3s;
+        font-size: 14px;
+        line-height: 1.4;
+        box-shadow: 0 2px 8px rgba(0, 0, 0, 0.2);
+      }
+
+      .tooltip .tooltiptext::after {
+        content: "";
+        position: absolute;
+        top: 100%;
+        left: 50%;
+        margin-left: -5px;
+        border-width: 5px;
+        border-style: solid;
+        border-color: #333 transparent transparent transparent;
+      }
+
+      .tooltip:hover .tooltiptext {
+        visibility: visible;
+        opacity: 1;
+      }
+      
+      .portfolio-metrics {
+        display: flex;
+        justify-content: space-around;
+        margin: 15px 0 25px;
+        padding: 15px;
+        background-color: rgba(41, 98, 255, 0.05);
+        border-radius: 8px;
+        border-left: 4px solid var(--primary-color);
+      }
+
+      .metric {
+        text-align: center;
+      }
+
+      .metric-label {
+        font-size: 14px;
+        color: var(--text-secondary);
+        margin-bottom: 8px;
+      }
+
+      .metric-value {
+        font-size: 20px;
+        font-weight: bold;
+        color: var(--text-primary);
+      }
+
+      .metric-value.positive {
+        color: var(--positive-color);
+      }
+
+
     </style>
   </head>
   <body>
@@ -496,7 +582,7 @@
         <div class="analysis-grid">
           <div class="analysis-card portfolio-card">
             <div class="card-header">
-              <div class="card-title">Optimal Portfolio Allocation</div>
+              <div class="card-title">Optimal Portfolio Allocation<i class="fas fa-info-circle info-icon" data-model="portfolio"></i></div>
               <div class="card-actions">
                 <button
                   class="card-action zoom-btn"
@@ -527,7 +613,7 @@
 
           <div class="analysis-card">
             <div class="card-header">
-              <div class="card-title">Sentiment Analysis</div>
+              <div class="card-title">Sentiment Analysis<i class="fas fa-info-circle info-icon" data-model="sentiment"></i></div>
               <div class="card-actions">
                 <button
                   class="card-action zoom-btn"
@@ -548,7 +634,7 @@
 
           <div class="analysis-card">
             <div class="card-header">
-              <div class="card-title">Price Prediction</div>
+              <div class="card-title">Price Prediction<i class="fas fa-info-circle info-icon" data-model="prediction"></i></div>
               <div class="card-actions">
                 <button
                   class="card-action zoom-btn"
@@ -633,6 +719,23 @@
       <div class="modal-content">
         <span class="close-modal">&times;</span>
         <h2>Optimal Portfolio Allocation</h2>
+        
+        <!-- Add portfolio metrics section -->
+        <div class="portfolio-metrics">
+          <div class="metric">
+            <div class="metric-label">Sharpe Ratio</div>
+            <div class="metric-value" id="sharpeRatio">--</div>
+          </div>
+          <div class="metric">
+            <div class="metric-label">Expected Annual Return</div>
+            <div class="metric-value" id="portfolioReturn">--</div>
+          </div>
+          <div class="metric">
+            <div class="metric-label">Annual Volatility</div>
+            <div class="metric-value" id="portfolioVolatility">--</div>
+          </div>
+        </div>
+        
         <div class="modal-chart-container">
           <div class="portfolio-modal-layout">
             <div class="pie-chart-container">
@@ -725,6 +828,9 @@
 
         // Set up modal/zoom functionality
         setupModals();
+
+        // Add this line to initialize tooltips
+        setupModelInfoTooltips();
       });
 
       function setupSearch() {
@@ -736,6 +842,19 @@
           if (query.length === 0) {
             searchResults.style.display = "block";
           }
+        });
+
+        // Add this after the existing input event listener for stockSearch
+        stockSearch.addEventListener("focus", function() {
+          // Show all stocks when the search field is focused
+          const allStocks = [];
+          for (const ticker in COMPANIES_DICT) {
+            allStocks.push({
+              ticker: ticker,
+              name: COMPANIES_DICT[ticker]
+            });
+          }
+          displaySearchResults(allStocks);
         });
 
         // Close search results when clicking outside
@@ -934,6 +1053,20 @@
         });
       }
 
+      function updatePortfolioMetrics(portfolioData) {
+      // Update metrics in the modal
+      if (portfolioData.metrics) {
+        document.getElementById('sharpeRatio').textContent = portfolioData.metrics.sharpe_ratio.toFixed(2);
+        
+        const returnElement = document.getElementById('portfolioReturn');
+        returnElement.textContent = (portfolioData.metrics.expected_return * 100).toFixed(2) + '%';
+        returnElement.classList.add('positive');
+
+        document.getElementById('portfolioVolatility').textContent = 
+          (portfolioData.metrics.volatility * 100).toFixed(2) + '%';
+      }
+    }
+
       function updatePortfolioChart(portfolioData) {
         // Hide loading and show chart
         document.getElementById("portfolioLoading").style.display = "none";
@@ -988,6 +1121,7 @@
         // Update the modal chart if it exists
         if (modalPortfolioChart) {
           updateModalPortfolioChart(portfolioData);
+          updatePortfolioMetrics(portfolioData);
         }
       }
 
@@ -1492,6 +1626,7 @@
                 .then((response) => response.json())
                 .then((portfolioData) => {
                   updateModalPortfolioChart(portfolioData);
+                  updatePortfolioMetrics(portfolioData);
                 });
             }
             break;
@@ -1526,6 +1661,36 @@
           document.getElementById(modalId).style.display = "block";
         }
       }
+
+      function setupModelInfoTooltips() {
+        const modelDescriptions = {
+          portfolio: "This portfolio allocation uses Modern Portfolio Theory (MPT) with risk optimization based on historical variance-covariance matrices. The model aims to maximize the Sharpe ratio by finding the optimal weight for each asset in the portfolio.",
+          sentiment:  "The sentiment analysis uses natural language processing with BERT-based models trained on financial news and social media data. Scores range from -1 (very negative) to +1 (very positive) representing market sentiment.",
+          prediction: "This price prediction model uses a combination of LSTM neural networks and linear regression with technical indicators. The model is trained on 5 years of historical data and incorporates sentiment analysis results."
+        };
+
+        document.querySelectorAll('.info-icon').forEach(icon => {
+          const modelType = icon.getAttribute('data-model');
+          const text = modelDescriptions[modelType] || "No info available";
+
+          // Create the tooltip text node
+          const tt = document.createElement('span');
+          tt.className = 'tooltiptext';
+          tt.textContent = text;
+
+          // Wrap the <i> in a <span class="tooltip">
+          const wrapper = document.createElement('span');
+          wrapper.className = 'tooltip';
+
+          // Move the icon into the wrapper, then add the tooltip
+          icon.replaceWith(wrapper);
+          wrapper.appendChild(icon);
+          wrapper.appendChild(tt);
+        });
+      }
+
+
+
     </script>
   </body>
 </html>

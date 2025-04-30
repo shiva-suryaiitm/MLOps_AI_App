@@ -9,7 +9,7 @@ import schedule
 import time
 from sklearn.preprocessing import MinMaxScaler
 import os
-from inference_config import MONGO_URI, MONGO_DB_NAME, PRICE_COLLECTION, VOLUME_COLLECTION, PRICE_PREDICTION_COLLECTION, VOLUME_PREDICTION_COLLECTION
+# from inference_config import MONGO_URI, MONGO_DB_NAME, PRICE_COLLECTION, VOLUME_COLLECTION, PRICE_PREDICTION_COLLECTION, VOLUME_PREDICTION_COLLECTION
 from inference_config import SEQUENCE_LENGTH, PREDICTION_DAYS
 
 # Configure logging
@@ -63,9 +63,10 @@ def fetch_data(collection, company, n_days=100):
         start_date = end_date - timedelta(days=n_days)
         query = {
             "company": company,
-            "date": {"$gte": start_date, "$lte": end_date}
+            "date": {"$lte": end_date}
         }
-        data = list(coll.find(query).sort("date", 1))
+        data = list(coll.find(query).sort("date", 1).limit(100))
+        logger.info(coll.find_one())
         client.close()
         if len(data) < n_days:
             logger.warning(f"Only {len(data)} days of data found for {company}")

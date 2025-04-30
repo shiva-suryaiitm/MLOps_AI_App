@@ -1,10 +1,10 @@
 services:
   web-app:
     build:
-      context: ./web-app
+      context: ./Web App
       dockerfile: Dockerfile
     ports:
-      - "5161:5161"
+      - "5000:5000"
     env_file:
       - .env
     environment:

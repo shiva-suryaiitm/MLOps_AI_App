@@ -1,0 +1,36 @@
+[2025-04-29T20:44:28.331+0000] {local_task_job_runner.py:123} INFO - ::group::Pre task execution logs
+[2025-04-29T20:44:28.345+0000] {taskinstance.py:2613} INFO - Dependencies all met for dep_context=non-requeueable deps ti=<TaskInstance: portfolio_news_pipeline.store_news manual__2025-04-29T20:43:45.954625+00:00 [queued]>
+[2025-04-29T20:44:28.351+0000] {taskinstance.py:2613} INFO - Dependencies all met for dep_context=requeueable deps ti=<TaskInstance: portfolio_news_pipeline.store_news manual__2025-04-29T20:43:45.954625+00:00 [queued]>
+[2025-04-29T20:44:28.352+0000] {taskinstance.py:2866} INFO - Starting attempt 1 of 2
+[2025-04-29T20:44:28.361+0000] {taskinstance.py:2889} INFO - Executing <Task(_PythonDecoratedOperator): store_news> on 2025-04-29 20:43:45.954625+00:00
+[2025-04-29T20:44:28.366+0000] {warnings.py:112} WARNING - /home/***/.local/lib/python3.12/site-packages/***/task/task_runner/standard_task_runner.py:70: DeprecationWarning: This process (pid=706) is multi-threaded, use of fork() may lead to deadlocks in the child.
+  pid = os.fork()
+
+[2025-04-29T20:44:28.367+0000] {standard_task_runner.py:72} INFO - Started process 709 to run task
+[2025-04-29T20:44:28.368+0000] {standard_task_runner.py:104} INFO - Running: ['***', 'tasks', 'run', 'portfolio_news_pipeline', 'store_news', 'manual__2025-04-29T20:43:45.954625+00:00', '--job-id', '18', '--raw', '--subdir', 'DAGS_FOLDER/news_pipeline.py', '--cfg-path', '/tmp/tmpohe__3u6']
+[2025-04-29T20:44:28.368+0000] {standard_task_runner.py:105} INFO - Job 18: Subtask store_news
+[2025-04-29T20:44:28.401+0000] {task_command.py:467} INFO - Running <TaskInstance: portfolio_news_pipeline.store_news manual__2025-04-29T20:43:45.954625+00:00 [running]> on host 67118760a44b
+[2025-04-29T20:44:28.472+0000] {taskinstance.py:3132} INFO - Exporting env vars: AIRFLOW_CTX_DAG_OWNER='***' AIRFLOW_CTX_DAG_ID='portfolio_news_pipeline' AIRFLOW_CTX_TASK_ID='store_news' AIRFLOW_CTX_EXECUTION_DATE='2025-04-29T20:43:45.954625+00:00' AIRFLOW_CTX_TRY_NUMBER='1' AIRFLOW_CTX_DAG_RUN_ID='manual__2025-04-29T20:43:45.954625+00:00'
+[2025-04-29T20:44:28.473+0000] {taskinstance.py:731} INFO - ::endgroup::
+[2025-04-29T20:44:28.479+0000] {mongodb_client.py:26} INFO - Connected to MongoDB successfully
+[2025-04-29T20:44:28.480+0000] {store_news.py:36} WARNING - No articles to store for Apple
+[2025-04-29T20:44:28.480+0000] {store_news.py:36} WARNING - No articles to store for Microsoft
+[2025-04-29T20:44:28.481+0000] {store_news.py:33} INFO - Storing 9 articles for Alphabet
+[2025-04-29T20:44:28.493+0000] {mongodb_client.py:55} INFO - Stored 9 articles for Alphabet for week 2025-04-22 20:44:23.804620
+[2025-04-29T20:44:28.494+0000] {store_news.py:33} INFO - Storing 8 articles for Amazon
+[2025-04-29T20:44:28.500+0000] {mongodb_client.py:55} INFO - Stored 8 articles for Amazon for week 2025-04-22 20:44:23.804620
+[2025-04-29T20:44:28.500+0000] {store_news.py:36} WARNING - No articles to store for Tesla
+[2025-04-29T20:44:28.501+0000] {store_news.py:33} INFO - Storing 9 articles for NVIDIA
+[2025-04-29T20:44:28.507+0000] {mongodb_client.py:55} INFO - Stored 9 articles for NVIDIA for week 2025-04-22 20:44:23.804620
+[2025-04-29T20:44:28.508+0000] {store_news.py:33} INFO - Storing 5 articles for Meta
+[2025-04-29T20:44:28.512+0000] {mongodb_client.py:55} INFO - Stored 5 articles for Meta for week 2025-04-22 20:44:23.804620
+[2025-04-29T20:44:28.512+0000] {store_news.py:36} WARNING - No articles to store for JPMorgan
+[2025-04-29T20:44:28.512+0000] {store_news.py:36} WARNING - No articles to store for Walmart
+[2025-04-29T20:44:28.513+0000] {store_news.py:36} WARNING - No articles to store for Visa
+[2025-04-29T20:44:28.514+0000] {store_news.py:42} INFO - MongoDB connection closed
+[2025-04-29T20:44:28.514+0000] {python.py:240} INFO - Done. Returned value was: None
+[2025-04-29T20:44:28.522+0000] {taskinstance.py:340} INFO - ::group::Post task execution logs
+[2025-04-29T20:44:28.522+0000] {taskinstance.py:352} INFO - Marking task as SUCCESS. dag_id=portfolio_news_pipeline, task_id=store_news, run_id=manual__2025-04-29T20:43:45.954625+00:00, execution_date=20250429T204345, start_date=20250429T204428, end_date=20250429T204428
+[2025-04-29T20:44:28.581+0000] {local_task_job_runner.py:266} INFO - Task exited with return code 0
+[2025-04-29T20:44:28.603+0000] {taskinstance.py:3895} INFO - 0 downstream tasks scheduled from follow-on schedule check
+[2025-04-29T20:44:28.607+0000] {local_task_job_runner.py:245} INFO - ::endgroup::

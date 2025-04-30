@@ -2,7 +2,7 @@ import os
 from datetime import timedelta
 
 # NewsAPI configuration
-NEWS_API_KEY = os.getenv("NEWS_API_KEY", "652270f39d444b85a2be8323fb2a7adb")  # Replace with your NewsAPI key
+NEWS_API_KEY = os.getenv("NEWS_API_KEY", "ee40c83e071e4f4cba2dd6b566b4d4eb")  # Replace with your NewsAPI key
 NEWS_API_PAGE_SIZE = 10  # Number of articles to fetch per company per week
 
 # MongoDB configuration

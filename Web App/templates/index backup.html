@@ -3,335 +3,308 @@
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Today's News</title>
-    <link rel="preconnect" href="https://fonts.googleapis.com" />
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <title>Stock Analysis Dashboard</title>
     <link
-      href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;700&family=Source+Sans+Pro:wght@400;600&display=swap"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css"
       rel="stylesheet"
     />
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/3.7.0/chart.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
     <style>
       :root {
-        --bg-color: #f9f9f9;
-        --text-color: #333;
-        --header-color: #000;
-        --news-bg: #fff;
-        --accent-color: #d62828;
-        --accent-color-title: #d62828;
-        --shadow-color: rgba(0, 0, 0, 0.1);
-        --secondary-text: #555;
-        --tertiary-text: #666;
-        --overlay-gradient: linear-gradient(
-          to bottom,
-          rgba(0, 0, 0, 0) 50%,
-          rgba(0, 0, 0, 0.7) 100%
-        );
-        --title-color: #000;
-        --loader-color: #d62828;
-      }
-
-      .dark-mode {
-        --bg-color: #1a1a1a;
-        --text-color: #e0e0e0;
-        --header-color: #fff;
-        --news-bg: #2d2d2d;
-        --accent-color-title: hsl(0, 0%, 100%);
-        --shadow-color: rgba(0, 0, 0, 0.3);
-        --secondary-text: #aaa;
-        --tertiary-text: #888;
-        --overlay-gradient: linear-gradient(
-          to bottom,
-          rgba(0, 0, 0, 0) 50%,
-          rgba(0, 0, 0, 0.8) 100%
-        );
-        --title-color: #ffffff; /* Increased contrast in dark mode */
-        --loader-color: #ffffff;
-      }
-
-      * {
-        margin: 0;
-        padding: 0;
-        box-sizing: border-box;
+        --primary-color: #2962ff;
+        --secondary-color: #0039cb;
+        --background-color: #f5f7fa;
+        --card-bg: #ffffff;
+        --text-primary: #333333;
+        --text-secondary: #666666;
+        --positive-color: #00c853;
+        --negative-color: #ff1744;
+        --neutral-color: #757575;
+        --border-color: #e0e0e0;
       }
 
       body {
-        font-family: "Source Sans Pro", sans-serif;
-        color: var(--text-color);
-        line-height: 1.6;
+        font-family: "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
+        background-color: var(--background-color);
+        color: var(--text-primary);
+        margin: 0;
+        padding: 0;
+      }
+
+      .container {
         max-width: 1400px;
         margin: 0 auto;
         padding: 20px;
-        background-color: var(--bg-color);
-        transition: background-color 0.4s ease, color 0.4s ease;
       }
 
-      .theme-toggle {
+      header {
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+        margin-bottom: 30px;
+      }
+
+      .logo {
+        font-size: 24px;
+        font-weight: bold;
+        color: var(--primary-color);
+      }
+
+      .search-container {
+        width: 100%;
+        max-width: 800px;
+        margin: 0 auto 30px;
+      }
+
+      .search-box {
+        width: 100%;
+        position: relative;
+      }
+
+      .search-input {
+        width: 100%;
+        padding: 15px 20px;
+        font-size: 18px;
+        border: 2px solid var(--border-color);
+        border-radius: 8px;
+        box-shadow: 0 2px 8px rgba(0, 0, 0, 0.05);
+        transition: all 0.3s;
+      }
+
+      .search-input:focus {
+        outline: none;
+        border-color: var(--primary-color);
+        box-shadow: 0 2px 12px rgba(41, 98, 255, 0.15);
+      }
+
+      .search-icon {
         position: absolute;
-        top: 20px;
-        right: 20px;
-        background: none;
+        right: 15px;
+        top: 50%;
+        transform: translateY(-50%);
+        color: var(--text-secondary);
+      }
+
+      .stock-info {
+        display: flex;
+        align-items: center;
+        margin-bottom: 30px;
+        background-color: var(--card-bg);
+        padding: 20px;
+        border-radius: 10px;
+        box-shadow: 0 2px 10px rgba(0, 0, 0, 0.05);
+      }
+
+      .stock-details {
+        flex-grow: 1;
+      }
+
+      .stock-name {
+        font-size: 28px;
+        font-weight: bold;
+        margin-bottom: 5px;
+      }
+
+      .stock-ticker {
+        font-size: 18px;
+        color: var(--text-secondary);
+        margin-bottom: 10px;
+      }
+
+      .stock-price {
+        font-size: 24px;
+        font-weight: bold;
+      }
+
+      .stock-change {
+        margin-left: 15px;
+        padding: 5px 10px;
+        border-radius: 4px;
+        font-weight: bold;
+      }
+
+      .positive {
+        color: var(--positive-color);
+      }
+
+      .negative {
+        color: var(--negative-color);
+      }
+
+      .main-chart {
+        background-color: var(--card-bg);
+        padding: 20px;
+        border-radius: 10px;
+        margin-bottom: 30px;
+        box-shadow: 0 2px 10px rgba(0, 0, 0, 0.05);
+      }
+
+      .chart-header {
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        margin-bottom: 15px;
+      }
+
+      .chart-title {
+        font-size: 20px;
+        font-weight: bold;
+      }
+
+      .time-filters {
+        display: flex;
+      }
+
+      .time-filter {
+        padding: 6px 12px;
+        margin-left: 8px;
+        background-color: transparent;
+        border: 1px solid var(--border-color);
+        border-radius: 4px;
+        cursor: pointer;
+        transition: all 0.2s;
+      }
+
+      .time-filter.active {
+        background-color: var(--primary-color);
+        color: white;
+        border-color: var(--primary-color);
+      }
+
+      .time-filter:hover:not(.active) {
+        background-color: rgba(41, 98, 255, 0.1);
+      }
+
+      .analysis-grid {
+        display: grid;
+        grid-template-columns: repeat(3, 1fr);
+        gap: 25px;
+        margin-bottom: 30px;
+      }
+
+      .analysis-card {
+        background-color: var(--card-bg);
+        border-radius: 10px;
+        padding: 20px;
+        box-shadow: 0 2px 10px rgba(0, 0, 0, 0.05);
+        position: relative;
+        transition: transform 0.3s, box-shadow 0.3s;
+      }
+
+      .analysis-card:hover {
+        box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+      }
+
+      .card-header {
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        margin-bottom: 15px;
+      }
+
+      .card-title {
+        font-size: 18px;
+        font-weight: bold;
+      }
+
+      .card-actions {
+        display: flex;
+      }
+
+      .card-action {
+        background: transparent;
         border: none;
         cursor: pointer;
-        padding: 10px;
-        border-radius: 50%;
-        transition: all 0.3s ease;
-        z-index: 10;
+        font-size: 16px;
+        color: var(--text-secondary);
+        margin-left: 10px;
+        transition: color 0.2s;
       }
 
-      .theme-toggle:hover {
-        transform: scale(1.1);
-        background-color: rgba(0, 0, 0, 0.1);
+      .card-action:hover {
+        color: var(--primary-color);
       }
 
-      .dark-mode .theme-toggle:hover {
-        background-color: rgba(255, 255, 255, 0.1);
-      }
-
-      .theme-icon {
-        width: 28px;
-        height: 28px;
-        color: var(--text-color);
-        transition: all 0.3s ease;
-      }
-
-      .theme-toggle:hover .theme-icon {
-        color: var(--accent-color);
-        transform: rotate(20deg);
-      }
-
-      .dark-mode .moon-icon,
-      .sun-icon {
-        display: none;
-      }
-
-      .dark-mode .sun-icon,
-      .moon-icon {
-        display: block;
-      }
-
-      .header {
-        text-align: center;
-        margin: 30px 0 40px;
-        position: relative;
-      }
-
-      .header h1 {
-        font-family: "Playfair Display", serif;
-        font-size: 36px;
-        font-weight: 700;
-        color: var(--header-color);
-        position: relative;
-        display: inline-block;
-        transition: color 0.3s ease;
-      }
-
-      .header h1::after {
-        content: "";
-        position: absolute;
-        width: 60px;
-        height: 3px;
-        background-color: var(--accent-color);
-        bottom: -10px;
-        left: 50%;
-        transform: translateX(-50%);
-        transition: width 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275);
-      }
-
-      .header:hover h1::after {
-        width: 100px;
-      }
-
-      .news-grid {
-        display: grid;
-        grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
-        gap: 30px;
-      }
-
-      .news-item {
+      .card-content {
+        height: 400px;
         display: flex;
-        flex-direction: column;
-        background-color: var(--news-bg);
-        border-radius: 10px;
-        overflow: hidden;
-        box-shadow: 0 5px 15px var(--shadow-color);
-        transition: all 0.4s cubic-bezier(0.165, 0.84, 0.44, 1);
-        height: 100%;
-        will-change: transform;
-        animation: fadeIn 0.5s ease forwards;
-        opacity: 0;
-        transform: translateY(20px);
+        align-items: center;
+        justify-content: center;
       }
 
-      @keyframes fadeIn {
-        from {
-          opacity: 0;
-          transform: translateY(20px);
-        }
-        to {
-          opacity: 1;
-          transform: translateY(0);
-        }
-      }
-
-      .news-item:hover {
-        transform: translateY(-8px);
-        box-shadow: 0 15px 30px var(--shadow-color);
-      }
-
-      .image-container {
-        position: relative;
-        overflow: hidden;
+      .modal {
+        display: none;
+        position: fixed;
+        z-index: 100;
+        left: 0;
+        top: 0;
         width: 100%;
-        height: 175px;
+        height: 100%;
+        background-color: rgba(0, 0, 0, 0.5);
+      }
+
+      .modal-content {
+        position: relative;
+        background-color: var(--card-bg);
+        margin: 5% auto;
+        padding: 30px;
+        width: 60%; /* Increase from 80% to 90% */
+        max-width: 1200px; /* Increase from 1000px to 1200px */
+        border-radius: 10px;
+        box-shadow: 0 5px 25px rgba(0, 0, 0, 0.2);
+      }
+
+      .close-modal {
+        position: absolute;
+        right: 20px;
+        top: 15px;
+        font-size: 24px;
+        font-weight: bold;
+        color: var(--text-secondary);
         cursor: pointer;
       }
 
-      .image-link {
-        display: block;
-        height: 100%;
-        width: 100%;
+      .modal-chart-container {
+        height: 600px; /* Increase from 500px to 600px */
+        margin-top: 20px;
       }
 
-      .news-image {
-        width: 100%;
-        height: 175px;
-        object-fit: cover;
-        transition: transform 0.5s cubic-bezier(0.165, 0.84, 0.44, 1),
-          filter 0.4s ease;
-        will-change: transform, filter;
-      }
-
-      .news-item:hover .news-image {
-        transform: scale(1.05);
-        filter: brightness(1.05);
-      }
-
-      .news-content {
-        padding: 20px;
+      .portfolio-modal-layout {
         display: flex;
+        width: 100%;
+        height: 100%;
+      }
+
+      .pie-chart-container {
+        width: 60%;
+        height: 500px;
+      }
+
+      .modal-chart-container .portfolio-allocation {
+        width: 40%;
+        max-height: 500px;
+        padding-left: 20px;
+        margin-top: 50px;
+        overflow-y: auto;
+      }
+
+      .loading {
+        display: flex;
+        align-items: center;
+        justify-content: center;
         flex-direction: column;
-        flex-grow: 1;
-        transition: padding 0.3s ease;
-      }
-
-      .news-title {
-        font-family: "Playfair Display", serif;
-        font-size: 20px;
-        font-weight: 700;
-        margin-bottom: 12px;
-        line-height: 1.3;
-      }
-
-      .news-title a {
-        color: var(--title-color);
-        text-decoration: none;
-        display: inline;
-        position: relative;
-        transition: color 0.3s ease;
-        text-decoration: underline;
-        text-decoration-color: transparent;
-        text-underline-offset: 3px;
-        text-decoration-thickness: 1.5px;
-        transition: text-decoration-color 0.3s ease;
-      }
-
-      .news-item:hover .news-title a {
-        color: var(--accent-color-title);
-        text-decoration-color: var(--accent-color-title);
-      }
-
-      .news-summary {
-        font-size: 16px;
-        margin-bottom: 18px;
-        color: var(--secondary-text);
-        transition: color 0.3s ease;
-      }
-
-      .news-author {
-        font-weight: 600;
-        margin-top: auto;
-        font-size: 14px;
-        color: var(--tertiary-text);
-        transition: color 0.3s ease;
-      }
-
-      .audio-icon {
-        position: absolute;
-        bottom: 10px;
-        right: 10px;
-        background-color: rgba(255, 255, 255, 0.9);
-        border-radius: 50%;
-        padding: 8px;
-        width: 35px;
-        height: 35px;
-        display: flex;
-        align-items: center;
-        justify-content: center;
-        z-index: 2;
-        transition: transform 0.3s cubic-bezier(0.175, 0.885, 0.32, 1.275),
-          background-color 0.3s ease, box-shadow 0.3s ease;
-        box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
-      }
-
-      .dark-mode .audio-icon {
-        background-color: rgba(0, 0, 0, 0.8);
-        box-shadow: 0 2px 5px rgba(255, 255, 255, 0.05);
-      }
-
-      .news-item:hover .audio-icon {
-        transform: scale(1.1);
-        background-color: var(--news-bg);
-        box-shadow: 0 4px 8px rgba(0, 0, 0, 0.15);
-      }
-
-      /* Enhanced overlay effect for images with smoother transition */
-      .image-overlay {
-        position: absolute;
-        top: 0;
-        left: 0;
-        width: 100%;
         height: 100%;
-        background: var(--overlay-gradient);
-        opacity: 0.6;
-        transition: opacity 0.5s cubic-bezier(0.19, 1, 0.22, 1);
-        will-change: opacity;
-        pointer-events: none;
       }
 
-      .news-item:hover .image-overlay {
-        opacity: 0.4;
-      }
-
-      .author-name {
-        font-size: 16px;
-        color: var(--tertiary-text);
-        margin-top: 15px;
-        font-weight: 600;
-        transition: color 0.3s ease;
-      }
-
-      /* Loading spinner and container */
-      .loading-container {
-        display: flex;
-        justify-content: center;
-        margin: 30px 0;
-        height: 60px;
-        align-items: center;
-        opacity: 0;
-        transition: opacity 0.3s ease;
-      }
-
-      .loading-container.visible {
-        opacity: 1;
-      }
-
-      .loading-spinner {
-        width: 40px;
-        height: 40px;
-        border: 3px solid rgba(214, 40, 40, 0.2);
+      .spinner {
+        border: 4px solid rgba(0, 0, 0, 0.1);
+        border-left-color: var(--primary-color);
         border-radius: 50%;
-        border-top-color: var(--loader-color);
-        animation: spin 1s ease-in-out infinite;
+        width: 30px;
+        height: 30px;
+        animation: spin 1s linear infinite;
+        margin-bottom: 15px;
       }
 
       @keyframes spin {
@@ -340,338 +313,1219 @@
         }
       }
 
-      /* Add animation delay for sequential loading */
-      .news-item:nth-child(1) {
-        animation-delay: 0.05s;
-      }
-      .news-item:nth-child(2) {
-        animation-delay: 0.1s;
-      }
-      .news-item:nth-child(3) {
-        animation-delay: 0.15s;
-      }
-      .news-item:nth-child(4) {
-        animation-delay: 0.2s;
-      }
-      .news-item:nth-child(5) {
-        animation-delay: 0.25s;
-      }
-      .news-item:nth-child(6) {
-        animation-delay: 0.3s;
+      .search-results {
+        position: absolute;
+        width: 100%;
+        background-color: white;
+        border: 1px solid var(--border-color);
+        border-radius: 0 0 8px 8px;
+        max-height: 300px;
+        overflow-y: auto;
+        box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+        z-index: 10;
+        display: none;
       }
 
-      /* Responsive adjustments with improved grid */
-      @media (max-width: 1400px) {
-        body {
-          padding: 15px;
+      .search-result-item {
+        padding: 12px 20px;
+        cursor: pointer;
+        border-bottom: 1px solid var(--border-color);
+      }
+
+      .search-result-item:hover {
+        background-color: rgba(41, 98, 255, 0.05);
+      }
+
+      .search-result-name {
+        font-weight: bold;
+      }
+
+      .search-result-ticker {
+        color: var(--text-secondary);
+        font-size: 14px;
+        margin-left: 8px;
+      }
+
+      .portfolio-card {
+        min-height: 520px;
+      }
+
+      .zoom-active {
+        position: fixed;
+        top: 0;
+        left: 0;
+        right: 0;
+        bottom: 0;
+        z-index: 50;
+        margin: 5%;
+        transform: none;
+        max-width: 90%;
+        max-height: 90%;
+      }
+
+      .hidden {
+        display: none;
+      }
+
+      @media (max-width: 1024px) {
+        .analysis-grid {
+          grid-template-columns: repeat(2, 1fr);
         }
       }
 
-      @media (max-width: 600px) {
-        .header h1 {
-          font-size: 28px;
+      @media (max-width: 768px) {
+        .analysis-grid {
+          grid-template-columns: 1fr;
         }
 
-        .news-content {
-          padding: 15px;
-        }
-
-        .news-title {
-          font-size: 18px;
-        }
-
-        .news-summary {
-          font-size: 15px;
-        }
-
-        .news-item:hover {
-          transform: translateY(-5px);
+        .stock-info {
+          flex-direction: column;
+          align-items: flex-start;
         }
       }
 
-      /* Smooth scroll behavior */
-      html {
-        scroll-behavior: smooth;
+      #searchResults {
+        display: none;
+        position: absolute;
+        width: 100%;
+        background: white;
+        border: 1px solid #ddd;
+        border-top: none;
+        z-index: 1000;
+        max-height: 300px;
+        overflow-y: auto;
+        border-radius: 0 0 8px 8px;
       }
 
-      /* Improved focus states for accessibility */
-      a:focus,
-      button:focus {
-        outline: 2px solid var(--accent-color);
-        outline-offset: 3px;
+      .result-item {
+        padding: 10px 15px;
+        cursor: pointer;
+        border-bottom: 1px solid #eee;
+      }
+
+      .result-item:hover {
+        background-color: #f5f5f5;
+      }
+
+      /* Additional styles for the portfolio allocation card */
+      .portfolio-allocation {
+        display: flex;
+        flex-wrap: wrap;
+        justify-content: space-between;
+        height: 100%;
+        overflow-y: auto;
+        max-height: 250px;
+        margin-top: 50px; /* Add this line to move text down */
+      }
+
+      .allocation-item {
+        display: flex;
+        align-items: center;
+        width: 48%;
+        margin-bottom: 15px;
+      }
+ 
+      #modalAllocationDetails .allocation-item {
+        width: 100%;
+      }
+
+      .allocation-color {
+        width: 15px;
+        height: 15px;
+        border-radius: 3px;
+        margin-right: 8px;
+      }
+
+      .allocation-ticker {
+        font-weight: bold;
+        margin-right: 5px;
+      }
+
+      .allocation-percentage {
+        margin-left: auto;
+        font-weight: bold;
       }
     </style>
   </head>
   <body>
-    <button class="theme-toggle">
-      <svg
-        class="theme-icon moon-icon"
-        xmlns="http://www.w3.org/2000/svg"
-        fill="none"
-        viewBox="0 0 24 24"
-        stroke="currentColor"
+    <div class="container">
+      <header>
+        <div class="logo">StockInsight</div>
+      </header>
+
+      <div class="search-container">
+        <div class="search-box">
+          <input
+            type="text"
+            id="stockSearch"
+            class="search-input"
+            placeholder="Search for a stock..."
+            autocomplete="off"
+          />
+          <i class="fas fa-search search-icon"></i>
+          <div id="searchResults"></div>
+        </div>
+      </div>
+
+      <div id="stockContent" class="hidden">
+        <div class="stock-info">
+          <div class="stock-details">
+            <div class="stock-name" id="stockName">Loading...</div>
+            <div class="stock-ticker" id="stockTicker"></div>
+            <div>
+              <span class="stock-price" id="stockPrice"></span>
+              <span class="stock-change" id="stockChange"></span>
+            </div>
+          </div>
+        </div>
+
+        <div class="main-chart">
+          <div class="chart-header">
+            <div class="chart-title">Stock Price History</div>
+            <div class="time-filters">
+              <button class="time-filter" data-period="1w">1W</button>
+              <button class="time-filter" data-period="1m">1M</button>
+              <button class="time-filter active" data-period="3m">3M</button>
+            </div>
+          </div>
+          <div style="height: 400px">
+            <canvas id="priceChart"></canvas>
+          </div>
+        </div>
+
+        <div class="analysis-grid">
+          <div class="analysis-card portfolio-card">
+            <div class="card-header">
+              <div class="card-title">Optimal Portfolio Allocation</div>
+              <div class="card-actions">
+                <button
+                  class="card-action zoom-btn"
+                  data-target="portfolioAllocation"
+                >
+                  <i class="fas fa-expand-alt"></i>
+                </button>
+              </div>
+            </div>
+            <div class="card-content" id="portfolioAllocation">
+              <div class="loading" id="portfolioLoading">
+                <div class="spinner"></div>
+                <div>Loading portfolio allocation...</div>
+              </div>
+              <div
+                style="width: 100%; height: 100%; display: none"
+                id="portfolioChart"
+              >
+                <div style="height: 200px; width: 100%">
+                  <canvas id="allocationChart"></canvas>
+                </div>
+                <div class="portfolio-allocation" id="allocationDetails">
+                  <!-- Will be populated by JavaScript -->
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <div class="analysis-card">
+            <div class="card-header">
+              <div class="card-title">Sentiment Analysis</div>
+              <div class="card-actions">
+                <button
+                  class="card-action zoom-btn"
+                  data-target="sentimentAnalysis"
+                >
+                  <i class="fas fa-expand-alt"></i>
+                </button>
+              </div>
+            </div>
+            <div class="card-content" id="sentimentAnalysis">
+              <div class="loading" id="sentimentLoading">
+                <div class="spinner"></div>
+                <div>Loading sentiment analysis...</div>
+              </div>
+              <canvas id="sentimentChart" style="display: none"></canvas>
+            </div>
+          </div>
+
+          <div class="analysis-card">
+            <div class="card-header">
+              <div class="card-title">Price Prediction</div>
+              <div class="card-actions">
+                <button
+                  class="card-action zoom-btn"
+                  data-target="pricePrediction"
+                >
+                  <i class="fas fa-expand-alt"></i>
+                </button>
+              </div>
+            </div>
+            <div class="card-content" id="pricePrediction">
+              <div class="loading" id="predictionLoading">
+                <div class="spinner"></div>
+                <div>Loading price prediction...</div>
+              </div>
+              <canvas id="predictionChart" style="display: none"></canvas>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <div
+        id="initialScreen"
+        class="main-chart"
+        style="padding: 50px; text-align: center"
       >
-        <path
-          stroke-linecap="round"
-          stroke-linejoin="round"
-          stroke-width="2"
-          d="M20.354 15.354A9 9 0 018.646 3.646 9.003 9.003 0 0012 21a9.003 9.003 0 008.354-5.646z"
-        />
-      </svg>
-      <svg
-        class="theme-icon sun-icon"
-        xmlns="http://www.w3.org/2000/svg"
-        fill="none"
-        viewBox="0 0 24 24"
-        stroke="currentColor"
-      >
-        <path
-          stroke-linecap="round"
-          stroke-linejoin="round"
-          stroke-width="2"
-          d="M12 3v1m0 16v1m9-9h-1M4 12H3m15.364 6.364l-.707-.707M6.343 6.343l-.707-.707m12.728 0l-.707.707M6.343 17.657l-.707.707"
-        />
-      </svg>
-    </button>
-    <div class="header">
-      <h1>TODAY'S NEWS</h1>
-      <p class="author-name">By Achyutha Munimakula PH21B004</p>
+        <h2>Welcome to StockInsight</h2>
+        <p>
+          Enter a stock symbol in the search bar above to view detailed analysis
+          and predictions.
+        </p>
+        <div style="margin: 40px 0">
+          <i
+            class="fas fa-chart-line"
+            style="font-size: 80px; color: #2962ff; margin-bottom: 20px"
+          ></i>
+        </div>
+        <p>Get access to:</p>
+        <div
+          style="
+            display: flex;
+            justify-content: space-around;
+            max-width: 800px;
+            margin: 30px auto;
+          "
+        >
+          <div>
+            <i
+              class="fas fa-chart-pie"
+              style="font-size: 36px; color: #2962ff; margin-bottom: 10px"
+            ></i>
+            <p><strong>Portfolio Optimization</strong></p>
+          </div>
+          <div>
+            <i
+              class="fas fa-newspaper"
+              style="font-size: 36px; color: #2962ff; margin-bottom: 10px"
+            ></i>
+            <p><strong>Sentiment Analysis</strong></p>
+          </div>
+          <div>
+            <i
+              class="fas fa-chart-line"
+              style="font-size: 36px; color: #2962ff; margin-bottom: 10px"
+            ></i>
+            <p><strong>Price Predictions</strong></p>
+          </div>
+        </div>
+      </div>
+
+    </div>
+      
+    <footer style="text-align: center; margin-top: 30px; padding: 15px; color: var(--text-secondary);">
+      Made by Achyutha Munimakula and Shiva Surya
+    </footer>
+  </div>
+
+  <!-- Modals for expanded views -->
     </div>
 
-    <div class="news-grid" id="news-container">
-      <!-- News items will be loaded here via JavaScript -->
+    <!-- Modals for expanded views -->
+    <div id="portfolioModal" class="modal">
+      <div class="modal-content">
+        <span class="close-modal">&times;</span>
+        <h2>Optimal Portfolio Allocation</h2>
+        <div class="modal-chart-container">
+          <div class="portfolio-modal-layout">
+            <div class="pie-chart-container">
+              <canvas id="modalPortfolioChart"></canvas>
+            </div>
+            <div class="portfolio-allocation" id="modalAllocationDetails"></div>
+          </div>
+        </div>
+      </div>
     </div>
 
-    <div class="loading-container" id="loading-container">
-      <div class="loading-spinner"></div>
+    <div id="sentimentModal" class="modal">
+      <div class="modal-content">
+        <span class="close-modal">&times;</span>
+        <h2>Stock Sentiment Analysis</h2>
+        <div class="modal-chart-container">
+          <canvas id="modalSentimentChart"></canvas>
+        </div>
+      </div>
+    </div>
+
+    <div id="predictionModal" class="modal">
+      <div class="modal-content">
+        <span class="close-modal">&times;</span>
+        <h2>Stock Price Prediction</h2>
+        <div class="modal-chart-container">
+          <canvas id="modalPredictionChart"></canvas>
+        </div>
+      </div>
     </div>
 
     <script>
-      // Theme Toggle Functionality
-      const themeToggle = document.querySelector(".theme-toggle");
-      const body = document.body;
+      // Define color scheme for charts
+      const colors = {
+        primary: "#2962ff",
+        secondary: "#0039cb",
+        positive: "#00c853",
+        negative: "#ff1744",
+        neutral: "#757575",
+        pastData: "#2962ff",
+        futureData: "#00c853",
+        portfolioColors: [
+          "#2962ff",
+          "#00c853",
+          "#ff1744",
+          "#ffc107",
+          "#9c27b0",
+          "#00bcd4",
+          "#ff9800",
+          "#607d8b",
+          "#e91e63",
+          "#3f51b5",
+        ],
+      };
 
-      // Check for saved theme
-      const savedTheme = localStorage.getItem("theme");
-      if (savedTheme) {
-        body.classList.add(savedTheme);
-      }
+      const COMPANIES_DICT = {
+        "AAPL": "Apple",
+        "MSFT": "Microsoft",
+        "GOOGL": "Alphabet",
+        "AMZN": "Amazon",
+        "TSLA": "Tesla",
+        "NVDA": "NVIDIA",
+        "META": "Meta",
+        "JPM": "JPMorgan Chase",
+        "WMT": "Walmart",
+        "V": "Visa"
+      };
 
-      themeToggle.addEventListener("click", () => {
-        body.classList.toggle("dark-mode");
-        const currentTheme = body.classList.contains("dark-mode")
-          ? "dark-mode"
-          : "";
-        localStorage.setItem("theme", currentTheme);
+      // Initialize chart instances
+      let priceChart, sentimentChart, predictionChart, allocationChart;
+      let modalSentimentChart, modalPredictionChart, modalPortfolioChart;
+
+      // Global state for the current stock
+      let currentStock = null;
+      let stockData = null;
+
+      // DOM elements
+      const stockSearch = document.getElementById("stockSearch");
+      const searchResults = document.getElementById("searchResults");
+      const stockContent = document.getElementById("stockContent");
+      const initialScreen = document.getElementById("initialScreen");
+
+      // Initialize charts when DOM is loaded
+      document.addEventListener("DOMContentLoaded", function () {
+        // Set up search functionality
+        setupSearch();
+
+        // Set up time filters
+        setupTimeFilters();
+
+        // Set up modal/zoom functionality
+        setupModals();
       });
 
-      // Variables for lazy loading
-      let allNewsItems = [];
-      let currentPage = 0;
-      const itemsPerPage = 12; // Load 6 items at a time (2 rows of 3 on large screens)
-      let isLoading = false;
-      let hasMoreItems = true;
-
-      // Function to fetch all news data initially
-      async function fetchAllNews() {
-        try {
-          showLoader();
-          const response = await fetch("/api/news");
-          const data = await response.json();
-          hideLoader();
-
-          if (!data || data.length === 0) {
-            document.getElementById("news-container").innerHTML =
-              "<p>No news available for today.</p>";
-            hasMoreItems = false;
-            return;
+      function setupSearch() {
+        // Event listener for search input
+        stockSearch.addEventListener("input", function () {
+          const query = this.value.trim();
+          fetchSearchResults(query);
+          
+          if (query.length === 0) {
+            searchResults.style.display = "block";
           }
+        });
 
-          // Store all items but only display the first batch
-          allNewsItems = data;
-          loadMoreItems();
-
-          // Set up intersection observer for infinite scroll
-          setupInfiniteScroll();
-        } catch (error) {
-          console.error("Error fetching news:", error);
-          document.getElementById("news-container").innerHTML =
-            "<p>Failed to load news. Please try again later.</p>";
-          hideLoader();
-        }
+        // Close search results when clicking outside
+        document.addEventListener("click", function (e) {
+          if (e.target !== stockSearch && !searchResults.contains(e.target)) {
+            searchResults.style.display = "none";
+          }
+        });
       }
 
-      // Function to load more items
-      function loadMoreItems() {
-        if (isLoading || !hasMoreItems) return;
-
-        isLoading = true;
-        showLoader();
-
-        const container = document.getElementById("news-container");
-        const startIndex = currentPage * itemsPerPage;
-        const endIndex = startIndex + itemsPerPage;
-        const itemsToLoad = allNewsItems.slice(startIndex, endIndex);
-
-        // If no more items to load
-        if (itemsToLoad.length === 0) {
-          hasMoreItems = false;
-          hideLoader();
-          isLoading = false;
+      function fetchSearchResults(query) {
+        if (query.length === 0) {
+          // Show all stocks when search is empty
+          const allStocks = [];
+          for (const ticker in COMPANIES_DICT) {
+            allStocks.push({
+              ticker: ticker,
+              name: COMPANIES_DICT[ticker]
+            });
+          }
+          displaySearchResults(allStocks);
           return;
         }
 
-        // Add delay for visual appeal
-        setTimeout(() => {
-          // Add each item with animation
-          itemsToLoad.forEach((item, index) => {
-            const newsElement = createNewsElement(item);
-            container.appendChild(newsElement);
+        fetch(`/api/search?q=${encodeURIComponent(query)}`)
+          .then((response) => response.json())
+          .then((data) => {
+            // Display search results
+            displaySearchResults(data);
+          })
+          .catch((error) => {
+            console.error("Error fetching search results:", error);
+          });
+      }
+      function displaySearchResults(results) {
+        if (results.length === 0) {
+          searchResults.style.display = "none";
+          return;
+        }
+
+        searchResults.innerHTML = "";
+
+        results.forEach((stock) => {
+          const resultItem = document.createElement("div");
+          resultItem.className = "result-item";
+          resultItem.innerHTML = `
+                    <span class="search-result-name">${stock.name}</span>
+                    <span class="search-result-ticker">${stock.ticker}</span>
+                `;
+
+          resultItem.addEventListener("click", function () {
+            loadStock(stock.ticker);
+            searchResults.style.display = "none";
+            stockSearch.value = `${stock.name} (${stock.ticker})`;
           });
 
-          currentPage++;
-          isLoading = false;
-          hideLoader();
+          searchResults.appendChild(resultItem);
+        });
 
-          // If we've loaded all items, hide loader permanently
-          if (currentPage * itemsPerPage >= allNewsItems.length) {
-            hasMoreItems = false;
-          }
-        }, 500);
+        searchResults.style.display = "block";
       }
 
-      // Function to create a news element
-      function createNewsElement(item) {
-        const newsElement = document.createElement("div");
-        newsElement.className = "news-item";
+      function loadStock(ticker) {
+        currentStock = ticker;
 
-        // Create image container for positioning audio icon
-        const imageContainer = document.createElement("div");
-        imageContainer.className = "image-container";
+        // Show stock content and hide initial screen
+        stockContent.classList.remove("hidden");
+        initialScreen.classList.add("hidden");
 
-        // Create image overlay effect
-        const overlay = document.createElement("div");
-        overlay.className = "image-overlay";
-        imageContainer.appendChild(overlay);
+        // Reset loading states
+        document.getElementById("portfolioLoading").style.display = "flex";
+        document.getElementById("portfolioChart").style.display = "none";
+        document.getElementById("sentimentLoading").style.display = "flex";
+        document.getElementById("sentimentChart").style.display = "none";
+        document.getElementById("predictionLoading").style.display = "flex";
+        document.getElementById("predictionChart").style.display = "none";
 
-        // Create article URL
-        const articleUrl = item.url;
+        // Fetch stock data
+        Promise.all([
+          fetch(`/api/stock/${ticker}`).then((res) => res.json()),
+          fetch(`/api/portfolio`).then((res) => res.json()),
+          fetch(`/api/sentiment/${ticker}`).then((res) => res.json()),
+          fetch(`/api/prediction/${ticker}`).then((res) => res.json()),
+        ])
+          .then(([stockData, portfolioData, sentimentData, predictionData]) => {
+            // Update main stock information
+            updateStockInfo(stockData);
 
-        // Create image element
-        const img = document.createElement("img");
-        img.className = "news-image";
-        img.alt = item.title;
+            // Update price chart
+            updatePriceChart(stockData);
 
-        // Make image clickable
-        img.onclick = function () {
-          window.open(articleUrl, "_blank");
-        };
+            // Update portfolio allocation chart
+            updatePortfolioChart(portfolioData);
 
-        // Check if image is from API or GridFS
-        if (item.image_id) {
-          // Use the resizable image endpoint with a specific size for grid display
-          img.src = `/api/image/${item.image_id}/350x250`;
+            // Update sentiment analysis chart
+            updateSentimentChart(sentimentData);
 
-          // Add error handling to fall back to original size if resize fails
-          img.onerror = function () {
-            this.src = `/api/image/${item.image_id}/original`;
+            // Update prediction chart
+            updatePredictionChart(predictionData, stockData);
+          })
+          .catch((error) => {
+            console.error("Error loading stock data:", error);
+          });
+      }
 
-            // If original also fails, use placeholder
-            this.onerror = function () {
-              this.src = "/static/placeholder-image.jpg";
-              this.onerror = null;
-            };
-          };
-        } else if (item.image_url) {
-          img.src = item.image_url;
+      function updateStockInfo(stockData) {
+        document.getElementById("stockName").textContent = stockData.name;
+        document.getElementById("stockTicker").textContent = stockData.ticker;
+        document.getElementById(
+          "stockPrice"
+        ).textContent = `$${stockData.current_price.toFixed(2)}`;
+
+        const changeEl = document.getElementById("stockChange");
+        const change = stockData.daily_change;
+        const changePercent = stockData.daily_change_percent;
+
+        changeEl.textContent = `${change >= 0 ? "+" : ""}${change.toFixed(
+          2
+        )} (${change >= 0 ? "+" : ""}${changePercent.toFixed(2)}%)`;
+
+        if (change >= 0) {
+          changeEl.className = "stock-change positive";
         } else {
-          img.src = "/static/placeholder-image.jpg";
+          changeEl.className = "stock-change negative";
         }
-
-        // Add loading attribute for better performance
-        img.loading = "lazy";
-
-        // Add audio icon for some items (randomly for demo)
-        if (Math.random() > 0.5) {
-          const audioIcon = document.createElement("div");
-          audioIcon.className = "audio-icon";
-          audioIcon.innerHTML = `
-            <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" viewBox="0 0 16 16">
-              <path d="M11.536 14.01A8.473 8.473 0 0 0 14.026 8a8.473 8.473 0 0 0-2.49-6.01l-.708.707A7.476 7.476 0 0 1 13.025 8c0 2.071-.84 3.946-2.197 5.303l.708.707z"/>
-              <path d="M10.121 12.596A6.48 6.48 0 0 0 12.025 8a6.48 6.48 0 0 0-1.904-4.596l-.707.707A5.483 5.483 0 0 1 11.025 8a5.483 5.483 0 0 1-1.61 3.89l.706.706z"/>
-              <path d="M8.707 11.182A4.486 4.486 0 0 0 10.025 8a4.486 4.486 0 0 0-1.318-3.182L8 5.525A3.489 3.489 0 0 1 9.025 8 3.49 3.49 0 0 1 8 10.475l.707.707zM6.717 3.55A.5.5 0 0 1 7 4v8a.5.5 0 0 1-.812.39L3.825 10.5H1.5A.5.5 0 0 1 1 10V6a.5.5 0 0 1 .5-.5h2.325l2.363-1.89a.5.5 0 0 1 .529-.06z"/>
-            </svg>
-          `;
-          imageContainer.appendChild(audioIcon);
-        }
-
-        // Add image to container
-        imageContainer.appendChild(img);
-
-        // Create content container
-        const contentDiv = document.createElement("div");
-        contentDiv.className = "news-content";
-
-        // Create title with link
-        const title = document.createElement("h2");
-        title.className = "news-title";
-        const titleLink = document.createElement("a");
-        titleLink.href = articleUrl;
-        titleLink.target = "_blank";
-        titleLink.textContent = item.title;
-        title.appendChild(titleLink);
-
-        // Create summary
-        const summary = document.createElement("p");
-        summary.className = "news-summary";
-        // Truncate summary if too long
-        summary.textContent = item.summary
-          ? item.summary.length > 150
-            ? item.summary.substring(0, 150) + "..."
-            : item.summary
-          : "";
-
-        // Assemble content area
-        contentDiv.appendChild(title);
-        contentDiv.appendChild(summary);
-
-        // Assemble news item
-        newsElement.appendChild(imageContainer);
-        newsElement.appendChild(contentDiv);
-
-        return newsElement;
       }
 
-      // Intersection Observer for infinite scroll
-      function setupInfiniteScroll() {
-        const loadingContainer = document.getElementById("loading-container");
+      function updatePriceChart(stockData) {
+        const ctx = document.getElementById("priceChart").getContext("2d");
 
-        const observer = new IntersectionObserver(
-          (entries) => {
-            if (entries[0].isIntersecting && !isLoading && hasMoreItems) {
-              loadMoreItems();
-            }
+        // Destroy existing chart if it exists
+        if (priceChart) {
+          priceChart.destroy();
+        }
+
+        // Prepare chart data
+        const labels = stockData.history.dates;
+        const prices = stockData.history.prices;
+
+        priceChart = new Chart(ctx, {
+          type: "line",
+          data: {
+            labels: labels,
+            datasets: [
+              {
+                label: "Price",
+                data: prices,
+                borderColor: colors.primary,
+                backgroundColor: "rgba(41, 98, 255, 0.1)",
+                borderWidth: 2,
+                pointRadius: 0,
+                pointHitRadius: 10,
+                tension: 0.2,
+                fill: true,
+              },
+            ],
           },
-          { threshold: 0.1 }
+          options: {
+            responsive: true,
+            maintainAspectRatio: false,
+            interaction: {
+              intersect: false,
+              mode: "index",
+            },
+            plugins: {
+              legend: {
+                display: false,
+              },
+              tooltip: {
+                callbacks: {
+                  label: function (context) {
+                    return `$${context.raw.toFixed(2)}`;
+                  },
+                },
+              },
+            },
+            scales: {
+              x: {
+                grid: {
+                  display: false,
+                },
+              },
+              y: {
+                position: "right",
+                grid: {
+                  color: "rgba(0, 0, 0, 0.05)",
+                },
+                ticks: {
+                  callback: function (value) {
+                    return `$${value}`;
+                  },
+                },
+              },
+            },
+          },
+        });
+      }
+
+      function updatePortfolioChart(portfolioData) {
+        // Hide loading and show chart
+        document.getElementById("portfolioLoading").style.display = "none";
+        document.getElementById("portfolioChart").style.display = "block";
+
+        const ctx = document.getElementById("allocationChart").getContext("2d");
+
+        // Destroy existing chart if it exists
+        if (allocationChart) {
+          allocationChart.destroy();
+        }
+
+        // Prepare chart data
+        const labels = portfolioData.allocations.map((item) => item.ticker);
+        const values = portfolioData.allocations.map((item) => item.allocation);
+
+        allocationChart = new Chart(ctx, {
+          type: "pie",
+          data: {
+            labels: labels,
+            datasets: [
+              {
+                data: values,
+                backgroundColor: colors.portfolioColors.slice(0, labels.length),
+                borderWidth: 1,
+                borderColor: "#ffffff",
+              },
+            ],
+          },
+          options: {
+            responsive: true,
+            maintainAspectRatio: false,
+            plugins: {
+              legend: {
+                display: false,
+              },
+              tooltip: {
+                callbacks: {
+                  label: function (context) {
+                    const value = context.raw;
+                    return `${context.label}: ${(value * 100).toFixed(1)}%`;
+                  },
+                },
+              },
+            },
+          },
+        });
+
+        // Also update the allocation details
+        updateAllocationDetails(portfolioData.allocations, "allocationDetails");
+
+        // Update the modal chart if it exists
+        if (modalPortfolioChart) {
+          updateModalPortfolioChart(portfolioData);
+        }
+      }
+
+      function updateAllocationDetails(allocations, containerId) {
+        const container = document.getElementById(containerId);
+        container.innerHTML = "";
+
+        allocations.forEach((item, index) => {
+          const allocationItem = document.createElement("div");
+          allocationItem.className = "allocation-item";
+
+          const allocationColor = document.createElement("div");
+          allocationColor.className = "allocation-color";
+          allocationColor.style.backgroundColor =
+            colors.portfolioColors[index % colors.portfolioColors.length];
+
+          const allocationTicker = document.createElement("div");
+          allocationTicker.className = "allocation-ticker";
+          allocationTicker.textContent = item.ticker;
+
+          const allocationPercentage = document.createElement("div");
+          allocationPercentage.className = "allocation-percentage";
+          allocationPercentage.textContent = `${(item.allocation * 100).toFixed(
+            1
+          )}%`;
+
+          allocationItem.appendChild(allocationColor);
+          allocationItem.appendChild(allocationTicker);
+          allocationItem.appendChild(allocationPercentage);
+
+          container.appendChild(allocationItem);
+        });
+      }
+
+      function updateSentimentChart(sentimentData) {
+        // Hide loading and show chart
+        document.getElementById("sentimentLoading").style.display = "none";
+        document.getElementById("sentimentChart").style.display = "block";
+
+        const ctx = document.getElementById("sentimentChart").getContext("2d");
+
+        // Destroy existing chart if it exists
+        if (sentimentChart) {
+          sentimentChart.destroy();
+        }
+
+        // Prepare chart data
+        const labels = sentimentData.dates;
+        const sentiments = sentimentData.sentiment_scores;
+
+        // Create dataset with color based on sentiment value
+        const backgroundColors = sentiments.map((value) => {
+          if (value > 0.2) return colors.positive;
+          if (value < -0.2) return colors.negative;
+          return colors.neutral;
+        });
+
+        sentimentChart = new Chart(ctx, {
+          type: "bar",
+          data: {
+            labels: labels,
+            datasets: [
+              {
+                label: "Sentiment Score",
+                data: sentiments,
+                backgroundColor: backgroundColors,
+                borderColor: backgroundColors,
+                borderWidth: 1,
+              },
+            ],
+          },
+          options: {
+            responsive: true,
+            maintainAspectRatio: false,
+            plugins: {
+              legend: {
+                display: false,
+              },
+              tooltip: {
+                callbacks: {
+                  label: function (context) {
+                    const value = context.raw;
+                    let sentiment = "Neutral";
+                    if (value > 0.2) sentiment = "Positive";
+                    if (value < -0.2) sentiment = "Negative";
+                    return `Sentiment: ${sentiment} (${value.toFixed(2)})`;
+                  },
+                },
+              },
+            },
+            scales: {
+              x: {
+                grid: {
+                  display: false,
+                },
+              },
+              y: {
+                grid: {
+                  color: "rgba(0, 0, 0, 0.05)",
+                },
+                min: -1,
+                max: 1,
+              },
+            },
+          },
+        });
+
+        // Update the modal chart if it exists
+        if (modalSentimentChart) {
+          updateModalSentimentChart(sentimentData);
+        }
+      }
+
+      function updatePredictionChart(predictionData, stockData) {
+        // Hide loading and show chart
+        document.getElementById("predictionLoading").style.display = "none";
+        document.getElementById("predictionChart").style.display = "block";
+
+        const ctx = document.getElementById("predictionChart").getContext("2d");
+
+        // Destroy existing chart if it exists
+        if (predictionChart) {
+          predictionChart.destroy();
+        }
+
+        // Combine historical and prediction data
+        const historicalDates = stockData.history.dates.slice(-30); // Show last 30 days
+        const historicalPrices = stockData.history.prices.slice(-30);
+
+        const predictionDates = predictionData.dates;
+        const predictionPrices = predictionData.predicted_prices;
+
+        predictionChart = new Chart(ctx, {
+          type: "line",
+          data: {
+            labels: [...historicalDates, ...predictionDates],
+            datasets: [
+              {
+                label: "Historical Price",
+                data: [
+                  ...historicalPrices,
+                  ...Array(predictionDates.length).fill(null),
+                ],
+                borderColor: colors.pastData,
+                backgroundColor: "rgba(41, 98, 255, 0.1)",
+                borderWidth: 2,
+                pointRadius: 0,
+                fill: true,
+                tension: 0.2,
+              },
+              {
+                label: "Predicted Price",
+                data: [
+                  ...Array(historicalDates.length).fill(null),
+                  ...predictionPrices,
+                ],
+                borderColor: colors.futureData,
+                backgroundColor: "rgba(0, 200, 83, 0.1)",
+                borderWidth: 2,
+                borderDash: [5, 5],
+                pointRadius: 0,
+                fill: true,
+                tension: 0.2,
+              },
+            ],
+          },
+          options: {
+            responsive: true,
+            maintainAspectRatio: false,
+            interaction: {
+              intersect: false,
+              mode: "index",
+            },
+            plugins: {
+              legend: {
+                display: false,
+              },
+              tooltip: {
+                callbacks: {
+                  label: function (context) {
+                    if (context.raw === null) return "";
+                    return `${context.dataset.label}: ${context.raw.toFixed(
+                      2
+                    )}`;
+                  },
+                },
+              },
+            },
+            scales: {
+              x: {
+                grid: {
+                  display: false,
+                },
+              },
+              y: {
+                grid: {
+                  color: "rgba(0, 0, 0, 0.05)",
+                },
+                ticks: {
+                  callback: function (value) {
+                    return `${value}`;
+                  },
+                },
+              },
+            },
+          },
+        });
+
+        // Update the modal chart if it exists
+        if (modalPredictionChart) {
+          updateModalPredictionChart(predictionData, stockData);
+        }
+      }
+
+      function updateModalSentimentChart(sentimentData) {
+        const ctx = document
+          .getElementById("modalSentimentChart")
+          .getContext("2d");
+
+        // Destroy existing chart if it exists
+        if (modalSentimentChart) {
+          modalSentimentChart.destroy();
+        }
+
+        // Prepare chart data
+        const labels = sentimentData.dates;
+        const sentiments = sentimentData.sentiment_scores;
+
+        // Create dataset with color based on sentiment value
+        const backgroundColors = sentiments.map((value) => {
+          if (value > 0.2) return colors.positive;
+          if (value < -0.2) return colors.negative;
+          return colors.neutral;
+        });
+
+        modalSentimentChart = new Chart(ctx, {
+          type: "bar",
+          data: {
+            labels: labels,
+            datasets: [
+              {
+                label: "Sentiment Score",
+                data: sentiments,
+                backgroundColor: backgroundColors,
+                borderColor: backgroundColors,
+                borderWidth: 1,
+              },
+            ],
+          },
+          options: {
+            responsive: true,
+            maintainAspectRatio: false,
+            plugins: {
+              tooltip: {
+                callbacks: {
+                  label: function (context) {
+                    const value = context.raw;
+                    let sentiment = "Neutral";
+                    if (value > 0.2) sentiment = "Positive";
+                    if (value < -0.2) sentiment = "Negative";
+                    return `Sentiment: ${sentiment} (${value.toFixed(2)})`;
+                  },
+                },
+              },
+            },
+            scales: {
+              x: {
+                grid: {
+                  display: false,
+                },
+              },
+              y: {
+                grid: {
+                  color: "rgba(0, 0, 0, 0.05)",
+                },
+                min: -1,
+                max: 1,
+              },
+            },
+          },
+        });
+      }
+
+      function updateModalPredictionChart(predictionData, stockData) {
+        const ctx = document
+          .getElementById("modalPredictionChart")
+          .getContext("2d");
+
+        // Destroy existing chart if it exists
+        if (modalPredictionChart) {
+          modalPredictionChart.destroy();
+        }
+
+        // Combine historical and prediction data
+        const historicalDates = stockData.history.dates.slice(-60); // Show more data in modal
+        const historicalPrices = stockData.history.prices.slice(-60);
+
+        const predictionDates = predictionData.dates;
+        const predictionPrices = predictionData.predicted_prices;
+
+        modalPredictionChart = new Chart(ctx, {
+          type: "line",
+          data: {
+            labels: [...historicalDates, ...predictionDates],
+            datasets: [
+              {
+                label: "Historical Price",
+                data: [
+                  ...historicalPrices,
+                  ...Array(predictionDates.length).fill(null),
+                ],
+                borderColor: colors.pastData,
+                backgroundColor: "rgba(41, 98, 255, 0.1)",
+                borderWidth: 2,
+                pointRadius: 0,
+                fill: true,
+                tension: 0.2,
+              },
+              {
+                label: "Predicted Price",
+                data: [
+                  ...Array(historicalDates.length).fill(null),
+                  ...predictionPrices,
+                ],
+                borderColor: colors.futureData,
+                backgroundColor: "rgba(0, 200, 83, 0.1)",
+                borderWidth: 2,
+                borderDash: [5, 5],
+                pointRadius: 0,
+                fill: true,
+                tension: 0.2,
+              },
+            ],
+          },
+          options: {
+            responsive: true,
+            maintainAspectRatio: false,
+            interaction: {
+              intersect: false,
+              mode: "index",
+            },
+            plugins: {
+              tooltip: {
+                callbacks: {
+                  label: function (context) {
+                    if (context.raw === null) return "";
+                    return `${context.dataset.label}: ${context.raw.toFixed(
+                      2
+                    )}`;
+                  },
+                },
+              },
+            },
+            scales: {
+              x: {
+                grid: {
+                  display: false,
+                },
+              },
+              y: {
+                grid: {
+                  color: "rgba(0, 0, 0, 0.05)",
+                },
+                ticks: {
+                  callback: function (value) {
+                    return `${value}`;
+                  },
+                },
+              },
+            },
+          },
+        });
+      }
+
+      function updateModalPortfolioChart(portfolioData) {
+        const ctx = document
+          .getElementById("modalPortfolioChart")
+          .getContext("2d");
+
+        // Destroy existing chart if it exists
+        if (modalPortfolioChart) {
+          modalPortfolioChart.destroy();
+        }
+
+        // Prepare chart data
+        const labels = portfolioData.allocations.map((item) => item.ticker);
+        const values = portfolioData.allocations.map((item) => item.allocation);
+
+        modalPortfolioChart = new Chart(ctx, {
+          type: "pie",
+          data: {
+            labels: labels,
+            datasets: [
+              {
+                data: values,
+                backgroundColor: colors.portfolioColors.slice(0, labels.length),
+                borderWidth: 1,
+                borderColor: "#ffffff",
+              },
+            ],
+          },
+          options: {
+            responsive: true,
+            maintainAspectRatio: false,
+            radius: '80%',
+            plugins: {
+              legend: {
+                display: false,  // Hide legend to save space
+              },
+              tooltip: {
+                callbacks: {
+                  label: function (context) {
+                    const value = context.raw;
+                    return `${context.label}: ${(value * 100).toFixed(1)}%`;
+                  },
+                },
+              },
+            },
+          },
+        });
+
+        // Update the allocation details
+        updateAllocationDetails(
+          portfolioData.allocations,
+          "modalAllocationDetails"
         );
-
-        observer.observe(loadingContainer);
       }
 
-      // Show loading spinner
-      function showLoader() {
-        const loader = document.getElementById("loading-container");
-        loader.classList.add("visible");
+      function setupTimeFilters() {
+        const timeFilters = document.querySelectorAll(".time-filter");
+
+        timeFilters.forEach((filter) => {
+          filter.addEventListener("click", function () {
+            // Remove active class from all filters
+            timeFilters.forEach((f) => f.classList.remove("active"));
+
+            // Add active class to clicked filter
+            this.classList.add("active");
+
+            // Handle time period filtering
+            const period = this.getAttribute("data-period");
+
+            if (currentStock) {
+              filterStockData(period);
+            }
+          });
+        });
       }
 
-      // Hide loading spinner
-      function hideLoader() {
-        const loader = document.getElementById("loading-container");
-        loader.classList.remove("visible");
+      function filterStockData(period) {
+        // Get the full stock data
+        fetch(`/api/stock/${currentStock}?period=${period}`)
+          .then((response) => response.json())
+          .then((stockData) => {
+            // Update price chart with filtered data
+            updatePriceChart(stockData);
+          })
+          .catch((error) => {
+            console.error("Error fetching filtered stock data:", error);
+          });
       }
 
-      // Load news on page load
-      document.addEventListener("DOMContentLoaded", fetchAllNews);
+      function setupModals() {
+        // Setup zoom buttons
+        const zoomButtons = document.querySelectorAll(".zoom-btn");
+
+        zoomButtons.forEach((button) => {
+          button.addEventListener("click", function () {
+            const target = this.getAttribute("data-target");
+            openModal(target);
+          });
+        });
+
+        // Setup modal close buttons
+        const closeButtons = document.querySelectorAll(".close-modal");
+
+        closeButtons.forEach((button) => {
+          button.addEventListener("click", function () {
+            const modal = this.closest(".modal");
+            modal.style.display = "none";
+          });
+        });
+
+        // Close modals when clicking outside
+        window.addEventListener("click", function (e) {
+          if (e.target.classList.contains("modal")) {
+            e.target.style.display = "none";
+          }
+        });
+      }
+
+      function openModal(target) {
+        let modalId;
+
+        // Determine which modal to open
+        switch (target) {
+          case "portfolioAllocation":
+            modalId = "portfolioModal";
+            if (currentStock) {
+              // Fetch fresh data for the modal
+              fetch("/api/portfolio")
+                .then((response) => response.json())
+                .then((portfolioData) => {
+                  updateModalPortfolioChart(portfolioData);
+                });
+            }
+            break;
+          case "sentimentAnalysis":
+            modalId = "sentimentModal";
+            if (currentStock) {
+              // Fetch fresh data for the modal
+              fetch(`/api/sentiment/${currentStock}`)
+                .then((response) => response.json())
+                .then((sentimentData) => {
+                  updateModalSentimentChart(sentimentData);
+                });
+            }
+            break;
+          case "pricePrediction":
+            modalId = "predictionModal";
+            if (currentStock) {
+              // Fetch fresh data for the modal
+              Promise.all([
+                fetch(`/api/stock/${currentStock}`).then((res) => res.json()),
+                fetch(`/api/prediction/${currentStock}`).then((res) =>
+                  res.json()
+                ),
+              ]).then(([stockData, predictionData]) => {
+                updateModalPredictionChart(predictionData, stockData);
+              });
+            }
+            break;
+        }
+
+        if (modalId) {
+          document.getElementById(modalId).style.display = "block";
+        }
+      }
     </script>
   </body>
 </html>
