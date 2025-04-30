@@ -46,6 +46,9 @@ The top section displays:
 
 This panel shows the optimal investment allocation across multiple stocks, calculated using Modern Portfolio Theory.
 
+![Portfolio Optimization Pipeline](./Diagrams/portfolio_optimization_pipeline.png)
+_Portfolio optimization process workflow_
+
 **Features:**
 
 - Pie chart visualizing the recommended portfolio allocation

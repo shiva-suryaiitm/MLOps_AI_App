@@ -39,6 +39,10 @@ A Flask-based web application that provides the user interface for visualizing f
 Contains three specialized ML services:
 
 - **Portfolio Optimisation**: Implements modern portfolio theory to generate optimal asset allocations
+
+![Portfolio Optimization Pipeline](./Diagrams/portfolio_optimization_pipeline.png)
+_Portfolio optimization process flow from configuration to optimal weights_
+
 - **Sentiment Analysis**: Analyzes financial news using NLP to determine market sentiment
 - **Stock Prediction**: Uses LSTM/GRU neural networks to forecast future stock prices
 

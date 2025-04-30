@@ -126,6 +126,13 @@ _Model training workflow from data preparation to deployment_
 
 ### 3.1 Portfolio Optimization Service
 
+#### Optimization Pipeline
+
+The portfolio optimization process follows a systematic approach:
+
+![Portfolio Optimization Pipeline](./Diagrams/portfolio_optimization_pipeline.png)
+_Detailed workflow of the portfolio optimization process_
+
 #### Input Specifications
 
 - **Data Source:** MongoDB collection `stock_prices`
@@ -153,6 +160,12 @@ _Model training workflow from data preparation to deployment_
 - Modern Portfolio Theory optimization
 - Objective: Maximize Sharpe ratio (risk-adjusted return)
 - Constraints: Sum of weights equals 1.0, no negative weights (no shorting)
+- Process:
+  1. Grid search for different portfolio weight configurations
+  2. Calculate performance metrics (returns, volatility, Sharpe ratio)
+  3. Optimize for Sharpe ratio
+  4. Track experiments with MLflow
+  5. Select best performing model
 
 ### 3.2 Sentiment Analysis Service
 
