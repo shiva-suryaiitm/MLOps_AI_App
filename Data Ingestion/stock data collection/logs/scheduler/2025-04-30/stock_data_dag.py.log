@@ -986,3 +986,94 @@
 [2025-04-30T06:19:36.266+0000] {logging_mixin.py:190} INFO - [2025-04-30T06:19:36.266+0000] {dag.py:3239} INFO - Sync 1 DAGs
 [2025-04-30T06:19:36.289+0000] {logging_mixin.py:190} INFO - [2025-04-30T06:19:36.289+0000] {dag.py:4180} INFO - Setting next_dagrun for stock_data_collection to 2025-04-29 18:00:00+00:00, run_after=2025-04-30 18:00:00+00:00
 [2025-04-30T06:19:36.313+0000] {processor.py:208} INFO - Processing /opt/airflow/dags/stock_data_dag.py took 0.170 seconds
+[2025-04-30T06:20:06.672+0000] {processor.py:186} INFO - Started process (PID=1105) to work on /opt/airflow/dags/stock_data_dag.py
+[2025-04-30T06:20:06.673+0000] {processor.py:914} INFO - Processing file /opt/airflow/dags/stock_data_dag.py for tasks to queue
+[2025-04-30T06:20:06.675+0000] {logging_mixin.py:190} INFO - [2025-04-30T06:20:06.674+0000] {dagbag.py:588} INFO - Filling up the DagBag from /opt/airflow/dags/stock_data_dag.py
+[2025-04-30T06:20:06.771+0000] {processor.py:925} INFO - DAG(s) 'stock_data_collection' retrieved from /opt/airflow/dags/stock_data_dag.py
+[2025-04-30T06:20:06.802+0000] {logging_mixin.py:190} INFO - [2025-04-30T06:20:06.802+0000] {dag.py:3239} INFO - Sync 1 DAGs
+[2025-04-30T06:20:06.826+0000] {logging_mixin.py:190} INFO - [2025-04-30T06:20:06.826+0000] {dag.py:4180} INFO - Setting next_dagrun for stock_data_collection to 2025-04-29 18:00:00+00:00, run_after=2025-04-30 18:00:00+00:00
+[2025-04-30T06:20:06.850+0000] {processor.py:208} INFO - Processing /opt/airflow/dags/stock_data_dag.py took 0.184 seconds
+[2025-04-30T06:20:37.241+0000] {processor.py:186} INFO - Started process (PID=1112) to work on /opt/airflow/dags/stock_data_dag.py
+[2025-04-30T06:20:37.243+0000] {processor.py:914} INFO - Processing file /opt/airflow/dags/stock_data_dag.py for tasks to queue
+[2025-04-30T06:20:37.245+0000] {logging_mixin.py:190} INFO - [2025-04-30T06:20:37.245+0000] {dagbag.py:588} INFO - Filling up the DagBag from /opt/airflow/dags/stock_data_dag.py
+[2025-04-30T06:20:37.354+0000] {processor.py:925} INFO - DAG(s) 'stock_data_collection' retrieved from /opt/airflow/dags/stock_data_dag.py
+[2025-04-30T06:20:37.390+0000] {logging_mixin.py:190} INFO - [2025-04-30T06:20:37.389+0000] {dag.py:3239} INFO - Sync 1 DAGs
+[2025-04-30T06:20:37.419+0000] {logging_mixin.py:190} INFO - [2025-04-30T06:20:37.419+0000] {dag.py:4180} INFO - Setting next_dagrun for stock_data_collection to 2025-04-29 18:00:00+00:00, run_after=2025-04-30 18:00:00+00:00
+[2025-04-30T06:20:37.450+0000] {processor.py:208} INFO - Processing /opt/airflow/dags/stock_data_dag.py took 0.217 seconds
+[2025-04-30T06:21:07.763+0000] {processor.py:186} INFO - Started process (PID=1120) to work on /opt/airflow/dags/stock_data_dag.py
+[2025-04-30T06:21:07.764+0000] {processor.py:914} INFO - Processing file /opt/airflow/dags/stock_data_dag.py for tasks to queue
+[2025-04-30T06:21:07.771+0000] {logging_mixin.py:190} INFO - [2025-04-30T06:21:07.771+0000] {dagbag.py:588} INFO - Filling up the DagBag from /opt/airflow/dags/stock_data_dag.py
+[2025-04-30T06:21:07.870+0000] {processor.py:925} INFO - DAG(s) 'stock_data_collection' retrieved from /opt/airflow/dags/stock_data_dag.py
+[2025-04-30T06:21:07.895+0000] {logging_mixin.py:190} INFO - [2025-04-30T06:21:07.894+0000] {dag.py:3239} INFO - Sync 1 DAGs
+[2025-04-30T06:21:07.914+0000] {logging_mixin.py:190} INFO - [2025-04-30T06:21:07.914+0000] {dag.py:4180} INFO - Setting next_dagrun for stock_data_collection to 2025-04-29 18:00:00+00:00, run_after=2025-04-30 18:00:00+00:00
+[2025-04-30T06:21:07.935+0000] {processor.py:208} INFO - Processing /opt/airflow/dags/stock_data_dag.py took 0.176 seconds
+[2025-04-30T06:21:38.149+0000] {processor.py:186} INFO - Started process (PID=1127) to work on /opt/airflow/dags/stock_data_dag.py
+[2025-04-30T06:21:38.150+0000] {processor.py:914} INFO - Processing file /opt/airflow/dags/stock_data_dag.py for tasks to queue
+[2025-04-30T06:21:38.153+0000] {logging_mixin.py:190} INFO - [2025-04-30T06:21:38.152+0000] {dagbag.py:588} INFO - Filling up the DagBag from /opt/airflow/dags/stock_data_dag.py
+[2025-04-30T06:21:38.247+0000] {processor.py:925} INFO - DAG(s) 'stock_data_collection' retrieved from /opt/airflow/dags/stock_data_dag.py
+[2025-04-30T06:21:38.281+0000] {logging_mixin.py:190} INFO - [2025-04-30T06:21:38.281+0000] {dag.py:3239} INFO - Sync 1 DAGs
+[2025-04-30T06:21:38.306+0000] {logging_mixin.py:190} INFO - [2025-04-30T06:21:38.306+0000] {dag.py:4180} INFO - Setting next_dagrun for stock_data_collection to 2025-04-29 18:00:00+00:00, run_after=2025-04-30 18:00:00+00:00
+[2025-04-30T06:21:38.325+0000] {processor.py:208} INFO - Processing /opt/airflow/dags/stock_data_dag.py took 0.181 seconds
+[2025-04-30T06:22:08.569+0000] {processor.py:186} INFO - Started process (PID=1134) to work on /opt/airflow/dags/stock_data_dag.py
+[2025-04-30T06:22:08.570+0000] {processor.py:914} INFO - Processing file /opt/airflow/dags/stock_data_dag.py for tasks to queue
+[2025-04-30T06:22:08.573+0000] {logging_mixin.py:190} INFO - [2025-04-30T06:22:08.573+0000] {dagbag.py:588} INFO - Filling up the DagBag from /opt/airflow/dags/stock_data_dag.py
+[2025-04-30T06:22:08.669+0000] {processor.py:925} INFO - DAG(s) 'stock_data_collection' retrieved from /opt/airflow/dags/stock_data_dag.py
+[2025-04-30T06:22:08.705+0000] {logging_mixin.py:190} INFO - [2025-04-30T06:22:08.704+0000] {dag.py:3239} INFO - Sync 1 DAGs
+[2025-04-30T06:22:08.732+0000] {logging_mixin.py:190} INFO - [2025-04-30T06:22:08.731+0000] {dag.py:4180} INFO - Setting next_dagrun for stock_data_collection to 2025-04-29 18:00:00+00:00, run_after=2025-04-30 18:00:00+00:00
+[2025-04-30T06:22:08.755+0000] {processor.py:208} INFO - Processing /opt/airflow/dags/stock_data_dag.py took 0.193 seconds
+[2025-04-30T06:22:39.010+0000] {processor.py:186} INFO - Started process (PID=1141) to work on /opt/airflow/dags/stock_data_dag.py
+[2025-04-30T06:22:39.012+0000] {processor.py:914} INFO - Processing file /opt/airflow/dags/stock_data_dag.py for tasks to queue
+[2025-04-30T06:22:39.015+0000] {logging_mixin.py:190} INFO - [2025-04-30T06:22:39.015+0000] {dagbag.py:588} INFO - Filling up the DagBag from /opt/airflow/dags/stock_data_dag.py
+[2025-04-30T06:22:39.151+0000] {processor.py:925} INFO - DAG(s) 'stock_data_collection' retrieved from /opt/airflow/dags/stock_data_dag.py
+[2025-04-30T06:22:39.206+0000] {logging_mixin.py:190} INFO - [2025-04-30T06:22:39.206+0000] {dag.py:3239} INFO - Sync 1 DAGs
+[2025-04-30T06:22:39.253+0000] {logging_mixin.py:190} INFO - [2025-04-30T06:22:39.252+0000] {dag.py:4180} INFO - Setting next_dagrun for stock_data_collection to 2025-04-29 18:00:00+00:00, run_after=2025-04-30 18:00:00+00:00
+[2025-04-30T06:22:39.284+0000] {processor.py:208} INFO - Processing /opt/airflow/dags/stock_data_dag.py took 0.281 seconds
+[2025-04-30T06:23:09.366+0000] {processor.py:186} INFO - Started process (PID=1148) to work on /opt/airflow/dags/stock_data_dag.py
+[2025-04-30T06:23:09.367+0000] {processor.py:914} INFO - Processing file /opt/airflow/dags/stock_data_dag.py for tasks to queue
+[2025-04-30T06:23:09.369+0000] {logging_mixin.py:190} INFO - [2025-04-30T06:23:09.369+0000] {dagbag.py:588} INFO - Filling up the DagBag from /opt/airflow/dags/stock_data_dag.py
+[2025-04-30T06:23:09.469+0000] {processor.py:925} INFO - DAG(s) 'stock_data_collection' retrieved from /opt/airflow/dags/stock_data_dag.py
+[2025-04-30T06:23:09.508+0000] {logging_mixin.py:190} INFO - [2025-04-30T06:23:09.507+0000] {dag.py:3239} INFO - Sync 1 DAGs
+[2025-04-30T06:23:09.537+0000] {logging_mixin.py:190} INFO - [2025-04-30T06:23:09.536+0000] {dag.py:4180} INFO - Setting next_dagrun for stock_data_collection to 2025-04-29 18:00:00+00:00, run_after=2025-04-30 18:00:00+00:00
+[2025-04-30T06:23:09.568+0000] {processor.py:208} INFO - Processing /opt/airflow/dags/stock_data_dag.py took 0.208 seconds
+[2025-04-30T06:23:39.630+0000] {processor.py:186} INFO - Started process (PID=1155) to work on /opt/airflow/dags/stock_data_dag.py
+[2025-04-30T06:23:39.631+0000] {processor.py:914} INFO - Processing file /opt/airflow/dags/stock_data_dag.py for tasks to queue
+[2025-04-30T06:23:39.633+0000] {logging_mixin.py:190} INFO - [2025-04-30T06:23:39.632+0000] {dagbag.py:588} INFO - Filling up the DagBag from /opt/airflow/dags/stock_data_dag.py
+[2025-04-30T06:23:39.720+0000] {processor.py:925} INFO - DAG(s) 'stock_data_collection' retrieved from /opt/airflow/dags/stock_data_dag.py
+[2025-04-30T06:23:39.753+0000] {logging_mixin.py:190} INFO - [2025-04-30T06:23:39.753+0000] {dag.py:3239} INFO - Sync 1 DAGs
+[2025-04-30T06:23:39.781+0000] {logging_mixin.py:190} INFO - [2025-04-30T06:23:39.781+0000] {dag.py:4180} INFO - Setting next_dagrun for stock_data_collection to 2025-04-29 18:00:00+00:00, run_after=2025-04-30 18:00:00+00:00
+[2025-04-30T06:23:39.800+0000] {processor.py:208} INFO - Processing /opt/airflow/dags/stock_data_dag.py took 0.176 seconds
+[2025-04-30T06:24:09.858+0000] {processor.py:186} INFO - Started process (PID=1162) to work on /opt/airflow/dags/stock_data_dag.py
+[2025-04-30T06:24:09.859+0000] {processor.py:914} INFO - Processing file /opt/airflow/dags/stock_data_dag.py for tasks to queue
+[2025-04-30T06:24:09.861+0000] {logging_mixin.py:190} INFO - [2025-04-30T06:24:09.860+0000] {dagbag.py:588} INFO - Filling up the DagBag from /opt/airflow/dags/stock_data_dag.py
+[2025-04-30T06:24:09.932+0000] {processor.py:925} INFO - DAG(s) 'stock_data_collection' retrieved from /opt/airflow/dags/stock_data_dag.py
+[2025-04-30T06:24:09.963+0000] {logging_mixin.py:190} INFO - [2025-04-30T06:24:09.963+0000] {dag.py:3239} INFO - Sync 1 DAGs
+[2025-04-30T06:24:09.985+0000] {logging_mixin.py:190} INFO - [2025-04-30T06:24:09.985+0000] {dag.py:4180} INFO - Setting next_dagrun for stock_data_collection to 2025-04-29 18:00:00+00:00, run_after=2025-04-30 18:00:00+00:00
+[2025-04-30T06:24:10.001+0000] {processor.py:208} INFO - Processing /opt/airflow/dags/stock_data_dag.py took 0.149 seconds
+[2025-04-30T06:24:40.188+0000] {processor.py:186} INFO - Started process (PID=1169) to work on /opt/airflow/dags/stock_data_dag.py
+[2025-04-30T06:24:40.189+0000] {processor.py:914} INFO - Processing file /opt/airflow/dags/stock_data_dag.py for tasks to queue
+[2025-04-30T06:24:40.191+0000] {logging_mixin.py:190} INFO - [2025-04-30T06:24:40.191+0000] {dagbag.py:588} INFO - Filling up the DagBag from /opt/airflow/dags/stock_data_dag.py
+[2025-04-30T06:24:40.279+0000] {processor.py:925} INFO - DAG(s) 'stock_data_collection' retrieved from /opt/airflow/dags/stock_data_dag.py
+[2025-04-30T06:24:40.311+0000] {logging_mixin.py:190} INFO - [2025-04-30T06:24:40.311+0000] {dag.py:3239} INFO - Sync 1 DAGs
+[2025-04-30T06:24:40.343+0000] {logging_mixin.py:190} INFO - [2025-04-30T06:24:40.342+0000] {dag.py:4180} INFO - Setting next_dagrun for stock_data_collection to 2025-04-29 18:00:00+00:00, run_after=2025-04-30 18:00:00+00:00
+[2025-04-30T06:24:40.363+0000] {processor.py:208} INFO - Processing /opt/airflow/dags/stock_data_dag.py took 0.180 seconds
+[2025-04-30T06:25:10.527+0000] {processor.py:186} INFO - Started process (PID=1176) to work on /opt/airflow/dags/stock_data_dag.py
+[2025-04-30T06:25:10.528+0000] {processor.py:914} INFO - Processing file /opt/airflow/dags/stock_data_dag.py for tasks to queue
+[2025-04-30T06:25:10.531+0000] {logging_mixin.py:190} INFO - [2025-04-30T06:25:10.531+0000] {dagbag.py:588} INFO - Filling up the DagBag from /opt/airflow/dags/stock_data_dag.py
+[2025-04-30T06:25:10.635+0000] {processor.py:925} INFO - DAG(s) 'stock_data_collection' retrieved from /opt/airflow/dags/stock_data_dag.py
+[2025-04-30T06:25:10.671+0000] {logging_mixin.py:190} INFO - [2025-04-30T06:25:10.670+0000] {dag.py:3239} INFO - Sync 1 DAGs
+[2025-04-30T06:25:10.698+0000] {logging_mixin.py:190} INFO - [2025-04-30T06:25:10.698+0000] {dag.py:4180} INFO - Setting next_dagrun for stock_data_collection to 2025-04-29 18:00:00+00:00, run_after=2025-04-30 18:00:00+00:00
+[2025-04-30T06:25:10.719+0000] {processor.py:208} INFO - Processing /opt/airflow/dags/stock_data_dag.py took 0.200 seconds
+[2025-04-30T06:25:40.827+0000] {processor.py:186} INFO - Started process (PID=1183) to work on /opt/airflow/dags/stock_data_dag.py
+[2025-04-30T06:25:40.828+0000] {processor.py:914} INFO - Processing file /opt/airflow/dags/stock_data_dag.py for tasks to queue
+[2025-04-30T06:25:40.832+0000] {logging_mixin.py:190} INFO - [2025-04-30T06:25:40.831+0000] {dagbag.py:588} INFO - Filling up the DagBag from /opt/airflow/dags/stock_data_dag.py
+[2025-04-30T06:25:40.951+0000] {processor.py:925} INFO - DAG(s) 'stock_data_collection' retrieved from /opt/airflow/dags/stock_data_dag.py
+[2025-04-30T06:25:40.996+0000] {logging_mixin.py:190} INFO - [2025-04-30T06:25:40.995+0000] {dag.py:3239} INFO - Sync 1 DAGs
+[2025-04-30T06:25:41.033+0000] {logging_mixin.py:190} INFO - [2025-04-30T06:25:41.033+0000] {dag.py:4180} INFO - Setting next_dagrun for stock_data_collection to 2025-04-29 18:00:00+00:00, run_after=2025-04-30 18:00:00+00:00
+[2025-04-30T06:25:41.068+0000] {processor.py:208} INFO - Processing /opt/airflow/dags/stock_data_dag.py took 0.248 seconds
+[2025-04-30T06:26:11.203+0000] {processor.py:186} INFO - Started process (PID=1196) to work on /opt/airflow/dags/stock_data_dag.py
+[2025-04-30T06:26:11.204+0000] {processor.py:914} INFO - Processing file /opt/airflow/dags/stock_data_dag.py for tasks to queue
+[2025-04-30T06:26:11.207+0000] {logging_mixin.py:190} INFO - [2025-04-30T06:26:11.207+0000] {dagbag.py:588} INFO - Filling up the DagBag from /opt/airflow/dags/stock_data_dag.py
+[2025-04-30T06:26:11.301+0000] {processor.py:925} INFO - DAG(s) 'stock_data_collection' retrieved from /opt/airflow/dags/stock_data_dag.py
+[2025-04-30T06:26:11.337+0000] {logging_mixin.py:190} INFO - [2025-04-30T06:26:11.336+0000] {dag.py:3239} INFO - Sync 1 DAGs
+[2025-04-30T06:26:11.364+0000] {logging_mixin.py:190} INFO - [2025-04-30T06:26:11.363+0000] {dag.py:4180} INFO - Setting next_dagrun for stock_data_collection to 2025-04-29 18:00:00+00:00, run_after=2025-04-30 18:00:00+00:00
+[2025-04-30T06:26:11.389+0000] {processor.py:208} INFO - Processing /opt/airflow/dags/stock_data_dag.py took 0.193 seconds

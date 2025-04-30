@@ -445,3 +445,32 @@
 2025-04-30 11:13:33 - __main__ - INFO - {'_id': ObjectId('6811b24854fd7a8471f2b13f'), 'company': 'AAPL', 'predicted_price': 221.6172332763672, 'date': datetime.datetime(2025, 4, 30, 5, 16, 56, 506000), 'model': 'LSTM', 'created_at': datetime.datetime(2025, 4, 30, 5, 16, 56, 508000)}
 2025-04-30 11:13:33 - __main__ - INFO - This is my prilast price [np.float64(258.8768424854814), np.float64(262.5444050095315), np.float64(267.31755713560244), np.float64(272.7866444644669), np.float64(261.40303337630763), np.float64(252.85269038374327), np.float64(228.01215937558362), np.float64(208.8374587933074), np.float64(206.2696752657075), np.float64(223.25747320041037), np.float64(245.30606217350885), np.float64(253.55686184019783), np.float64(246.49398888788633), np.float64(244.79377027659072)]
 2025-04-30 11:13:33 - werkzeug - INFO - 172.27.0.1 - - [30/Apr/2025 11:13:33] "GET /api/prediction/TSLA HTTP/1.1" 200 -
+2025-04-30 11:54:06 - __main__ - INFO - Connected to mongodb://host.docker.internal:27017/ - portfolio_management
+2025-04-30 11:54:06 - werkzeug - WARNING -  * Running on all addresses.
+   WARNING: This is a development server. Do not use it in a production deployment.
+2025-04-30 11:54:06 - werkzeug - INFO -  * Running on http://172.27.0.5:5000/ (Press CTRL+C to quit)
+2025-04-30 11:54:06 - werkzeug - INFO -  * Restarting with stat
+2025-04-30 11:54:06 - __main__ - INFO - Connected to mongodb://host.docker.internal:27017/ - portfolio_management
+2025-04-30 11:54:06 - werkzeug - WARNING -  * Debugger is active!
+2025-04-30 11:54:06 - werkzeug - INFO -  * Debugger PIN: 124-385-906
+2025-04-30 11:55:37 - werkzeug - INFO - 172.27.0.1 - - [30/Apr/2025 11:55:37] "GET / HTTP/1.1" 200 -
+2025-04-30 11:55:40 - werkzeug - INFO - 172.27.0.1 - - [30/Apr/2025 11:55:40] "GET /api/stock/NVDA HTTP/1.1" 200 -
+2025-04-30 11:55:40 - werkzeug - INFO - 172.27.0.1 - - [30/Apr/2025 11:55:40] "GET /api/sentiment/NVDA HTTP/1.1" 200 -
+2025-04-30 11:55:40 - werkzeug - INFO - 172.27.0.1 - - [30/Apr/2025 11:55:40] "GET /api/portfolio HTTP/1.1" 200 -
+2025-04-30 11:55:40 - __main__ - INFO - {'_id': ObjectId('6811b24854fd7a8471f2b13f'), 'company': 'AAPL', 'predicted_price': 221.6172332763672, 'date': datetime.datetime(2025, 4, 30, 5, 16, 56, 506000), 'model': 'LSTM', 'created_at': datetime.datetime(2025, 4, 30, 5, 16, 56, 508000)}
+2025-04-30 11:55:40 - __main__ - INFO - This is my prilast price [np.float64(136.08835399510303), np.float64(135.38521470722932), np.float64(132.600697126874), np.float64(125.67569661442714), np.float64(117.96325857851284), np.float64(121.43694498444259), np.float64(117.03198401495098), np.float64(118.29793618647142), np.float64(118.84246707940865), np.float64(128.67749524349026), np.float64(122.98698233126785), np.float64(123.94534923322635), np.float64(110.72467915074837), np.float64(116.96964331302014)]
+2025-04-30 11:55:40 - werkzeug - INFO - 172.27.0.1 - - [30/Apr/2025 11:55:40] "GET /api/prediction/NVDA HTTP/1.1" 200 -
+2025-04-30 11:55:45 - werkzeug - INFO - 172.27.0.1 - - [30/Apr/2025 11:55:45] "GET /api/stock/NVDA HTTP/1.1" 200 -
+2025-04-30 11:55:45 - __main__ - INFO - {'_id': ObjectId('6811b24854fd7a8471f2b13f'), 'company': 'AAPL', 'predicted_price': 221.6172332763672, 'date': datetime.datetime(2025, 4, 30, 5, 16, 56, 506000), 'model': 'LSTM', 'created_at': datetime.datetime(2025, 4, 30, 5, 16, 56, 508000)}
+2025-04-30 11:55:45 - __main__ - INFO - This is my prilast price [np.float64(138.1752459088109), np.float64(135.01642846801568), np.float64(120.33652942191715), np.float64(116.7998601137187), np.float64(106.4744984183566), np.float64(111.5219802836445), np.float64(113.33610831649631), np.float64(121.74378856036493), np.float64(129.91269209578422), np.float64(122.7143449970306), np.float64(123.44425930306532), np.float64(126.61500887779096), np.float64(125.8447073602072), np.float64(122.1592881149631)]
+2025-04-30 11:55:45 - werkzeug - INFO - 172.27.0.1 - - [30/Apr/2025 11:55:45] "GET /api/prediction/NVDA HTTP/1.1" 200 -
+2025-04-30 11:56:03 - werkzeug - INFO - 172.27.0.1 - - [30/Apr/2025 11:56:03] "GET /api/stock/GOOGL HTTP/1.1" 200 -
+2025-04-30 11:56:03 - werkzeug - INFO - 172.27.0.1 - - [30/Apr/2025 11:56:03] "GET /api/portfolio HTTP/1.1" 200 -
+2025-04-30 11:56:03 - werkzeug - INFO - 172.27.0.1 - - [30/Apr/2025 11:56:03] "GET /api/sentiment/GOOGL HTTP/1.1" 200 -
+2025-04-30 11:56:03 - __main__ - INFO - {'_id': ObjectId('6811b24854fd7a8471f2b13f'), 'company': 'AAPL', 'predicted_price': 221.6172332763672, 'date': datetime.datetime(2025, 4, 30, 5, 16, 56, 506000), 'model': 'LSTM', 'created_at': datetime.datetime(2025, 4, 30, 5, 16, 56, 508000)}
+2025-04-30 11:56:03 - __main__ - INFO - This is my prilast price [np.float64(160.59340672680585), np.float64(166.0944653617557), np.float64(173.58871305579703), np.float64(168.86554679360663), np.float64(161.37346140144837), np.float64(159.16723350002422), np.float64(157.46084394133334), np.float64(166.97929177514465), np.float64(173.11918442077447), np.float64(167.60053337667966), np.float64(163.9875754777683), np.float64(164.24464965040715), np.float64(166.3603331563909), np.float64(166.11164684733527)]
+2025-04-30 11:56:03 - werkzeug - INFO - 172.27.0.1 - - [30/Apr/2025 11:56:03] "GET /api/prediction/GOOGL HTTP/1.1" 200 -
+2025-04-30 11:56:05 - werkzeug - INFO - 172.27.0.1 - - [30/Apr/2025 11:56:05] "GET /api/stock/GOOGL HTTP/1.1" 200 -
+2025-04-30 11:56:05 - __main__ - INFO - {'_id': ObjectId('6811b24854fd7a8471f2b13f'), 'company': 'AAPL', 'predicted_price': 221.6172332763672, 'date': datetime.datetime(2025, 4, 30, 5, 16, 56, 506000), 'model': 'LSTM', 'created_at': datetime.datetime(2025, 4, 30, 5, 16, 56, 508000)}
+2025-04-30 11:56:05 - __main__ - INFO - This is my prilast price [np.float64(152.55169666720857), np.float64(143.07720252320064), np.float64(149.08158296839855), np.float64(169.73203625685505), np.float64(167.36746173989403), np.float64(164.37353264938437), np.float64(154.4237867420144), np.float64(152.30949427237033), np.float64(146.6566877309864), np.float64(143.42348402757403), np.float64(150.79329824792228), np.float64(155.0602453818583), np.float64(163.07013783419129), np.float64(166.6781644496066)]
+2025-04-30 11:56:05 - werkzeug - INFO - 172.27.0.1 - - [30/Apr/2025 11:56:05] "GET /api/prediction/GOOGL HTTP/1.1" 200 -
