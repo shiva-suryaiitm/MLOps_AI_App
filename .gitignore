@@ -1,1 +1,27 @@
 .qodo/
+
+# Large files
+Monitoring_Achyutha/prometheus-2.44.0.linux-amd64/promtool
+Monitoring_Achyutha/prometheus-2.44.0.linux-amd64/prometheus
+
+# Downloaded binary files
+*.exe
+*.bin
+*.so
+*.dylib
+*.dll
+
+# Logs and databases
+*.log
+*.sql
+*.sqlite
+data/
+
+# OS generated files
+.DS_Store
+.DS_Store?
+._*
+.Spotlight-V100
+.Trashes
+ehthumbs.db
+Thumbs.db
