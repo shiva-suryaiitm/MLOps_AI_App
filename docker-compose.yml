@@ -12,3 +12,42 @@ services:
     volumes:
       - ./Web App:/app
       - ./Web App/logs:/app/logs
+    depends_on:
+      - portfolio-optimisation
+      - sentiment-analysis
+      - stock-prediction
+
+  portfolio-optimisation:
+    build:
+      context: ./Model Inference/portfolio optimisation
+      dockerfile: Dockerfile
+    volumes:
+      - ./Model Inference/portfolio optimisation:/app
+      - ./Model Inference/portfolio optimisation/logs:/app/logs
+    env_file:
+      - ./Model Inference/portfolio optimisation/.env
+    environment:
+      - TZ=Asia/Kolkata
+
+  sentiment-analysis:
+    build:
+      context: ./Model Inference/sentiment-analysis
+      dockerfile: Dockerfile.sentiment
+    volumes:
+      - ./Model Inference/sentiment-analysis/scripts:/app/scripts
+      - ./Model Inference/sentiment-analysis/logs:/app/logs
+    env_file:
+      - ./Model Inference/sentiment-analysis/.env
+    environment:
+      - TZ=Asia/Kolkata
+
+  stock-prediction:
+    build:
+      context: ./Model Inference/stock prediction/inference
+      dockerfile: Dockerfile
+    volumes:
+      - ./Model Inference/stock prediction/inference:/app
+      - ./Model Inference/stock prediction/inference/models:/app/models
+      - ./Model Inference/stock prediction/inference/logs:/app/logs
+    environment:
+      - TZ=Asia/Kolkata
