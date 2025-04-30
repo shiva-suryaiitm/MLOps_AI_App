@@ -307,4 +307,29 @@ if __name__ == "__main__":
     
     logger.info("Recommendation saved to outputs/recommendation.json")
     logger.info("Performance chart saved to outputs/portfolio_performance.png") 
+    
+    
+    from pymongo import MongoClient
+    from datetime import datetime, timezone
+
+    client = MongoClient("mongodb://host.docker.internal:27017")
+    db = client["portfolio_management"]
+    collection = db["porfolio_optimisation_models"]
+
+    # Transform before saving
+    doc = {
+        "allocations": recommendation["optimal_allocation"],
+        "metrics": {
+            "sharpe_ratio": recommendation["performance_metrics"]["sharpe_ratio"],
+            "expected_return": recommendation["performance_metrics"]["annualized_return"],
+            "volatility": recommendation["performance_metrics"]["volatility"]
+        },
+        "created_at": datetime.now(timezone.utc)  # Time of insertion
+    }
+
+    # Insert into MongoDB
+    collection.insert_one(doc)
+    
+    
+    logger.info("Saved Model to MongoDB") 
     logger.info("====="*20)

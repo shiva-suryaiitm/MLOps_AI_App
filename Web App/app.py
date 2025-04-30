@@ -57,7 +57,7 @@ logger.info(f'Connected to {MONGO_URI} - {DB_NAME}')
 
 # Collections
 stocks_collection = db['stock_prices']
-portfolio_collection = db['portfolio']
+portfolio_collection = db['portfolio_optimisation_models']
 sentiment_collection = db['company_news']
 predictions_collection = db['stock_predictions']
 
@@ -147,38 +147,38 @@ def get_stock_data(ticker):
 def get_portfolio_allocation():
     """Get optimal portfolio allocation."""
     # Retrieve portfolio allocation from MongoDB
-    top_doc = prediction_db.models.find_one(sort=[("sharpe_ratio", -1)])
+    # top_doc = prediction_db.models.find_one(sort=[("sharpe_ratio", -1)])
+    
+    latest = portfolio_collection.find_one(sort=[("created_at", -1)])
     # portfolio = portfolio_collection.find_one({})
     
-    if not top_doc:
+    if not latest:
         # Return default/empty data if no portfolio configuration exists
         return jsonify({
             'allocations': []
         })
-    
-    # # Format and return the data
-    # allocations = []
-    
-    # for ticker, allocation in portfolio.get('allocations', {}).items():
-    #     allocations.append({
-    #         'ticker': ticker,
-    #         'allocation': allocation
-    #     })
-    allocations = [{'ticker': ticker,'allocation': allocation} for ticker, allocation in zip(top_doc['symbols'], top_doc['weights'])]
+        
+    allocations = [{'ticker': ticker,'allocation': allocation} for ticker, allocation in latest['allocations'].items()]
     # Sort by allocation (descending)
     allocations.sort(key=lambda x: x['allocation'], reverse=True)
+        
+    # allocations = [{'ticker': ticker,'allocation': allocation} for ticker, allocation in zip(top_doc['symbols'], top_doc['weights'])]
+    # # Sort by allocation (descending)
+    # allocations.sort(key=lambda x: x['allocation'], reverse=True)
     
-    return jsonify({
+    ans = jsonify({
         'allocations': allocations,
         "metrics": {
-            "sharpe_ratio": top_doc.get('sharpe_ratio', 0),
-            "expected_return": top_doc.get('portfolio_return', 0),
-            "volatility": top_doc.get('portfolio_volatility', 0)
+            "sharpe_ratio": latest['metrics'].get('sharpe_ratio', 0),
+            "expected_return": latest['metrics'].get('expected_return', 0),
+            "volatility": latest['metrics'].get('volatility', 0)
         },
-        'expected_return': top_doc.get('portfolio_return', 0),
-        'expected_volatility': top_doc.get('portfolio_volatility', 0),
-        'sharpe_ratio': top_doc.get('sharpe_ratio', 0)
+        'expected_return': latest['metrics'].get('expected_return', 0),
+        'expected_volatility': latest['metrics'].get('volatility', 0),
+        'sharpe_ratio': latest['metrics'].get('sharpe_ratio', 0)
     })
+    logger.info(f'This is it {ans}')
+    return  ans
 
 @app.route('/api/sentiment/<ticker>', methods=['GET'])
 def get_sentiment_analysis(ticker):
@@ -260,7 +260,7 @@ def get_price_prediction(ticker):
     if not prediction:
         return jsonify({'error': 'Price prediction not found'}), 404
     
-    logger.info(predictions_collection.find_one())
+    # logger.info(predictions_collection.find_one())
     
     mongo_predictions = list(predictions_collection.find({"company": ticker.upper(), "model": "LSTM"}).sort("date", 1))
     
@@ -276,7 +276,9 @@ def get_price_prediction(ticker):
     
     my_date = my_price_ref[0]['date']
     my_price_ref = my_price_ref[0]['stock_price']
-    logger.info(my_date)
+    # logger.info(my_date)
+    
+    logger.info(f'The last price recorded was {my_price_ref}')
     
     import numpy as np
     def letters_to_number(s):
@@ -285,7 +287,7 @@ def get_price_prediction(ticker):
     my_seed = letters_to_number(ticker.upper())
     np.random.seed(my_seed)
     slope = np.random.uniform(-2, 2)
-    variance_scale = my_price_ref/8
+    variance_scale = my_price_ref/16
     trend = np.array([my_price_ref + i * slope for i in range(14)])
     raw_noise = np.random.normal(0, variance_scale, size=14)
     smooth_noise = np.convolve(raw_noise, np.ones(3)/3, mode='same')
@@ -299,8 +301,8 @@ def get_price_prediction(ticker):
         dates.append(doc["date"].strftime("%Y-%m-%d"))
         prices.append(doc["predicted_price"])
     
-    logger.info(f'This is my prilast price {final_prices}')
-    logger.info(f'This is my prilast price {dates}')
+    # logger.info(f'This is my prilast price {final_prices}')
+    # logger.info(f'This is my prilast price {dates}')
     # Format and return the data
     response = {
         'ticker': prediction.get('ticker', ''),
